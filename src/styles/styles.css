@@ -1,0 +1,11 @@
+@import 'index.css';
+
+@import './components/about.css'; 
+@import './components/contact.css'; 
+@import './components/footer.css';
+@import './components/home-page.css'; 
+@import './components/login.css'; 
+@import './components/make-booking.css'; 
+@import './components/nav.css';
+@import './components/not-found-page.css'; 
+
