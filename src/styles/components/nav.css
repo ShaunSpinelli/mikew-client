@@ -1,0 +1,9 @@
+.Navbar {
+    text-align: center;
+    padding: 1rem;
+    background-color: pink;
+}
+
+.Navbar--links > * {
+    padding: 1rem;
+}
