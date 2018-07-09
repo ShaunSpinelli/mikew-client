@@ -4,22 +4,21 @@ import TimePicker from 'react-bootstrap-time-picker'
 import moment from 'moment'
 import 'react-datepicker/dist/react-datepicker.css'
 
-import data from './dummyBookings.json' // will be replaced by a get request.
+import data from './dummyBookings.json' // will be replaced by a get request, and put into componentWillMount.
 
-const bookings = data.bookings
+const bookingsData = data.bookings
 
 class MakeBooking extends React.Component {
     state = {
       date: moment(),
       startTime: null,
       endTime: null,
-    //   bookingStatus: null,
-      bookingButton: true
+      bookingButton: true,
+      bookings: bookingsData
     }
  
   handleDateChange = (date) => {
     this.setState({ date }, () => { console.log('Start time is: ', (this.state.date).format('MM/DD/YYYY')) }) 
-    console.log(bookings)
   }
 
   handleStartTimeChange = (startTime) => {
@@ -44,21 +43,17 @@ class MakeBooking extends React.Component {
     console.log(booking)
   }
 
-  // this works. IT DOSNT live update, check console.
-  // We just need to post the updated JSON to db in this function, same with declined.
-  // Maybe use state for live update? 
+  // We just need to post the updated object to db in this function, same with declined.
   handleApprovedBooking = (bookingID) => { 
-    console.log(bookingID) 
-    bookings[bookingID].bookingStatus = "approved"
-    console.log(bookings[bookingID].bookingStatus)
-    // this.setState({ bookingStatus: 'approved' }, () => { console.log('Booking Status: ', this.state.bookingStatus) })
+    let bookingsCopy = this.state.bookings
+    bookingsCopy[bookingID].bookingStatus = "approved"
+    this.setState({bookings: bookingsCopy})
   }
 
   handleDeclineBooking = (bookingID) => { 
-    console.log(bookingID)
-    bookings[bookingID].bookingStatus = "declined"
-    console.log(bookings[bookingID].bookingStatus)
-    // this.setState({ bookingStatus: 'declined' }, () => { console.log('Booking Status: ', this.state.bookingStatus) })
+    let bookingsCopy = this.state.bookings
+    bookingsCopy[bookingID].bookingStatus = "declined"
+    this.setState({bookings: bookingsCopy})
   }
 
   timeConverter = (time) => {
@@ -71,7 +66,7 @@ class MakeBooking extends React.Component {
   } 
 
   render() {
-      const {startTime, endTime, bookingButton} = this.state
+    const {startTime, endTime, bookingButton, bookings} = this.state
     return (
         <div>
             <h3> what day? </h3>
@@ -98,7 +93,6 @@ class MakeBooking extends React.Component {
             />
             <br />
             <button disabled={bookingButton}  onClick={this.handleBookingRequest}> Make Booking request! </button>
-            
             <h1> All Bookings </h1>
             {
                 bookings.map((booking) => {
