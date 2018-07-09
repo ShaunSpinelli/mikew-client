@@ -2,11 +2,14 @@ import React from 'react'
 import DatePicker from 'react-datepicker'
 import TimePicker from 'react-bootstrap-time-picker'
 import moment from 'moment'
+import orderBy from 'lodash.orderby'
 import 'react-datepicker/dist/react-datepicker.css'
 
 import data from './dummyBookings.json' // will be replaced by a get request, and put into componentWillMount.
 
-const bookingsData = data.bookings
+const bookingsData = orderBy(data.bookings, function(o) {
+    return new moment(o.date).format('YYYYMMDD')
+}).reverse() //this arranges the bookings by data, most recent data is first.
 
 class MakeBooking extends React.Component {
     state = {
@@ -18,7 +21,7 @@ class MakeBooking extends React.Component {
     }
  
   handleDateChange = (date) => {
-    this.setState({ date }, () => { console.log('Start time is: ', (this.state.date).format('MM/DD/YYYY')) }) 
+    this.setState({ date }, () => { console.log('The Date is: ', (this.state.date).format('YYYYMMDD')) }) 
   }
 
   handleStartTimeChange = (startTime) => {
@@ -66,6 +69,7 @@ class MakeBooking extends React.Component {
   } 
 
   render() {
+      console.log(bookingsData)
     const {startTime, endTime, bookingButton, bookings} = this.state
     return (
         <div className= "Makebooking">
