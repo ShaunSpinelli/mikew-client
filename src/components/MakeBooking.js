@@ -68,7 +68,7 @@ class MakeBooking extends React.Component {
   render() {
     const {startTime, endTime, bookingButton, bookings} = this.state
     return (
-        <div>
+        <div className= "Makebooking">
             <h3> what day? </h3>
             <DatePicker
                 selected= {moment()}
