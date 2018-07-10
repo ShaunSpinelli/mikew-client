@@ -1,0 +1,30 @@
+{ "bookings": [
+    {
+        "date": "20180712",
+        "startTime": "8:30",
+        "endTime": "9:30",
+        "clientId": "0",
+        "bookingStatus": "pending"
+    },
+    {
+        "date": "20180710",
+        "startTime": "10:30",
+        "endTime": "11:30",
+        "clientId": "1",
+        "bookingStatus": "pending"
+    },
+    {
+        "date": "20180717",
+        "startTime": "12:30",
+        "endTime": "13:30",
+        "clientId": "2",
+        "bookingStatus": "pending"
+    },
+    {
+        "date": "20180702",
+        "startTime": "14:30",
+        "endTime": "15:30",
+        "clientId": "3",
+        "bookingStatus": "pending"
+    }
+]}
