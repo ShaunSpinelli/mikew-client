@@ -9,3 +9,10 @@
 @import './components/makebooking.css';
 @import './components/not-found-page.css'; 
 
+:root {
+    --grey-color: #E0E0E0;
+    --dark-grey: #5C5C5C;
+    --aqua-color: #76DBDB; 
+    --red-color: #FF8F8F;
+}
+

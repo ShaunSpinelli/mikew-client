@@ -2,13 +2,15 @@
 .Navbar {
     text-align: center;
     line-height: 5vh;
+    background-color: var(--dark-grey)
 }
 
 .Navbar--links > * {
     margin-left: 3rem;
     vertical-align: middle;
     text-decoration: none;
-    color: black;
+    color: white;
+    transition: 0.4s;
 }
 
 
@@ -17,4 +19,12 @@
     font-family: 'Lato', sans-serif;
     font-weight: 700;
     float: left;
+    color: var(--aqua-color);
+}
+
+.Navbar--links > *:hover {
+    margin-left: 3rem;
+    vertical-align: middle;
+    text-decoration: none;
+    color: var(--aqua-color);
 }
