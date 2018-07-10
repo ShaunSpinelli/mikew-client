@@ -2,22 +2,14 @@ import React from 'react'
 import DatePicker from 'react-datepicker'
 import TimePicker from 'react-bootstrap-time-picker'
 import moment from 'moment'
-import orderBy from 'lodash.orderby'
 import 'react-datepicker/dist/react-datepicker.css'
-
-import data from './dummyBookings.json' // will be replaced by a get request, and put into componentWillMount.
-
-const bookingsData = orderBy(data.bookings, function(o) {
-    return new moment(o.date).format('YYYYMMDD')
-}).reverse() //this arranges the bookings by data, most recent data is first.
 
 class MakeBooking extends React.Component {
     state = {
       date: moment(),
       startTime: null,
       endTime: null,
-      bookingButton: true,
-      bookings: bookingsData
+      bookingButton: true
     }
  
   handleDateChange = (date) => {
@@ -46,19 +38,6 @@ class MakeBooking extends React.Component {
     console.log(booking)
   }
 
-  // We just need to post the updated object to db in this function, same with declined.
-  handleApprovedBooking = (bookingID) => { 
-    let bookingsCopy = this.state.bookings
-    bookingsCopy[bookingID].bookingStatus = "approved"
-    this.setState({bookings: bookingsCopy})
-  }
-
-  handleDeclineBooking = (bookingID) => { 
-    let bookingsCopy = this.state.bookings
-    bookingsCopy[bookingID].bookingStatus = "declined"
-    this.setState({bookings: bookingsCopy})
-  }
-
   timeConverter = (time) => {
     let single = (time/3600)
     if((single % 1) !== 0){
@@ -69,7 +48,6 @@ class MakeBooking extends React.Component {
   } 
 
   render() {
-      console.log(bookingsData)
     const {startTime, endTime, bookingButton, bookings} = this.state
     return (
         <div className= "Makebooking">
@@ -97,21 +75,6 @@ class MakeBooking extends React.Component {
             />
             <br />
             <button disabled={bookingButton}  onClick={this.handleBookingRequest}> Make Booking request! </button>
-            <h1> All Bookings </h1>
-            {
-                bookings.map((booking) => {
-                    return (
-                        <div key={booking.clientId}> 
-                            <h3> date: {booking.date} </h3>
-                            <p> starts: {booking.startTime} </p>
-                            <p> ends: {booking.endTime} </p>
-                            <p> booking status: {booking.bookingStatus} </p>
-                            <button onClick={() => this.handleApprovedBooking(booking.clientId)}> Approve Booking? </button>
-                            <button onClick={() => this.handleDeclineBooking(booking.clientId)}> Decline Booking? </button>
-                        </div>
-                    )
-                })
-            }
         </div>
     )
   }
