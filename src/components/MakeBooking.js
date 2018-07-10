@@ -50,8 +50,12 @@ class MakeBooking extends React.Component {
   render() {
     const {startTime, endTime, bookingButton, bookings} = this.state
     return (
-        <div>
+        <div className="Makebooking-container">
             <div className= "Makebooking">
+                <div className= "Makebooking--header"> 
+                   <p> Make a Booking Request </p>
+                   <p>  with Michael Waye </p>
+                </div>
                 <div className= "Makebooking--whatDate">
                     <h3> what day? </h3>
                     <DatePicker
@@ -78,10 +82,11 @@ class MakeBooking extends React.Component {
                         onChange={this.handleEndTimeChange}
                     />
                 </div>
+                <div className="Makebooking--buttonholder">
+                    <button className="Makebooking--button"disabled={bookingButton}  onClick={this.handleBookingRequest}> Make Booking request! </button>
+                </div>
             </div>
-            <div className="Makebooking--buttonholder">
-                <button className="Makebooking--button"disabled={bookingButton}  onClick={this.handleBookingRequest}> Make Booking request! </button>
-            </div>
+   
         </div>
     )
   }

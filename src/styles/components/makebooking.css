@@ -1,8 +1,21 @@
+.Makebooking-container{
+  display: flex;
+  justify-content: center; 
+}
+
 .Makebooking {
     display: flex;
+    flex-direction: column;
     padding: 1rem;
-    justify-content: center;
+    text-align: center;
+    width: 20vw;
 } 
+
+.Makebooking--header{
+    background-color: var(--dark-grey);
+    height: 3rem;
+
+}
 
 .Makebooking--whatDate {
     background-color: green;
@@ -16,6 +29,7 @@
 
 .Makebooking--buttonholder{
     text-align: center;
+    background-color: beige;
 }
 
 .Makebooking--button{
