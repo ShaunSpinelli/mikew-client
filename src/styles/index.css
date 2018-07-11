@@ -1,4 +1,6 @@
 body{
     margin: 0;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--grey-color)
+
 }
