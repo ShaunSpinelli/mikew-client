@@ -2,7 +2,7 @@ import React from 'react';
 import orderBy from 'lodash.orderby' // one function from lodash library.
 import moment from 'moment'
 
-import data from './dummyBookings.json' // will be replaced by a get request, and put into componentWillMount.
+// import data from './dummyBookings.json' // will be replaced by a get request, and put into componentWillMount.
 
 const bookingsData = orderBy(data.bookings, (o) => {
     return new moment(o.date).format('YYYYMMDD')
@@ -25,6 +25,15 @@ class AllBookings extends React.Component {
                 }
             })
             this.setState({bookings: bookingsCopy})
+        }
+
+        componentWillMount(){
+            const data = {}
+                data.bookings = axios.get("https://mikewserver.herokuapp.com/bookings")
+                .then((response) => {
+                    console.log(response)
+                })
+
         }
 
         handleDeclineBooking = (bookingID) => { 
