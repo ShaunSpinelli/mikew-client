@@ -23,7 +23,7 @@ const AppRouter = () => (
             <Route exact path="/login" component={Login} />
             <Route exact path="/admin" component={AllBookings} />
             <Route component={NotFoundPage} />
-        </Switch>
+        </Switch>      
         <Footer />
       </div>
     </BrowserRouter>
