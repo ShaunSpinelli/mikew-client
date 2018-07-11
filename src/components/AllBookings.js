@@ -15,18 +15,19 @@ class AllBookings extends React.Component {
 
      componentWillMount(){
 
-        axios.get("https://mikewserver.herokuapp.com/bookings")
+            axios.get("https://mikewserver.herokuapp.com/bookings/pending")
             .then((response) => {
-                let bookings = orderBy(response.data, (o) => {
-                    return new moment(o.date).format('YYYYMMDD')
-                })
-                console.log(response.data)
-                response.data.forEach((data) => {
-                    this.checkBookingStatus(data)
-                })
+                let pendingBookings = orderBy(response.data, (o) => { new moment(o.date).format('YYYYMMDD') })
+                response.data.forEach((data) => { this.checkBookingStatus(data) })
+                this.setState({ pendingBookings })
+        }).catch((err) => { console.log(err) })
 
-            this.setState({ bookings }, () => { console.log(this.state) })
-        })
+            axios.get("https://mikewserver.herokuapp.com/bookings/completed")
+            .then((response) => {
+                let completedBookings = orderBy(response.data, (o) => { new moment(o.date).format('YYYYMMDD') })
+                response.data.forEach((data) => { this.checkBookingStatus(data) })
+                this.setState({ completedBookings })
+        }).catch((err) => { console.log(err) })
     }
 
         checkBookingStatus = (booking) => {
@@ -36,7 +37,6 @@ class AllBookings extends React.Component {
                 this.setState({ declinedBookings: this.state.declinedBookings.concat(booking) })
             } else if(booking.bookingStatus === "pending"){
                 this.setState({ pendingBookings: this.state.pendingBookings.concat(booking) })
-                console.log('pending')
             } else if(booking.bookingStatus === "completed"){
                 this.setState({ completedBookings: this.state.completedBookings.concat(booking) })
             }
@@ -46,10 +46,10 @@ class AllBookings extends React.Component {
         handleApprovedBooking = (bookingID) => { 
 
             let bookingsCopy = this.state.pendingBookings
-            let approved = []
+            let approved = this.state.approvedBookings
 
             bookingsCopy.forEach((obj) => {
-                if(obj.clientId === bookingID){
+                if(obj._id === bookingID){
                     obj.bookingStatus = "approved"
                     approved.push(obj)
                 }
@@ -69,10 +69,10 @@ class AllBookings extends React.Component {
         handleDeclineBooking = (bookingID) => { 
                 
             let bookingsCopy = this.state.pendingBookings
-            let declined = []
+            let declined = this.state.declinedBookings
 
             bookingsCopy.forEach((obj) => {
-                if(obj.clientId === bookingID){
+                if(obj._id === bookingID){
                     obj.bookingStatus = "declined"
                     declined.push(obj)
                 }
@@ -88,6 +88,10 @@ class AllBookings extends React.Component {
                         })
         }
 
+        handleAddBooking = (e) => {
+
+        }
+
 
     render() { 
         const { completedBookings, declinedBookings, approvedBookings, pendingBookings } = this.state
@@ -98,14 +102,15 @@ class AllBookings extends React.Component {
                 pendingBookings ? 
                 pendingBookings.map((booking) => {
                     return (
-                        <div key={booking.clientId}> 
+                        <div key={booking._id}> 
                             <h3> date: {moment(booking.date, 'YYYYMMDD').format('MMM Do YY')  /* reformats into a more readable date. */} </h3> 
                             <p> starts: {booking.startTime} </p>
                             <p> ends: {booking.endTime} </p>
                             <p> booking status: {booking.bookingStatus} </p>
+                            <p> note: {booking.info} </p>
 
-                            <button className="approve-button" onClick={() => this.handleApprovedBooking(booking.clientId)}> Approve Booking? </button>
-                            <button onClick={() => this.handleDeclineBooking(booking.clientId)}> Decline Booking? </button>
+                            <button className="approve-button" onClick={() => this.handleApprovedBooking(booking._id)}> Approve Booking? </button>
+                            <button onClick={() => this.handleDeclineBooking(booking._id)}> Decline Booking? </button>
                         </div>
                     )
                 })
@@ -116,11 +121,12 @@ class AllBookings extends React.Component {
                 approvedBookings ? 
                 approvedBookings.map((booking) => {
                     return (
-                        <div key={booking.clientId}> 
+                        <div key={booking._id}> 
                             <h3> date: {moment(booking.date, 'YYYYMMDD').format('MMM Do YY')  /* reformats into a more readable date. */} </h3> 
                             <p> starts: {booking.startTime} </p>
                             <p> ends: {booking.endTime} </p>
                             <p> booking status: {booking.bookingStatus} </p>
+                            <p> note: {booking.info} </p>
                         </div>
                     )
                 })
@@ -131,11 +137,12 @@ class AllBookings extends React.Component {
                 declinedBookings ? 
                 declinedBookings.map((booking) => {
                     return (
-                        <div key={booking.clientId}> 
+                        <div key={booking._id}> 
                             <h3> date: {moment(booking.date, 'YYYYMMDD').format('MMM Do YY')  /* reformats into a more readable date. */} </h3> 
                             <p> starts: {booking.startTime} </p>
                             <p> ends: {booking.endTime} </p>
                             <p> booking status: {booking.bookingStatus} </p>
+                            <p> note: {booking.info} </p>
                         </div>
                     )
                 })
@@ -146,11 +153,12 @@ class AllBookings extends React.Component {
                 completedBookings ? 
                 completedBookings.map((booking) => {
                     return (
-                        <div key={booking.clientId}> 
+                        <div key={booking._id}> 
                             <h3> date: {moment(booking.date, 'YYYYMMDD').format('MMM Do YY')  /* reformats into a more readable date. */} </h3> 
                             <p> starts: {booking.startTime} </p>
                             <p> ends: {booking.endTime} </p>
                             <p> booking status: {booking.bookingStatus} </p>
+                            <p> note: {booking.info} </p>
                         </div>
                     )
                 })

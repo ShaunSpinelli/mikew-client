@@ -2,6 +2,7 @@ import React from 'react'
 import DatePicker from 'react-datepicker'
 import TimePicker from 'react-bootstrap-time-picker'
 import moment from 'moment'
+import axios from 'axios'
 import 'react-datepicker/dist/react-datepicker.css'
 
 class MakeBooking extends React.Component {
@@ -9,7 +10,8 @@ class MakeBooking extends React.Component {
       date: moment(),
       startTime: null,
       endTime: null,
-      bookingButton: true
+      bookingButton: true,
+      note: "yo"
     }
  
   handleDateChange = (date) => {
@@ -25,17 +27,25 @@ class MakeBooking extends React.Component {
     this.setState({ endTime }, () => { console.log('End time is: ', this.state.endTime) })
   }
 
+  handleNote = (e) => {
+      let note = e.target.value
+      this.setState({ note })
+  } 
+
   handleBookingRequest = () => { //puts state into an object, with date formatted, and in 24hr time
-        this.setState({ bookingStatus: 'pending' }, () => { console.log('Booking Status: ', this.state.bookingStatus) })
+        // this.setState({ bookingStatus: 'pending' }, () => { console.log('Booking Status: ', this.state.bookingStatus) })
 
         let booking = {
             date: this.state.date.format('MM/DD/YYYY'),
             startTime: this.timeConverter(this.state.startTime),
             endTime: this.timeConverter(this.state.endTime),
             clientId: 1,
-            bookingStatus: this.state.bookingStatus
+            info: this.state.note,
+            bookingStatus: "pending"
         }
-    console.log(booking)
+        console.log(JSON.stringify(booking))
+    axios.post("https://mikewserver.herokuapp.com/bookings/new", booking)
+    .catch((err) => { console.log(err) })
   }
 
   timeConverter = (time) => {
@@ -81,6 +91,9 @@ class MakeBooking extends React.Component {
                         value={endTime}
                         onChange={this.handleEndTimeChange}
                     />
+                </div>
+                <div className="Makebooking--note"> 
+                    <input onChange={this.handleNote} name="note" />
                 </div>
                 <div className="Makebooking--buttonholder">
                     <button className="Makebooking--button"disabled={bookingButton}  onClick={this.handleBookingRequest}> Make Booking request! </button>
