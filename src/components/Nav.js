@@ -8,7 +8,7 @@ const Nav = () => (
             <NavLink exact to="/about"> About </NavLink>
             <NavLink exact to="/booking"> Make a Booking </NavLink>
             <NavLink exact to="/contact"> Contact </NavLink>
-            <NavLink exact to="/login"> Login/Signup </NavLink>
+            <NavLink exact to="/login">Login</NavLink>
         </div>
     </div>
 )
