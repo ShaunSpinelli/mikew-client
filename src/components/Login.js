@@ -3,7 +3,7 @@ import React, {Component, Fragment} from 'react'
 import Modal from 'react-modal'
    
   // Make sure to bind modal to your appElement (http://reactcommunity.org/react-modal/accessibility/)
-//   Modal.setAppElement('#yourAppElement')
+  Modal.setAppElement('#root')
    
   class Login extends Component {
     constructor() {
@@ -23,8 +23,6 @@ import Modal from 'react-modal'
     }
    
     afterOpenModal() {
-      // references are now sync'd and can be accessed.
-    //   this.subtitle.style.color = '#f00';
     }
    
     closeModal() {
@@ -33,7 +31,7 @@ import Modal from 'react-modal'
    
     render() {
       return (
-        <div>
+        <Fragment>
           <button className="button login-btn" onClick={this.openModal}>Login</button>
           <Modal
             className="modal fade modal-dialog loginmodal-container"
@@ -44,10 +42,7 @@ import Modal from 'react-modal'
             contentLabel="Example Modal"
           >
    
-            <button  onClick={this.closeModal}>close</button>
-            {/* <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;"> */}
-            {/* <div className="modal-dialog"> */}
-            {/* <div className="loginmodal-container"> */}
+          <button  onClick={this.closeModal}>close</button>
 					<h1>Login to Your Account</h1><br />
             <form>
 					<input type="text" name="user" placeholder="Username" />
@@ -57,33 +52,11 @@ import Modal from 'react-modal'
             <div className="login-help">
 					<a href="#">Register</a> - <a href="#">Forgot Password</a>
             </div>
-            {/* </div>
-            </div> */}
-            {/* </div> */}
           </Modal>
-        </div>
+        </ Fragment>
       );
     }
   }
-
-
-
-{/* <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-    	  <div class="modal-dialog">
-				<div class="loginmodal-container">
-					<h1>Login to Your Account</h1><br>
-				  <form>
-					<input type="text" name="user" placeholder="Username">
-					<input type="password" name="pass" placeholder="Password">
-					<input type="submit" name="login" class="login loginmodal-submit" value="Login">
-				  </form>
-					
-				  <div class="login-help">
-					<a href="#">Register</a> - <a href="#">Forgot Password</a>
-				  </div>
-				</div>
-			</div>
-		  </div>  */}
 
 export default Login;
 

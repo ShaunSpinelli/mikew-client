@@ -48,7 +48,7 @@ class MakeBooking extends React.Component {
   } 
 
   render() {
-    const {startTime, endTime, bookingButton, bookings} = this.state
+    const {startTime, endTime, bookingButton} = this.state
     return (
         <div className= "Makebooking">
             <h3> what day? </h3>
