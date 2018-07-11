@@ -9,6 +9,7 @@ const Nav = () => (
             <NavLink exact to="/booking"> Make Booking </NavLink>
             <NavLink exact to="/contact"> Get in Touch </NavLink>
             <NavLink exact to="/login"> Login </NavLink>
+            <NavLink exact to="/admin"> Admin </NavLink>
             <NavLink exact to="/testimonials"> Testimonials </NavLink>
         </div>
     </div>
