@@ -2,12 +2,12 @@ import React from 'react';
 
 const Booking = (props) => {
     return ( 
-        <div key={booking._id}> 
-            <h3> date: {props.date}{moment(booking.date, 'YYYYMMDD').format('MMM Do YY')  /* reformats into a more readable date. */} </h3> 
-            <p> starts: {props.startTime}{booking.startTime} </p>
-            <p> ends: {props.endTime} </p>
-            <p> booking status: {props.bookingStatus} </p>
-            <p> note: {props.info} </p>
+        <div key = {props._id}> 
+            <h3> Date: {props.date} </h3> 
+            <p> Starts: {props.startTime} </p>
+            <p> Ends: {props.endTime} </p>
+            <p> Booking status: {props.bookingStatus} </p>
+            <p> Note: {props.info} </p>
         </div>
      )
 }

@@ -1,7 +1,8 @@
-import React from 'react';
+import React from 'react'
 import orderBy from 'lodash.orderby' // one function from lodash library.
 import moment from 'moment'
 import axios from 'axios'
+import Booking from './Booking'
 
 
 class AllBookings extends React.Component {
@@ -13,27 +14,27 @@ class AllBookings extends React.Component {
         completedBookings: []
      }
 
-     componentWillMount(){
-            axios.get("https://mikewserver.herokuapp.com/bookings/pending")
-            .then((response) => {
-                let pendingBookings = orderBy(response.data, (o) => { new moment(o.date).format('YYYYMMDD') })
-                response.data.forEach((data) => { this.checkBookingStatus(data) })
-                this.setState({ pendingBookings })
-        }).catch((err) => { console.log(err) })
+    componentWillMount(){
+        axios.get("https://mikewserver.herokuapp.com/bookings/pending")
+        .then((response) => {
+            let pendingBookings = orderBy(response.data, (o) => { new moment(o.date).format('YYYYMMDD') })
+            response.data.forEach((data) => { this.checkBookingStatus(data) })
+            this.setState({ pendingBookings }) })
+        .catch((err) => { console.log(err) })
 
-            axios.get("https://mikewserver.herokuapp.com/bookings/completed")
-            .then((response) => {
-                let completedBookings = orderBy(response.data, (o) => { new moment(o.date).format('YYYYMMDD') })
-                response.data.forEach((data) => { this.checkBookingStatus(data) })
-                this.setState({ completedBookings })
-        }).catch((err) => { console.log(err) })
+        axios.get("https://mikewserver.herokuapp.com/bookings/completed")
+        .then((response) => {
+            let completedBookings = orderBy(response.data, (o) => { new moment(o.date).format('YYYYMMDD') })
+            response.data.forEach((data) => { this.checkBookingStatus(data) })
+            this.setState({ completedBookings }) })
+        .catch((err) => { console.log(err) })
 
-            axios.get("https://mikewserver.herokuapp.com/bookings/declined")
-            .then((response) => {
-                let declinedBookings = orderBy(response.data, (o) => { new moment(o.date).format('YYYYMMDD') })
-                response.data.forEach((data) => { this.checkBookingStatus(data) })
-                this.setState({ declinedBookings })
-        }).catch((err) => { console.log(err) })
+        axios.get("https://mikewserver.herokuapp.com/bookings/declined")
+        .then((response) => {
+            let declinedBookings = orderBy(response.data, (o) => { new moment(o.date).format('YYYYMMDD') })
+            response.data.forEach((data) => { this.checkBookingStatus(data) })
+            this.setState({ declinedBookings }) })
+        .catch((err) => { console.log(err) })
     }
 
         checkBookingStatus = (booking) => {
@@ -68,9 +69,9 @@ class AllBookings extends React.Component {
             })
 
             this.setState({
-                        approvedBookings: approved,
-                        pendingBookings: bookingsCopy
-                        })
+                approvedBookings: approved,
+                pendingBookings: bookingsCopy
+            })
         }
 
 
@@ -93,9 +94,13 @@ class AllBookings extends React.Component {
             })
 
             this.setState({
-                        declinedBookings: declined,
-                        pendingBookings: bookingsCopy
-                        })
+                declinedBookings: declined,
+                pendingBookings: bookingsCopy
+            })
+        }
+
+        readableDate = (date) => {
+            return moment(date, 'YYYYMMDD').format('MMM Do YY')
         }
 
     render() { 
@@ -107,13 +112,14 @@ class AllBookings extends React.Component {
                 pendingBookings ? 
                 pendingBookings.map((booking) => {
                     return (
-                        <div key={booking._id}> 
-                            <h3> date: {moment(booking.date, 'YYYYMMDD').format('MMM Do YY')  /* reformats into a more readable date. */} </h3> 
-                            <p> starts: {booking.startTime} </p>
-                            <p> ends: {booking.endTime} </p>
-                            <p> booking status: {booking.bookingStatus} </p>
-                            <p> note: {booking.info} </p>
-
+                        <div>  
+                            <Booking 
+                                date = {this.readableDate(booking.date)} 
+                                startTime = {booking.startTime} 
+                                endTime = {booking.endTime}
+                                bookingStatus = {booking.bookingStatus}
+                                info = {booking.info}
+                                />
                             <button className="approve-button" onClick={() => this.handleApprovedBooking(booking._id)}> Approve Booking? </button>
                             <button onClick={() => this.handleDeclineBooking(booking._id)}> Decline Booking? </button>
                         </div>
@@ -126,12 +132,14 @@ class AllBookings extends React.Component {
                 approvedBookings ? 
                 approvedBookings.map((booking) => {
                     return (
-                        <div key={booking._id}> 
-                            <h3> date: {moment(booking.date, 'YYYYMMDD').format('MMM Do YY')  /* reformats into a more readable date. */} </h3> 
-                            <p> starts: {booking.startTime} </p>
-                            <p> ends: {booking.endTime} </p>
-                            <p> booking status: {booking.bookingStatus} </p>
-                            <p> note: {booking.info} </p>
+                        <div key = {booking._id}> 
+                            <Booking 
+                                date = {this.readableDate(booking.date)} 
+                                startTime = {booking.startTime} 
+                                endTime = {booking.endTime}
+                                bookingStatus = {booking.bookingStatus}
+                                info = {booking.info}
+                            />
                         </div>
                     )
                 })
@@ -142,12 +150,14 @@ class AllBookings extends React.Component {
                 declinedBookings ? 
                 declinedBookings.map((booking) => {
                     return (
-                        <div key={booking._id}> 
-                            <h3> date: {moment(booking.date, 'YYYYMMDD').format('MMM Do YY')  /* reformats into a more readable date. */} </h3> 
-                            <p> starts: {booking.startTime} </p>
-                            <p> ends: {booking.endTime} </p>
-                            <p> booking status: {booking.bookingStatus} </p>
-                            <p> note: {booking.info} </p>
+                        <div key = {booking._id}> 
+                            <Booking 
+                                date = {this.readableDate(booking.date)} 
+                                startTime = {booking.startTime} 
+                                endTime = {booking.endTime}
+                                bookingStatus = {booking.bookingStatus}
+                                info = {booking.info}
+                            />
                         </div>
                     )
                 })
@@ -158,12 +168,14 @@ class AllBookings extends React.Component {
                 completedBookings ? 
                 completedBookings.map((booking) => {
                     return (
-                        <div key={booking._id}> 
-                            <h3> date: {moment(booking.date, 'YYYYMMDD').format('MMM Do YY')  /* reformats into a more readable date. */} </h3> 
-                            <p> starts: {booking.startTime} </p>
-                            <p> ends: {booking.endTime} </p>
-                            <p> booking status: {booking.bookingStatus} </p>
-                            <p> note: {booking.info} </p>
+                        <div key = {booking._id}> 
+                            <Booking 
+                                date = {this.readableDate(booking.date)} 
+                                startTime = {booking.startTime} 
+                                endTime = {booking.endTime}
+                                bookingStatus = {booking.bookingStatus}
+                                info = {booking.info}
+                            />
                         </div>
                     )
                 })
