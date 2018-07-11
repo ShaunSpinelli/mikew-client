@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom'
 const Nav = () => (
     <div className="Navbar">
         <div className="Navbar--links"> 
+
             <NavLink exact to="/"> MW </NavLink>
             <NavLink exact to="/about"> About Mike </NavLink>
             <NavLink exact to="/booking"> Make Booking </NavLink>
@@ -11,6 +12,7 @@ const Nav = () => (
             <NavLink exact to="/login"> Login </NavLink>
             <NavLink exact to="/admin"> Admin </NavLink>
             <NavLink exact to="/testimonials"> Testimonials </NavLink>
+
         </div>
     </div>
 )
