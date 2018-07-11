@@ -8,13 +8,23 @@
     flex-direction: column;
     padding: 1rem;
     text-align: center;
-    width: 20vw;
+    width: 35vw;
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
 } 
 
 .Makebooking--header{
     background-color: var(--dark-grey);
-    height: 3rem;
+    height: 8rem;
+}
 
+.Makebooking--headertitle{
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+.Makebooking--headername{
+    font-weight: 400;
 }
 
 .Makebooking--whatDate {

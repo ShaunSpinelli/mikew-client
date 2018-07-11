@@ -1,0 +1,149 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`All Bookings component renders correctly 1`] = `
+<div>
+  <h1>
+     All Bookings 
+  </h1>
+  <div
+    key="3"
+  >
+    <h3>
+       date: 
+      Jul 2nd 18
+       
+    </h3>
+    <p>
+       starts: 
+      14:30
+       
+    </p>
+    <p>
+       ends: 
+      15:30
+       
+    </p>
+    <p>
+       booking status: 
+      pending
+       
+    </p>
+    <button
+      className="approve-button"
+      onClick={[Function]}
+    >
+       Approve Booking? 
+    </button>
+    <button
+      onClick={[Function]}
+    >
+       Decline Booking? 
+    </button>
+  </div>
+  <div
+    key="1"
+  >
+    <h3>
+       date: 
+      Jul 10th 18
+       
+    </h3>
+    <p>
+       starts: 
+      10:30
+       
+    </p>
+    <p>
+       ends: 
+      11:30
+       
+    </p>
+    <p>
+       booking status: 
+      pending
+       
+    </p>
+    <button
+      className="approve-button"
+      onClick={[Function]}
+    >
+       Approve Booking? 
+    </button>
+    <button
+      onClick={[Function]}
+    >
+       Decline Booking? 
+    </button>
+  </div>
+  <div
+    key="0"
+  >
+    <h3>
+       date: 
+      Jul 12th 18
+       
+    </h3>
+    <p>
+       starts: 
+      8:30
+       
+    </p>
+    <p>
+       ends: 
+      9:30
+       
+    </p>
+    <p>
+       booking status: 
+      pending
+       
+    </p>
+    <button
+      className="approve-button"
+      onClick={[Function]}
+    >
+       Approve Booking? 
+    </button>
+    <button
+      onClick={[Function]}
+    >
+       Decline Booking? 
+    </button>
+  </div>
+  <div
+    key="2"
+  >
+    <h3>
+       date: 
+      Jul 17th 18
+       
+    </h3>
+    <p>
+       starts: 
+      12:30
+       
+    </p>
+    <p>
+       ends: 
+      13:30
+       
+    </p>
+    <p>
+       booking status: 
+      pending
+       
+    </p>
+    <button
+      className="approve-button"
+      onClick={[Function]}
+    >
+       Approve Booking? 
+    </button>
+    <button
+      onClick={[Function]}
+    >
+       Decline Booking? 
+    </button>
+  </div>
+</div>
+`;

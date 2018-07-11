@@ -38,7 +38,12 @@ class AllBookings extends React.Component {
             this.setState({bookings: bookingsCopy})
         }
 
+        addTwo = (num,num2) => {
+            return num + num2
+        }
+
     render() { 
+        console.log(this.state.bookings)
         const { bookings } = this.state
         return ( 
             <div>
@@ -51,7 +56,7 @@ class AllBookings extends React.Component {
                             <p> starts: {booking.startTime} </p>
                             <p> ends: {booking.endTime} </p>
                             <p> booking status: {booking.bookingStatus} </p>
-                            <button onClick={() => this.handleApprovedBooking(booking.clientId)}> Approve Booking? </button>
+                            <button className="approve-button" onClick={() => this.handleApprovedBooking(booking.clientId)}> Approve Booking? </button>
                             <button onClick={() => this.handleDeclineBooking(booking.clientId)}> Decline Booking? </button>
                         </div>
                     )
