@@ -52,6 +52,8 @@ class AllBookings extends React.Component {
                 if(obj._id === bookingID){
                     obj.bookingStatus = "approved"
                     approved.push(obj)
+                    axios.put(`https://mikewserver.herokuapp.com/bookings/${obj._id}`, {id: obj._id , bookingStatus: 'approved'})
+                    .catch((err) => {console.log(err)})
                 }
             })
 
