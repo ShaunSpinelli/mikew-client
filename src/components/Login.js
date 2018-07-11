@@ -47,7 +47,7 @@ import Modal from 'react-modal'
             <form>
 					<input type="text" name="user" placeholder="Username" />
 					<input type="password" name="pass" placeholder="Password" />
-					<input type="submit" name="login" class="login loginmodal-submit" value="Login" />
+					<input type="submit" name="login" className="login loginmodal-submit" value="Login" />
             </form>
             <div className="login-help">
 					<a href="#">Register</a> - <a href="#">Forgot Password</a>
