@@ -2,7 +2,7 @@ import axios from 'axios'
 
 // Create an axios instance
 const api = axios.create({
-  baseURL: 'https://mikewserver.herokuapp.com/bookings/' // API server
+  baseURL: 'https://mikewserver.herokuapp.com/' // API server
 })
 
 // Add the bearer token to the axios instance
