@@ -2,7 +2,7 @@ import React from 'react';
 
 const HomePage = () => (
     <div className="Homepage">
-            <p className="Homepage--nametitle"> Mike Oxlong </p>
+            <p className="Homepage--nametitle"> Michael Waye</p>
             <p className="Homepage--subtitle"> musical production </p>
             <p className="Homepage--slogan"> Proffessional Producing Assistance </p>
             <p className="Homepage--slogan"> Consultancy, Producing Quality Music & Technical Help </p>
