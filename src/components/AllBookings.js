@@ -35,6 +35,13 @@ class AllBookings extends React.Component {
             response.data.forEach((data) => { this.checkBookingStatus(data) })
             this.setState({ declinedBookings }) })
         .catch((err) => { console.log(err) })
+
+        axios.get("https://mikewserver.herokuapp.com/bookings/approved")
+        .then((response) => {
+            let approvedBookings = orderBy(response.data, (o) => { new moment(o.date).format('YYYYMMDD') })
+            response.data.forEach((data) => { this.checkBookingStatus(data) })
+            this.setState({ approvedBookings }) })
+        .catch((err) => { console.log(err) })
     }
 
         checkBookingStatus = (booking) => {
