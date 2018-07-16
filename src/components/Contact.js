@@ -65,6 +65,8 @@ class Contact extends React.Component{
 
         //clear form
         if(!err) {
+            
+            this.setState({sent: "loading"})
 
             let contactReq = {
                 name: `${fname} ${lname}`,
@@ -104,13 +106,13 @@ class Contact extends React.Component{
         const {sent, fname, lname, phone, email, artist, comment, fnameError, lnameError, phoneError, emailError } = this.state
         const {handleChange} = this
         {
-            if(sent) {
+            if(sent === true) {
                 return (
                     <div> 
                         <p> Sent! </p> 
                     </div>
                 )
-            }
+            } 
         }
         return(
         <div>
