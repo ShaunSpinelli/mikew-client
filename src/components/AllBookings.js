@@ -147,6 +147,11 @@ class AllBookings extends React.Component {
 
     render() { 
         const { completedBookings, declinedBookings, approvedBookings, pendingBookings, cancelledBookings } = this.state
+        {
+            if(bookings){
+                return(<p> Loading... </p>)
+            }
+        }
         return ( 
             <div>
             <h1> Pending Bookings </h1>
