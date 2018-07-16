@@ -11,7 +11,8 @@ class AllBookings extends React.Component {
         declinedBookings: [],
         approvedBookings: [],
         pendingBookings: [],
-        completedBookings: []
+        completedBookings: [],
+        cancelledBookings: []
      }
 
     componentWillMount(){
@@ -42,6 +43,13 @@ class AllBookings extends React.Component {
             response.data.forEach((data) => { this.checkBookingStatus(data) })
             this.setState({ approvedBookings }) })
         .catch((err) => { console.log(err) })
+
+        axios.get("https://mikewserver.herokuapp.com/bookings/cancelled")
+        .then((response) => {
+            let cancelledBookings = orderBy(response.data, (o) => { new moment(o.date).format('YYYYMMDD') })
+            response.data.forEach((data) => { this.checkBookingStatus(data) })
+            this.setState({ cancelledBookings }) })
+        .catch((err) => { console.log(err) })
     }
 
         checkBookingStatus = (booking) => {
@@ -53,10 +61,13 @@ class AllBookings extends React.Component {
                 this.setState({ pendingBookings: this.state.pendingBookings.concat(booking) })
             } else if(booking.bookingStatus === "completed"){
                 this.setState({ completedBookings: this.state.completedBookings.concat(booking) })
+            } else if(booking.bookingStatus === "cancelled"){
+                this.setState({ cancelledBookings: this.state.cancelledBookings.concat(booking) })
             }
         }
 
 
+        //try refractor approve/decline/canelled into one function
         handleApprovedBooking = (bookingID) => { 
             let bookingsCopy = this.state.pendingBookings
             let approved = this.state.approvedBookings
@@ -106,12 +117,36 @@ class AllBookings extends React.Component {
             })
         }
 
+        handleCancelBooking = (bookingID) => { 
+            let bookingsCopy = this.state.approvedBookings
+            let cancelled = this.state.cancelledBookings
+
+            bookingsCopy.forEach((obj) => {
+                if(obj._id === bookingID){
+                    obj.bookingStatus = "cancelled"
+                    cancelled.push(obj)
+                    axios.put(`https://mikewserver.herokuapp.com/bookings/id`, {id: obj._id , bookingStatus: 'cancelled'})
+                    .then((response) => { console.log(response)})
+                    .catch((err) => {console.log(err)})
+                }
+            })
+
+            bookingsCopy = bookingsCopy.filter((obj) => { 
+                return obj.bookingStatus !== "cancelled";
+            })
+
+            this.setState({
+                declinedBookings: cancelled,
+                approvedBookings: bookingsCopy
+            })
+        }
+
         readableDate = (date) => {
             return moment(date, 'YYYYMMDD').format('MMM Do YY')
         }
 
     render() { 
-        const { completedBookings, declinedBookings, approvedBookings, pendingBookings } = this.state
+        const { completedBookings, declinedBookings, approvedBookings, pendingBookings, cancelledBookings } = this.state
         return ( 
             <div>
             <h1> Pending Bookings </h1>
@@ -119,7 +154,7 @@ class AllBookings extends React.Component {
                 pendingBookings ? 
                 pendingBookings.map((booking) => {
                     return (
-                        <div>  
+                        <div key = {booking._id}>  
                             <Booking 
                                 date = {this.readableDate(booking.date)} 
                                 startTime = {booking.startTime} 
@@ -147,6 +182,7 @@ class AllBookings extends React.Component {
                                 bookingStatus = {booking.bookingStatus}
                                 info = {booking.info}
                             />
+                            <button onClick={() => this.handleCancelBooking(booking._id)}> Cancel Booking? </button>
                         </div>
                     )
                 })
@@ -174,6 +210,24 @@ class AllBookings extends React.Component {
             {
                 completedBookings ? 
                 completedBookings.map((booking) => {
+                    return (
+                        <div key = {booking._id}> 
+                            <Booking 
+                                date = {this.readableDate(booking.date)} 
+                                startTime = {booking.startTime} 
+                                endTime = {booking.endTime}
+                                bookingStatus = {booking.bookingStatus}
+                                info = {booking.info}
+                            />
+                        </div>
+                    )
+                })
+            : <p> loading hollup.. </p>
+            }
+            <h1> Cancelled Bookings </h1>
+            {
+                cancelledBookings ? 
+                cancelledBookings.map((booking) => {
                     return (
                         <div key = {booking._id}> 
                             <Booking 

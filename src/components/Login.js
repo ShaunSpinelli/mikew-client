@@ -58,5 +58,5 @@ import Modal from 'react-modal'
     }
   }
 
-export default Login;
+export default Login
 

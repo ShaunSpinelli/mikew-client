@@ -88,12 +88,13 @@ class MakeBooking extends React.Component {
                         start={ this.timeConverter(startTime) || "7:30" } 
                         end="17:00" 
                         step={30}
-                        value={endTime}
+                        value={endTime} 
                         onChange={this.handleEndTimeChange}
                     />
                 </div>
                 <div className="Makebooking--note"> 
-                    <input onChange={this.handleNote} name="note" />
+                    <p> Leave a note: </p>
+                    <input className="Makebooking--note--input" onChange={this.handleNote} name="note" />
                 </div>
                 <div className="Makebooking--buttonholder">
                     <button className="Makebooking--button"disabled={bookingButton}  onClick={this.handleBookingRequest}> Make Booking request! </button>
