@@ -11,7 +11,8 @@ class MakeBooking extends React.Component {
       startTime: null,
       endTime: null,
       bookingButton: true,
-      note: "yo"
+      note: "yo",
+      sent: false
     }
  
   handleDateChange = (date) => {
@@ -45,6 +46,7 @@ class MakeBooking extends React.Component {
         }
         console.log(JSON.stringify(booking))
     axios.post("https://mikewserver.herokuapp.com/bookings/new", booking)
+    .then(() => this.setState({sent: true}))
     .catch((err) => { console.log(err) })
   }
 
@@ -58,7 +60,16 @@ class MakeBooking extends React.Component {
   } 
 
   render() {
-    const {startTime, endTime, bookingButton} = this.state
+    const {sent, startTime, endTime, bookingButton} = this.state
+    {
+        if(sent) {
+            return (
+                <div> 
+                    <p> Sent! </p> 
+                </div>
+            )
+        }
+    }
     return (
         <div className="Makebooking-container">
             <div className= "Makebooking">

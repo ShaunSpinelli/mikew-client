@@ -10,6 +10,7 @@ import Login from '../components/Login.js'
 import Footer from '../components/Footer.js'
 import AllBookings from '../components/AllBookings.js'
 import NotFoundPage from '../components/NotFoundPage.js'
+import AllContacts from '../components/AllContacts.js';
 
 const AppRouter = () => (
     <BrowserRouter> 
@@ -22,6 +23,7 @@ const AppRouter = () => (
             <Route exact path="/booking" component={MakeBooking} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/admin" component={AllBookings} />
+            <Route exact path="/AllContacts" component={AllContacts} />
             <Route component={NotFoundPage} />
         </Switch>      
         <Footer />
