@@ -154,7 +154,7 @@ class AllBookings extends React.Component {
                 pendingBookings ? 
                 pendingBookings.map((booking) => {
                     return (
-                        <div>  
+                        <div key = {booking._id}>  
                             <Booking 
                                 date = {this.readableDate(booking.date)} 
                                 startTime = {booking.startTime} 

@@ -42,6 +42,15 @@
     background-color: beige;
 }
 
+.Makebooking--note{
+    padding: 1rem;
+}
+
+.Makebooking--note--input{
+    width: 90%;
+    height: 10vh;    
+}
+
 .Makebooking--button{
     text-align: center;
     height: 5vh;

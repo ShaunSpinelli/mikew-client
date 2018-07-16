@@ -3,9 +3,13 @@ import React from 'react'
 class Contact extends React.Component{
     state= {
         fname: '',
+        fnameError: '',
         lname: '',
+        lnameError: '',
         phone: '',
+        phoneError: '',
         email: '',
+        emailError: '',
         artist: '',
         comment: ''
     }
@@ -28,12 +32,35 @@ class Contact extends React.Component{
         <div className = "contact">
             <p> Contact Mike  </p>
             <form>
-                <input name= "fname" placeholder= "firstname" value= {fname} onChange= {handleChange}/>
-                <input name= "lname" placeholder= "lastname" value= {lname} onChange= {handleChange}/>
-                <input name= "phone" placeholder= "phone" value= {phone} onChange= {handleChange}/>
-                <input name= "email" placeholder= "email" value= {email} onChange= {handleChange}/>
-                <input name= "artist" placeholder= "artist/band name" value= {artist} onChange= {handleChange}/>
-                <input name= "comment" placeholder= "What would you like to talk about?" value= {comment} onChange= {handleChange}/>
+                <input 
+                    name= "fname" 
+                    placeholder= "firstname" 
+                    value= {fname} 
+                    onChange= {handleChange}/>
+                <input 
+                    name= "lname" 
+                    placeholder= "lastname" 
+                    value= {lname} 
+                    onChange= {handleChange}/>
+                <input 
+                    name= "phone" 
+                    placeholder= "phone" 
+                    value= {phone} 
+                    onChange= {handleChange}/>
+                <input 
+                    name= "email" 
+                    placeholder= "email" 
+                    value= {email} 
+                    onChange= {handleChange}/>
+                <input 
+                    name= "artist" 
+                    placeholder= "artist/band name" 
+                    value= {artist} 
+                    onChange= {handleChange}/>
+                <input name= "comment" 
+                    placeholder= "What would you like to talk about?" 
+                    value= {comment} 
+                    onChange= {handleChange}/>
                 <button onClick={this.contactRequest}> Send a Request </button>
             </form>
         </div>
