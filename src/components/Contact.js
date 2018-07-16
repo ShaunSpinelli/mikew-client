@@ -1,6 +1,7 @@
 import React from 'react'
 import TextField from 'material-ui/TextField'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import axios from 'axios'
 
 class Contact extends React.Component{
     state= {
@@ -13,9 +14,11 @@ class Contact extends React.Component{
         email: '',
         emailError: '',
         artist: '',
-        comment: ''
+        comment: '',
+        sent: false
     }
 
+    //feel free to add extra validation in this function.
     validate = () => {
         const { email, fname, lname, phone } = this.state
         let isError = false
@@ -41,7 +44,7 @@ class Contact extends React.Component{
             errors.emailError = "please enter a valid email address"
         }
 
-        if(isNaN(parseInt(phone)) && phone.length < 5){
+        if( isNaN(parseInt(phone)) ){
             isError = true
             errors.phoneError = "please enter a valid phone number"
         }
@@ -55,15 +58,22 @@ class Contact extends React.Component{
     }
 
     contactRequest = (e) => {
+        const { email, fname, lname, phone, artist, comment } = this.state
         e.preventDefault()
 
         const err = this.validate()
-        console.log(
-            this.state
-        )
 
         //clear form
         if(!err) {
+
+            let contactReq = {
+                name: `${fname} ${lname}`,
+                email: email,
+                phone: phone,
+                artist: artist,
+                comment: comment
+                }
+                
             this.setState({
                 fname: '',
                 fnameError: '',
@@ -76,6 +86,13 @@ class Contact extends React.Component{
                 artist: '',
                 comment: ''
             })
+
+            console.log(contactReq)
+
+            axios.post("https://mikewserver.herokuapp.com/contact/new", contactReq)
+            .then(() => this.setState({ sent: true }))
+            .catch((err) => { console.log(err) })
+
         }
     }
 
@@ -84,54 +101,65 @@ class Contact extends React.Component{
     }
 
     render(){
-        const {fname, lname, phone, email, artist, comment, fnameError, lnameError, phoneError, emailError } = this.state
+        const {sent, fname, lname, phone, email, artist, comment, fnameError, lnameError, phoneError, emailError } = this.state
         const {handleChange} = this
+        {
+            if(sent) {
+                return (
+                    <div> 
+                        <p> Sent! </p> 
+                    </div>
+                )
+            }
+        }
         return(
+        <div>
             <MuiThemeProvider>
-        <div className = "contact">
-            <p> Contact Mike  </p>
-            <form>
-                <TextField
-                    name= "fname" 
-                    floatingLabelText= "first name"
-                    value= {fname} 
-                    onChange= {handleChange}
-                    errorText = {fnameError} />
-                <TextField
-                    name= "lname" 
-                    floatingLabelText= "last name"
-                    value= {lname} 
-                    onChange= {handleChange}
-                    errorText = {lnameError}  />
-                <TextField
-                    name= "phone" 
-                    floatingLabelText= "phone"
-                    value= {phone} 
-                    onChange= {handleChange}
-                    errorText = {phoneError}  />
-                <TextField
-                    name= "email" 
-                    floatingLabelText= "email"
-                    value= {email} 
-                    onChange= {handleChange}
-                    errorText = {emailError}  />
-                <TextField 
-                    name= "artist" 
-                    floatingLabelText= "artist"
-                    value= {artist} 
-                    onChange= {handleChange} />
-                <TextField 
-                    name= "comment" 
-                    hintText= "What would you like to talk about?" 
-                    floatingLabelText= "comment"
-                    value= {comment} 
-                    onChange= {handleChange} />
-                <button onClick={this.contactRequest}> Send a Request </button>
-            </form>
+                <div className = "contact">
+                    <p> Contact Mike  </p>
+                    <form className = "contact-form">
+                        <TextField
+                            name= "fname" 
+                            floatingLabelText= "first name"
+                            value= {fname} 
+                            onChange= {handleChange}
+                            errorText = {fnameError} />
+                        <TextField
+                            name= "lname" 
+                            floatingLabelText= "last name"
+                            value= {lname} 
+                            onChange= {handleChange}
+                            errorText = {lnameError}  />
+                        <TextField
+                            name= "phone" 
+                            floatingLabelText= "phone"
+                            value= {phone} 
+                            onChange= {handleChange}
+                            errorText = {phoneError}  />
+                        <TextField
+                            name= "email" 
+                            floatingLabelText= "email"
+                            value= {email} 
+                            onChange= {handleChange}
+                            errorText = {emailError} />
+                        <TextField 
+                            name= "artist" 
+                            floatingLabelText= "artist"
+                            value= {artist} 
+                            onChange= {handleChange} />
+                        <TextField 
+                            name= "comment" 
+                            hintText= "What would you like to talk about?" 
+                            floatingLabelText= "comment"
+                            value= {comment} 
+                            onChange= {handleChange} />
+                        <button onClick={this.contactRequest}> Send </button>
+                    </form>
+                </div>
+            </MuiThemeProvider>
         </div>
-        </MuiThemeProvider>
         )
     }
 }
  
-export default Contact;
+export default Contact
