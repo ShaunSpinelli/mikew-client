@@ -2,13 +2,11 @@
 import React, {Component, Fragment} from 'react'
 import Modal from 'react-modal'
 import { api } from '../api/init'
-   
+
   // Make sure to bind modal to your appElement (http://reactcommunity.org/react-modal/accessibility/)
   // Modal.setAppElement('#app')
    
   class Login extends Component {
-  
-
     state = {
       modalIsOpen: false,
       email: '',
@@ -35,7 +33,8 @@ import { api } from '../api/init'
 
       api.post('users/login',{email: this.state.email, password:this.state.password})
       .then(res => { localStorage.setItem('token',res.data.token)
-            this.closeModal()})
+      this.props.updatedLogIn()
+      this.closeModal()})
       .catch(err => this.setState({loginError: true}))
 
       //if login axios comes back with jwt then  save token in storage and set modal is open to false
