@@ -1,31 +1,50 @@
 
 import React, {Component, Fragment} from 'react'
 import Modal from 'react-modal'
+import { api } from '../api/init'
    
   // Make sure to bind modal to your appElement (http://reactcommunity.org/react-modal/accessibility/)
   Modal.setAppElement('#root')
    
   class Login extends Component {
-    constructor() {
-      super();
-   
-      this.state = {
-        modalIsOpen: false
-      };
-   
-      this.openModal = this.openModal.bind(this);
-      this.afterOpenModal = this.afterOpenModal.bind(this);
-      this.closeModal = this.closeModal.bind(this);
+  
+
+    state = {
+      modalIsOpen: false,
+      email: '',
+      password: '',
+      loginError: false
+      // and state for email field and password field and two methods for update state on change
     }
    
-    openModal() {
+    openModal = () => {
       this.setState({modalIsOpen: true});
     }
    
-    afterOpenModal() {
+   handleEmail = (e) =>{
+    this.setState({email: e.target.value})
+   }
+
+   handlePassword = (e) =>{
+    this.setState({password: e.target.value})
+   }   
+    // on form submit rin this function
+
+    handleLogin = (e) =>{
+      e.preventDefault()
+
+      api.post('users/login',{email: this.state.email, password:this.state.password})
+      .then(res => { localStorage.setItem('token',res.data.token)
+            this.closeModal()})
+      .catch(err => this.setState({loginError: true}))
+
+      //if login axios comes back with jwt then  save token in storage and set modal is open to false
+      // else login comes back with error prompt for another login with message, maybe at a msg to the state
+      // this.setState({modalIsOpen: false});
+      
     }
-   
-    closeModal() {
+
+    closeModal = (e) => {
       this.setState({modalIsOpen: false});
     }
    
@@ -37,17 +56,17 @@ import Modal from 'react-modal'
             className="modal fade modal-dialog loginmodal-container"
             id="login-modal"
             isOpen={this.state.modalIsOpen}
-            onAfterOpen={this.afterOpenModal}
             onRequestClose={this.closeModal}
             contentLabel="Example Modal"
           >
    
           <button  onClick={this.closeModal}>close</button>
 					<h1>Login to Your Account</h1><br />
+          <p>{this.state.loginError ? 'Invalid Login Details': ''}</p>
             <form>
-					<input type="text" name="user" placeholder="Username" />
-					<input type="password" name="pass" placeholder="Password" />
-					<input type="submit" name="login" className="login loginmodal-submit" value="Login" />
+					<input onChange={this.handleEmail} type="text" name="user" placeholder="Username" />
+					<input onChange={this.handlePassword} type="password" name="pass" placeholder="Password" />
+					<input onClick={this.handleLogin} type="submit" name="login" className="login loginmodal-submit" value="Login" />
             </form>
             <div className="login-help">
 					<a href="#">Register</a> - <a href="#">Forgot Password</a>
