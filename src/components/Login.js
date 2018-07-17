@@ -3,7 +3,7 @@ import React, {Component, Fragment} from 'react'
 import Modal from 'react-modal'
    
   // Make sure to bind modal to your appElement (http://reactcommunity.org/react-modal/accessibility/)
-  Modal.setAppElement('#root')
+  // Modal.setAppElement('#app')
    
   class Login extends Component {
     constructor() {

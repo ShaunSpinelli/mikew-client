@@ -3,6 +3,7 @@ import orderBy from 'lodash.orderby' // one function from lodash library.
 import moment from 'moment'
 import axios from 'axios'
 import Booking from './Booking'
+import Loading from './Loading'
 
 
 class AllBookings extends React.Component {
@@ -12,15 +13,25 @@ class AllBookings extends React.Component {
         approvedBookings: [],
         pendingBookings: [],
         completedBookings: [],
-        cancelledBookings: []
+        cancelledBookings: [],
+        loading: false
      }
 
-    componentWillMount(){
+    componentDidMount(){
+        this.setState({loading: true})
+
+        axios.get("https://mikewserver.herokuapp.com/bookings")
+        .then((response) => {
+            let bookings = orderBy(response.data, (o) => { new moment(o.date).format('YYYYMMDD') })
+            this.setState({ bookings, loading: false })
+            console.log(this.state.bookings) })
+        .catch((err) => { console.log(err) })
+
         axios.get("https://mikewserver.herokuapp.com/bookings/pending")
         .then((response) => {
             let pendingBookings = orderBy(response.data, (o) => { new moment(o.date).format('YYYYMMDD') })
             response.data.forEach((data) => { this.checkBookingStatus(data) })
-            this.setState({ pendingBookings }) })
+            this.setState({ pendingBookings, loading: false }) })
         .catch((err) => { console.log(err) })
 
         axios.get("https://mikewserver.herokuapp.com/bookings/completed")
@@ -64,6 +75,11 @@ class AllBookings extends React.Component {
             } else if(booking.bookingStatus === "cancelled"){
                 this.setState({ cancelledBookings: this.state.cancelledBookings.concat(booking) })
             }
+        }
+
+        handleEditBooking = (bookingID) => {
+            let copy = this.state[`${bookingID.bookingStatus}`]
+            //not functioning
         }
 
 
@@ -146,7 +162,15 @@ class AllBookings extends React.Component {
         }
 
     render() { 
-        const { completedBookings, declinedBookings, approvedBookings, pendingBookings, cancelledBookings } = this.state
+        const { loading, completedBookings, declinedBookings, approvedBookings, pendingBookings, cancelledBookings } = this.state
+        {
+            if(loading === true){
+                return(
+                   <Loading
+                   className = "loadingScreen" />
+                )
+            }
+        }  
         return ( 
             <div>
             <h1> Pending Bookings </h1>
@@ -164,10 +188,11 @@ class AllBookings extends React.Component {
                                 />
                             <button className="approve-button" onClick={() => this.handleApprovedBooking(booking._id)}> Approve Booking? </button>
                             <button onClick={() => this.handleDeclineBooking(booking._id)}> Decline Booking? </button>
+                            <button onClick={() => this.handleEditBooking(booking._id)}> Edit Booking? </button>
                         </div>
                     )
                 })
-            : <p> loading hollup.. </p>
+            : <p> No Pending Bookings </p>
             }
             <h1> Approved Bookings </h1>
             {
@@ -183,10 +208,11 @@ class AllBookings extends React.Component {
                                 info = {booking.info}
                             />
                             <button onClick={() => this.handleCancelBooking(booking._id)}> Cancel Booking? </button>
+                            <button onClick={() => this.handleEditBooking(booking._id)}> Edit Booking? </button>
                         </div>
                     )
                 })
-            : <p> loading hollup.. </p>
+            : <p> No Approved Bookings </p>
             }
             <h1> Declined Bookings </h1>
             {
@@ -204,7 +230,7 @@ class AllBookings extends React.Component {
                         </div>
                     )
                 })
-            : <p> loading hollup.. </p>
+            : <p> No Declined Bookings </p>
             }
             <h1> Completed Bookings </h1>
             {
@@ -222,7 +248,7 @@ class AllBookings extends React.Component {
                         </div>
                     )
                 })
-            : <p> loading hollup.. </p>
+            : <p> No Completed Bookings </p>
             }
             <h1> Cancelled Bookings </h1>
             {
@@ -240,7 +266,7 @@ class AllBookings extends React.Component {
                         </div>
                     )
                 })
-            : <p> loading hollup.. </p>
+            : <p> No Cancelled Bookings </p>
             }
             </div>
          )
