@@ -37,7 +37,7 @@ import { api } from '../api/init'
       this.closeModal()})
       .catch(err => this.setState({loginError: true}))
 
-      //if login axios comes back with jwt then  save token in storage and set modal is open to false
+      //if login axios comes back with jwt then save token in storage and set modal is open to false
       // else login comes back with error prompt for another login with message, maybe at a msg to the state
       // this.setState({modalIsOpen: false});
       
