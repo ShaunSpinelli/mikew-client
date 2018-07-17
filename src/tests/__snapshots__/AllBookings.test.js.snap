@@ -1,18 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`All Bookings component renders correctly 1`] = `
-<div>
+exports[`AllBookings Component matches the snapshot 1`] = `
+<div
+  className="Loading"
+>
   <h1>
-     Pending Bookings 
+     Loading... 
   </h1>
-  <h1>
-     Approved Bookings 
-  </h1>
-  <h1>
-     Declined Bookings 
-  </h1>
-  <h1>
-     Completed Bookings 
-  </h1>
+  <img
+    src="http://i79.photobucket.com/albums/j157/mdcummings1/guitar.gif"
+  />
 </div>
 `;

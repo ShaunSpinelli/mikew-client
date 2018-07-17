@@ -17,8 +17,16 @@ class AllBookings extends React.Component {
         loading: false
      }
 
-    componentWillMount(){
+    componentDidMount(){
         this.setState({loading: true})
+
+        axios.get("https://mikewserver.herokuapp.com/bookings")
+        .then((response) => {
+            let bookings = orderBy(response.data, (o) => { new moment(o.date).format('YYYYMMDD') })
+            this.setState({ bookings, loading: false })
+            console.log(this.state.bookings) })
+        .catch((err) => { console.log(err) })
+
         axios.get("https://mikewserver.herokuapp.com/bookings/pending")
         .then((response) => {
             let pendingBookings = orderBy(response.data, (o) => { new moment(o.date).format('YYYYMMDD') })
@@ -67,6 +75,11 @@ class AllBookings extends React.Component {
             } else if(booking.bookingStatus === "cancelled"){
                 this.setState({ cancelledBookings: this.state.cancelledBookings.concat(booking) })
             }
+        }
+
+        handleEditBooking = (bookingID) => {
+            let copy = this.state[`${bookingID.bookingStatus}`]
+            //not functioning
         }
 
 
@@ -153,7 +166,8 @@ class AllBookings extends React.Component {
         {
             if(loading === true){
                 return(
-                   <Loading />
+                   <Loading
+                   className = "loadingScreen" />
                 )
             }
         }  
@@ -174,6 +188,7 @@ class AllBookings extends React.Component {
                                 />
                             <button className="approve-button" onClick={() => this.handleApprovedBooking(booking._id)}> Approve Booking? </button>
                             <button onClick={() => this.handleDeclineBooking(booking._id)}> Decline Booking? </button>
+                            <button onClick={() => this.handleEditBooking(booking._id)}> Edit Booking? </button>
                         </div>
                     )
                 })
@@ -193,6 +208,7 @@ class AllBookings extends React.Component {
                                 info = {booking.info}
                             />
                             <button onClick={() => this.handleCancelBooking(booking._id)}> Cancel Booking? </button>
+                            <button onClick={() => this.handleEditBooking(booking._id)}> Edit Booking? </button>
                         </div>
                     )
                 })
