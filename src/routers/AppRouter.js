@@ -21,7 +21,7 @@ class AppRouter extends Component {
         loggedIn: false
     }
     // pass to log in component and execute when log in is complete
-    updateLoggedIn = () => {
+    updatedLogIn = () => {
         this.setState({loggedIn: true})
         console.log('working')
     }
@@ -29,13 +29,13 @@ class AppRouter extends Component {
         return (
             <BrowserRouter> 
             <div>
-             <Nav />
+             <Nav updatedLogIn={this.updatedLogIn}/>
              <Switch>
                  <Route path="/" component={HomePage} exact={true} />
                  <Route exact path="/about" component={About} />
                  <Route exact path="/contact" component={Contact} />
                  <Route exact path="/booking" component={MakeBooking} />
-                 <Route exact path="/login" render={() => <Login  updatedLogIn={this.updateLoggedIn}/>}/>
+                 {/* <Route exact path="/login" render={() => <Login  updatedLogIn={this.updateLoggedIn}/>} /> */}
                  <Route exact path="/admin" render = { () =>
                      <div> 
                          <AllBookings />
