@@ -50,7 +50,7 @@ import { api } from '../api/init'
     render() {
       return (
         <Fragment>
-          <button className="button login-btn" onClick={this.openModal}>Login</button>
+          <button className="login--button" onClick={this.openModal}>Login</button>
           <Modal
             className="modal fade modal-dialog loginmodal-container"
             id="login-modal"
