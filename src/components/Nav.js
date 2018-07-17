@@ -9,7 +9,9 @@ const Nav = () => (
             <NavLink exact to="/contact"> Contact </NavLink>
             <NavLink exact to="/booking"> Book an Appointment </NavLink>
             {/* if not logged in display this and add register link */}
-            <NavLink exact to="/login"> Login </NavLink>
+            { localStorage.token ? <NavLink exact to="/logout"> Logout</NavLink> 
+            : <NavLink exact to="/login"> Login </NavLink> }
+
             {/* if logged in change admin to profile pic path tha will take them to there profile dashboard */}
             <NavLink exact to="/admin"> Admin </NavLink>
         </div>
