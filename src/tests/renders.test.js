@@ -8,3 +8,5 @@ describe('renders all components without crashing', () => {
     shallow(<AppRouter />);
   }) 
 })
+
+

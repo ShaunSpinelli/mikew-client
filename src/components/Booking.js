@@ -8,7 +8,7 @@ const Booking = (props) => {
             <p> Ends: {props.endTime} </p>
             <p> Booking status: {props.bookingStatus} </p>
             <p> Note: {props.info} </p>
-        </div>
+         </div>
      )
 }
  

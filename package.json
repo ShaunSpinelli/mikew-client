@@ -4,8 +4,6 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
-    "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
     "lodash.orderby": "^4.6.0",
     "material-ui": "^0.20.1",
     "moment": "^2.22.2",
@@ -26,7 +24,10 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "enzyme-to-json": "^3.3.4"
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.4",
+    "jest-mock-axios": "^2.1.11"
   },
   "jest": {
     "snapshotSerializers": [
