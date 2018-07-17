@@ -43,7 +43,6 @@ class MakeBooking extends React.Component {
             info: this.state.note,
             bookingStatus: "pending"
         }
-        console.log(JSON.stringify(booking))
     axios.post("https://mikewserver.herokuapp.com/bookings/new", booking)
     .then(() => this.setState({sent: "sent!", bookingButton: true}))
     .catch((err) => { console.log(err) })

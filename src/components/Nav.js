@@ -13,7 +13,6 @@ const Nav = (props) => (
             <NavLink exact to="/admin"> Admin </NavLink>
             { localStorage.token ? <NavLink exact to="/logout"> Logout </NavLink> 
             :  <React.Fragment> <Login updatedLogIn={props.updatedLogIn}/> <Register /> </React.Fragment> }
-        
         </div>
     </div>
 )
