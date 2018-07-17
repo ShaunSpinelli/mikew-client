@@ -54,19 +54,9 @@
 .Makebooking--button{
     text-align: center;
     height: 5vh;
+    width: 10vw;
     margin: 1rem;
     transition: 0.5s;
     color: white;
     background-color: black;
-}
-
-.Makebooking--button:hover{
-    color: pink;
-    cursor: pointer;
-    box-shadow: 0 0.5rem 0.5rem -0.4rem black;
-    transform: translateY(-0.25em);
-}
-
-.Makebooking--button > button:active{
-    transform: translateY(4px);
 }

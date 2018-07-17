@@ -12,7 +12,7 @@ class MakeBooking extends React.Component {
       endTime: null,
       bookingButton: true,
       note: "yo",
-      sent: false
+      sent: "Make booking request"
     }
  
   handleDateChange = (date) => {
@@ -34,8 +34,7 @@ class MakeBooking extends React.Component {
   } 
 
   handleBookingRequest = () => { //puts state into an object, with date formatted, and in 24hr time
-        // this.setState({ bookingStatus: 'pending' }, () => { console.log('Booking Status: ', this.state.bookingStatus) })
-
+        this.setState({sent: "sending"})
         let booking = {
             date: this.state.date.format('MM/DD/YYYY'),
             startTime: this.timeConverter(this.state.startTime),
@@ -46,7 +45,7 @@ class MakeBooking extends React.Component {
         }
         console.log(JSON.stringify(booking))
     axios.post("https://mikewserver.herokuapp.com/bookings/new", booking)
-    .then(() => this.setState({sent: true}))
+    .then(() => this.setState({sent: "sent!", bookingButton: true}))
     .catch((err) => { console.log(err) })
   }
 
@@ -57,19 +56,10 @@ class MakeBooking extends React.Component {
        return single += ":30"
     }
     return single + ":00"
-  } 
+  }
 
   render() {
     const {sent, startTime, endTime, bookingButton} = this.state
-    {
-        if(sent) {
-            return (
-                <div> 
-                    <p> Sent! </p> 
-                </div>
-            )
-        }
-    }
     return (
         <div className="Makebooking-container">
             <div className= "Makebooking">
@@ -108,10 +98,9 @@ class MakeBooking extends React.Component {
                     <input className="Makebooking--note--input" onChange={this.handleNote} name="note" />
                 </div>
                 <div className="Makebooking--buttonholder">
-                    <button className="Makebooking--button"disabled={bookingButton}  onClick={this.handleBookingRequest}> Make Booking request! </button>
+                    <button className="Makebooking--button" disabled={bookingButton}  onClick={this.handleBookingRequest}> {sent} </button>
                 </div>
             </div>
-   
         </div>
     )
   }
