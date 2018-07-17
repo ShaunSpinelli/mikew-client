@@ -15,7 +15,8 @@ class Contact extends React.Component{
         emailError: '',
         artist: '',
         comment: '',
-        sent: false
+        contactButton: false,
+        sent: "Send"
     }
 
     //feel free to add extra validation in this function.
@@ -66,7 +67,7 @@ class Contact extends React.Component{
         //clear form
         if(!err) {
             
-            this.setState({sent: "loading"})
+            this.setState({sent: "sending"})
 
             let contactReq = {
                 name: `${fname} ${lname}`,
@@ -92,7 +93,7 @@ class Contact extends React.Component{
             console.log(contactReq)
 
             axios.post("https://mikewserver.herokuapp.com/contact/new", contactReq)
-            .then(() => this.setState({ sent: true }))
+            .then(() => this.setState({ sent: "sent!", contactButton: true }))
             .catch((err) => { console.log(err) })
 
         }
@@ -105,15 +106,6 @@ class Contact extends React.Component{
     render(){
         const {sent, fname, lname, phone, email, artist, comment, fnameError, lnameError, phoneError, emailError } = this.state
         const {handleChange} = this
-        {
-            if(sent === true) {
-                return (
-                    <div> 
-                        <p> Sent! </p> 
-                    </div>
-                )
-            } 
-        }
         return(
         <div>
             <MuiThemeProvider>
@@ -155,7 +147,7 @@ class Contact extends React.Component{
                             floatingLabelText= "comment"
                             value= {comment} 
                             onChange= {handleChange} />
-                        <button onClick={this.contactRequest} className="sendContact"> Send </button>
+                        <button onClick={this.contactRequest} disabled={this.state.contactButton} className="sendContact"> {sent} </button>
                     </form>
                 </div>
             </MuiThemeProvider>
