@@ -13,8 +13,7 @@ class AllContacts extends React.Component {
             response.data.forEach((req) => {
                 contactRequests.push(req)
             })
-           console.log(response.data)
-           this.setState({ allContacts: contactRequests }, () => console.log(this.state))
+            this.setState({ allContacts: contactRequests }, () => console.log(this.state))
         })
         .catch((err) => { console.log(err) })
     }

@@ -12,25 +12,20 @@ import { api } from '../api/init'
       email: '',
       password: '',
       loginError: false
-      // and state for email field and password field and two methods for update state on change
     }
    
     openModal = () => {
       this.setState({modalIsOpen: true});
     }
    
-   handleEmail = (e) =>{
-    this.setState({email: e.target.value})
-   }
-
-   handlePassword = (e) =>{
-    this.setState({password: e.target.value})
-   }   
-    // on form submit rin this function
+    handleChange = (e) => {
+      this.setState({ [e.target.name]: e.target.value })
+    }
+    // on form submit run this function
 
     handleLogin = (e) =>{
       e.preventDefault()
-
+      
       api.post('users/login',{email: this.state.email, password:this.state.password})
       .then(res => { localStorage.setItem('token',res.data.token)
       this.props.updatedLogIn()
@@ -62,14 +57,14 @@ import { api } from '../api/init'
           <button  onClick={this.closeModal}>close</button>
 					<h1>Login to Your Account</h1><br />
           <p>{this.state.loginError ? 'Invalid Login Details': ''}</p>
-            <form>
-					<input onChange={this.handleEmail} type="text" name="user" placeholder="Username" />
-					<input onChange={this.handlePassword} type="password" name="pass" placeholder="Password" />
-					<input onClick={this.handleLogin} type="submit" name="login" className="login loginmodal-submit" value="Login" />
-            </form>
-            <div className="login-help">
-					<a href="#">Register</a> - <a href="#">Forgot Password</a>
-            </div>
+          <form>
+					  <input onChange={this.handleChange} type="text" name="username" placeholder="Username" />
+					  <input onChange={this.handleChange} type="password" name="password" placeholder="Password" />
+				  	<input onClick={this.handleLogin} type="submit" name="login" className="login loginmodal-submit" value="Login" />
+          </form>
+          <div className="login-help">
+					  <a href="#">Register</a> - <a href="#">Forgot Password</a>
+          </div>
           </Modal>
         </ Fragment>
       );
