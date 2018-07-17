@@ -23,13 +23,9 @@ import { api } from '../api/init'
       this.setState({modalIsOpen: true});
     }
    
-   handleEmail = (e) =>{
-    this.setState({email: e.target.value})
-   }
-
-   handlePassword = (e) =>{
-    this.setState({password: e.target.value})
-   }   
+    handleChange = (e) => {
+        this.setState({ [e.target.name]: e.target.value })
+    }
 
     handleLogin = (e) =>{
       e.preventDefault()
@@ -52,8 +48,8 @@ import { api } from '../api/init'
    
     render() {
       return (
-        <div>
-            <button className="button login-btn" onClick={this.openModal}>Register</button>
+        <Fragment>
+            <button className="register--button" onClick={this.openModal}>Register</button>
             <Modal
                 className="modal fade modal-dialog loginmodal-container"
                 id="login-modal"
@@ -65,15 +61,15 @@ import { api } from '../api/init'
                 <h1>Register Your Account</h1><br />
                 <p>{this.state.loginError ? 'Invalid Login Details': ''}</p>
                 <form>
-                    <input onChange={this.handleEmail} type="text" name="user" placeholder="Username" />
-                    <input onChange={this.handlePassword} type="password" name="pass" placeholder="Password" />
+                    <input onChange={this.handleChange} type="text" name="user" placeholder="Username" />
+                    <input onChange={this.handleChange} type="password" name="pass" placeholder="Password" />
                     <input onClick={this.handleLogin} type="submit" name="login" className="login loginmodal-submit" value="Login" />
                 </form>
                 <div className="login-help">
                     <a href="#">Login</a> - <a href="#">Forgot Password</a>
                 </div>
             </Modal>
-        </div>
+        </Fragment>
       );
     }
   }
