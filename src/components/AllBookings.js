@@ -1,5 +1,5 @@
 import React from 'react'
-import orderBy from 'lodash.orderby' // one function from lodash library.
+import orderBy from 'lodash.orderby'
 import moment from 'moment'
 import axios from 'axios'
 import Booking from './Booking'
@@ -23,8 +23,7 @@ class AllBookings extends React.Component {
         axios.get("https://mikewserver.herokuapp.com/bookings")
         .then((response) => {
             let bookings = orderBy(response.data, (o) => { new moment(o.date).format('YYYYMMDD') })
-            this.setState({ bookings, loading: false })
-            console.log(this.state.bookings) })
+            this.setState({ bookings, loading: false }) })
         .catch((err) => { console.log(err) })
 
         axios.get("https://mikewserver.herokuapp.com/bookings/pending")
@@ -64,16 +63,23 @@ class AllBookings extends React.Component {
     }
 
         checkBookingStatus = (booking) => {
-            if(booking.bookingStatus === "approved"){
-                this.setState({ approvedBookings: this.state.approvedBookings.concat(booking) })
-            } else if(booking.bookingStatus === "declined") {
-                this.setState({ declinedBookings: this.state.declinedBookings.concat(booking) })
-            } else if(booking.bookingStatus === "pending"){
-                this.setState({ pendingBookings: this.state.pendingBookings.concat(booking) })
-            } else if(booking.bookingStatus === "completed"){
-                this.setState({ completedBookings: this.state.completedBookings.concat(booking) })
-            } else if(booking.bookingStatus === "cancelled"){
-                this.setState({ cancelledBookings: this.state.cancelledBookings.concat(booking) })
+            let bookingStatus = booking.bookingStatus
+            switch(bookingStatus){
+                case "approved":
+                    this.setState({ approvedBookings: this.state.approvedBookings.concat(booking) })
+                break
+                case "declined":
+                   this.setState({ declinedBookings: this.state.declinedBookings.concat(booking) })
+                break
+                case "pending":
+                   this.setState({ pendingBookings: this.state.pendingBookings.concat(booking) })
+                break
+                case "completed":
+                    this.setState({ completedBookings: this.state.completedBookings.concat(booking) })
+                break
+                case "cancelled":
+                    this.setState({ cancelledBookings: this.state.cancelledBookings.concat(booking) })
+                break
             }
         }
 
@@ -82,8 +88,6 @@ class AllBookings extends React.Component {
             //not functioning
         }
 
-
-        //try refractor approve/decline/canelled into one function
         handleApprovedBooking = (bookingID) => { 
             let bookingsCopy = this.state.pendingBookings
             let approved = this.state.approvedBookings
@@ -97,11 +101,9 @@ class AllBookings extends React.Component {
                     .catch((err) => {console.log(err)})
                 }
             })
-
             bookingsCopy = bookingsCopy.filter((obj) => { 
                 return obj.bookingStatus !== "approved";
             })
-
             this.setState({
                 approvedBookings: approved,
                 pendingBookings: bookingsCopy
@@ -122,11 +124,9 @@ class AllBookings extends React.Component {
                     .catch((err) => {console.log(err)})
                 }
             })
-
             bookingsCopy = bookingsCopy.filter((obj) => { 
                 return obj.bookingStatus !== "declined";
             })
-
             this.setState({
                 declinedBookings: declined,
                 pendingBookings: bookingsCopy
@@ -142,35 +142,23 @@ class AllBookings extends React.Component {
                     obj.bookingStatus = "cancelled"
                     cancelled.push(obj)
                     axios.put(`https://mikewserver.herokuapp.com/bookings/id`, {id: obj._id , bookingStatus: 'cancelled'})
-                    .then((response) => { console.log(response)})
                     .catch((err) => {console.log(err)})
                 }
             })
-
             bookingsCopy = bookingsCopy.filter((obj) => { 
                 return obj.bookingStatus !== "cancelled";
             })
-
             this.setState({
                 declinedBookings: cancelled,
                 approvedBookings: bookingsCopy
             })
         }
 
-        readableDate = (date) => {
-            return moment(date, 'YYYYMMDD').format('MMM Do YY')
-        }
+        readableDate = (date) => ( moment(date, 'YYYYMMDD').format('MMM Do YY') )
 
     render() { 
         const { loading, completedBookings, declinedBookings, approvedBookings, pendingBookings, cancelledBookings } = this.state
-        {
-            if(loading === true){
-                return(
-                   <Loading
-                   className = "loadingScreen" />
-                )
-            }
-        }  
+        { if(loading === true){ return <Loading className = "loadingScreen" /> } }  
         return ( 
             <div>
             <h1> Pending Bookings </h1>
