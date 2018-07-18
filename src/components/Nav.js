@@ -9,7 +9,7 @@ const Nav = (props)=> {
         <div className="Navbar">
             <div className="Navbar--links"> 
                 <NavLink exact to="/"> MW </NavLink>
-                <NavLink exact to="/about"> About Michael </NavLink>
+                <NavLink exact to="/"> About Michael </NavLink>
                 <NavLink exact to="/contact"> Contact </NavLink>
                 <NavLink exact to="/booking"> Book an Appointment </NavLink>
                 { localStorage.token ? 
