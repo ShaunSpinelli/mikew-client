@@ -1,4 +1,3 @@
-
 import React, {Component, Fragment} from 'react'
 import Modal from 'react-modal'
 import { api } from '../api/init'
