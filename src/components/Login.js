@@ -57,7 +57,7 @@ import { api } from '../api/init'
 					<h1>Login to Your Account</h1><br />
           <p>{this.state.loginError ? 'Invalid Login Details': ''}</p>
           <form>
-					  <input onChange={this.handleChange} type="text" name="username" placeholder="Username" />
+					  <input onChange={this.handleChange} type="text" name="email" placeholder="Username" />
 					  <input onChange={this.handleChange} type="password" name="password" placeholder="Password" />
 				  	<input onClick={this.handleLogin} type="submit" name="login" className="login loginmodal-submit" value="Login" />
           </form>

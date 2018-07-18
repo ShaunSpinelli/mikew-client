@@ -36,7 +36,7 @@ import { api } from '../api/init'
             email: email,
             phoneNumber: phoneNumber,
             password: password,
-            Role: "user",
+            role: "user",
             profileImg: "url"
         }
         api.post('users/register', newUser)

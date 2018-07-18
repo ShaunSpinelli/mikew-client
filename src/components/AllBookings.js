@@ -4,7 +4,9 @@ import moment from 'moment'
 import axios from 'axios'
 import Booking from './Booking'
 import Loading from './Loading'
+import { api } from '../api/init';
 
+const jwtDecode = require('jwt-decode')
 
 class AllBookings extends React.Component {
     state = { 
@@ -19,48 +21,35 @@ class AllBookings extends React.Component {
 
     componentDidMount(){
         this.setState({loading: true})
+        const decodedYO = jwtDecode(localStorage.getItem('token'))
+        const decoded = {
+            role: 'user',
+            sub: "5b4ea7cfd882d80014954b7a"
+            }
+        decoded.role === "admin" ? 
+            this.getUserBookings(decoded.sub)
+            :
+            this.getAdminBookings()
+    }
 
-        axios.get("https://mikewserver.herokuapp.com/bookings")
+    getAdminBookings = () => {
+        api.get("bookings")
         .then((response) => {
             let bookings = orderBy(response.data, (o) => { new moment(o.date).format('YYYYMMDD') })
+            response.data.forEach((data) => { this.checkBookingStatus(data) })
             this.setState({ bookings, loading: false }) })
         .catch((err) => { console.log(err) })
+    }
 
-        axios.get("https://mikewserver.herokuapp.com/bookings/pending")
+    getUserBookings = (id) => {
+        api.get("users/bookings", {id})
         .then((response) => {
-            let pendingBookings = orderBy(response.data, (o) => { new moment(o.date).format('YYYYMMDD') })
+            let bookings = orderBy(response.data, (o) => { new moment(o.date).format('YYYYMMDD') })
             response.data.forEach((data) => { this.checkBookingStatus(data) })
-            this.setState({ pendingBookings, loading: false }) })
-        .catch((err) => { console.log(err) })
-
-        axios.get("https://mikewserver.herokuapp.com/bookings/completed")
-        .then((response) => {
-            let completedBookings = orderBy(response.data, (o) => { new moment(o.date).format('YYYYMMDD') })
-            response.data.forEach((data) => { this.checkBookingStatus(data) })
-            this.setState({ completedBookings }) })
-        .catch((err) => { console.log(err) })
-
-        axios.get("https://mikewserver.herokuapp.com/bookings/declined")
-        .then((response) => {
-            let declinedBookings = orderBy(response.data, (o) => { new moment(o.date).format('YYYYMMDD') })
-            response.data.forEach((data) => { this.checkBookingStatus(data) })
-            this.setState({ declinedBookings }) })
-        .catch((err) => { console.log(err) })
-
-        axios.get("https://mikewserver.herokuapp.com/bookings/approved")
-        .then((response) => {
-            let approvedBookings = orderBy(response.data, (o) => { new moment(o.date).format('YYYYMMDD') })
-            response.data.forEach((data) => { this.checkBookingStatus(data) })
-            this.setState({ approvedBookings }) })
-        .catch((err) => { console.log(err) })
-
-        axios.get("https://mikewserver.herokuapp.com/bookings/cancelled")
-        .then((response) => {
-            let cancelledBookings = orderBy(response.data, (o) => { new moment(o.date).format('YYYYMMDD') })
-            response.data.forEach((data) => { this.checkBookingStatus(data) })
-            this.setState({ cancelledBookings }) })
+            this.setState({ bookings, loading: false }) })
         .catch((err) => { console.log(err) })
     }
+
 
         checkBookingStatus = (booking) => {
             let bookingStatus = booking.bookingStatus
