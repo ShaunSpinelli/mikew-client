@@ -10,7 +10,8 @@ import Login from '../components/Login.js'
 import Footer from '../components/Footer.js'
 import AllBookings from '../components/AllBookings.js'
 import NotFoundPage from '../components/NotFoundPage.js'
-import AllContacts from '../components/AllContacts.js';
+import AllContacts from '../components/AllContacts.js'
+import AllUsers from '../components/AllUsers.js'
 
 //add state to component
 
@@ -40,6 +41,7 @@ class AppRouter extends Component {
                      <div> 
                          <AllBookings />
                          <AllContacts />
+                         <AllUsers />
                      </div> 
                  } />
                  <Route component={NotFoundPage} />
