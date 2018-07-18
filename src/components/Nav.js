@@ -1,9 +1,7 @@
 import React from 'react'
-import { NavLink, Redirect } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import Login from './Login'
 import Register from './Register'
-
-
 
 class Nav extends React.Component {
     constructor(props){
