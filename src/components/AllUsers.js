@@ -18,6 +18,10 @@ class AllUsers extends React.Component {
         .catch((err) => {console.log(err)})
     }
 
+    removeUser = (id) => {
+        console.log('remove!' + id)
+    }
+
     render() { 
         return ( 
             <div>
@@ -27,7 +31,9 @@ class AllUsers extends React.Component {
                         return (
                             <div key= {user._id}>
                                 <p> {`${user.firstName} ${user.lastName}`} </p>
-                                <button> remove user </button>
+                                <p> {`${user.email}`} </p>
+                                <p> {`${user.phoneNumber}`} </p>
+                                <button onClick={() => this.removeUser(user._id)}> remove user </button>
                             </div>
                         )
                     })

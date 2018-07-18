@@ -50,7 +50,6 @@ class AllBookings extends React.Component {
         .catch((err) => { console.log(err) })
     }
 
-
         checkBookingStatus = (booking) => {
             let bookingStatus = booking.bookingStatus
             switch(bookingStatus){
@@ -85,7 +84,7 @@ class AllBookings extends React.Component {
                 if(obj._id === bookingID){
                     obj.bookingStatus = "approved"
                     approved.push(obj)
-                    axios.put(`https://mikewserver.herokuapp.com/bookings/id`, {id: obj._id , bookingStatus: 'approved'})
+                    api.put(`bookings/id`, {id: obj._id , bookingStatus: 'approved'})
                     .then((response) => { console.log(response)})
                     .catch((err) => {console.log(err)})
                 }
@@ -108,7 +107,7 @@ class AllBookings extends React.Component {
                 if(obj._id === bookingID){
                     obj.bookingStatus = "declined"
                     declined.push(obj)
-                    axios.put(`https://mikewserver.herokuapp.com/bookings/id`, {id: obj._id , bookingStatus: 'declined'})
+                    api.put(`bookings/id`, {id: obj._id , bookingStatus: 'declined'})
                     .then((response) => { console.log(response)})
                     .catch((err) => {console.log(err)})
                 }
@@ -130,7 +129,7 @@ class AllBookings extends React.Component {
                 if(obj._id === bookingID){
                     obj.bookingStatus = "cancelled"
                     cancelled.push(obj)
-                    axios.put(`https://mikewserver.herokuapp.com/bookings/id`, {id: obj._id , bookingStatus: 'cancelled'})
+                    api.put(`bookings/id`, {id: obj._id , bookingStatus: 'cancelled'})
                     .catch((err) => {console.log(err)})
                 }
             })
