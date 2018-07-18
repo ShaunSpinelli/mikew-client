@@ -13,11 +13,8 @@ import NotFoundPage from '../components/NotFoundPage.js'
 import AllContacts from '../components/AllContacts.js'
 import AllUsers from '../components/AllUsers.js'
 
-//add state to component
-
 class AppRouter extends Component {
-
-    state={
+    state= {
         token:'',
         loggedIn: false
     }
