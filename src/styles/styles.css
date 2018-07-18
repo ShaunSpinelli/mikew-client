@@ -9,6 +9,7 @@
 @import './components/nav.css';
 @import './components/makebooking.css';
 @import './components/loading.css';
+@import './components/map.css';
 @import './components/not-found-page.css'; 
 
 :root {
