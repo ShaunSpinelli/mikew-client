@@ -12,7 +12,8 @@ class MakeBooking extends React.Component {
       endTime: null,
       bookingButton: true,
       note: "yo",
-      sent: "Make booking request"
+      sent: "Make booking request",
+      error: ""
     }
  
   handleDateChange = (date) => {
@@ -34,6 +35,7 @@ class MakeBooking extends React.Component {
   } 
 
   handleBookingRequest = () => { //puts state into an object, with date formatted, and in 24hr time
+    if(localStorage.getItem('token')){
         this.setState({sent: "sending"})
         let booking = {
             date: this.state.date.format('MM/DD/YYYY'),
@@ -46,6 +48,9 @@ class MakeBooking extends React.Component {
     axios.post("https://mikewserver.herokuapp.com/bookings/new", booking)
     .then(() => this.setState({sent: "sent!", bookingButton: true}))
     .catch((err) => { console.log(err) })
+    } else {
+        this.setState({error: "you must log in to make a request"})
+    }
   }
 
   timeConverter = (time) => {
@@ -58,7 +63,7 @@ class MakeBooking extends React.Component {
   }
 
   render() {
-    const {sent, startTime, endTime, bookingButton} = this.state
+    const {error, sent, startTime, endTime, bookingButton} = this.state
     return (
         <div className="Makebooking-container">
             <div className= "Makebooking">
@@ -99,6 +104,7 @@ class MakeBooking extends React.Component {
                 <div className="Makebooking--buttonholder">
                     <button className="Makebooking--button" disabled={bookingButton}  onClick={this.handleBookingRequest}> {sent} </button>
                 </div>
+                {error}
             </div>
         </div>
     )
