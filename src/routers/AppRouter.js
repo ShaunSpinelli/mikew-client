@@ -6,7 +6,6 @@ import HomePage from '../components/HomePage.js'
 import About from '../components/About.js'
 import Contact from '../components/Contact.js'
 import MakeBooking from '../components/MakeBooking.js'
-import Login from '../components/Login.js'
 import Footer from '../components/Footer.js'
 import AllBookings from '../components/AllBookings.js'
 import NotFoundPage from '../components/NotFoundPage.js'
@@ -23,11 +22,17 @@ class AppRouter extends Component {
         this.setState({loggedIn: true})
         console.log('working')
     }
+
+    logout = () => {
+        localStorage.clear('token')
+        this.setState({local: ''})
+    }
+
     render () {
         return (
             <BrowserRouter> 
             <div>
-             <Nav updatedLogIn={this.updatedLogIn}/>
+             <Nav updatedLogIn={this.updatedLogIn} logout={this.logout}/>
              <Switch>
                  <Route path="/" component={HomePage} exact={true} />
                  <Route exact path="/about" component={About} />
