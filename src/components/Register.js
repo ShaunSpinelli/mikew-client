@@ -1,4 +1,3 @@
-
 import React, {Component, Fragment} from 'react'
 import Modal from 'react-modal'
 import { api } from '../api/init'
@@ -37,7 +36,7 @@ import { api } from '../api/init'
             email: email,
             phoneNumber: phoneNumber,
             password: password,
-            Role: "user",
+            role: "user",
             profileImg: "url"
         }
         api.post('users/register', newUser)
