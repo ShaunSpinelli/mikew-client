@@ -110,7 +110,10 @@ class Contact extends React.Component{
         <div className="contact--holder">
             <MuiThemeProvider>
                 <div className = "contact">
-                    <p> Contact Mike  </p>
+                    <div className= "Makebooking--header"> 
+                        <p className="Makebooking--headertitle"> Get in Contact Easily </p>
+                        <p className="Makebooking--headername">  with Michael Waye </p>
+                    </div>
                     <form className = "contact-form">
                         <TextField
                             name= "fname" 
