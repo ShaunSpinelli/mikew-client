@@ -1,5 +1,6 @@
 import React from 'react'
 import Map from './Map'
+import Footer from './Footer.js'
 
 const HomePage = () => (
     <div>
