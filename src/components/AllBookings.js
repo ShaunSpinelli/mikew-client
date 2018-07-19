@@ -22,7 +22,7 @@ class AllBookings extends React.Component {
     componentDidMount(){
         this.setState({loading: true})
         const decoded = jwtDecode(localStorage.getItem('token'))
-        decoded.role !== "admin" ? 
+        decoded.role === "admin" ? 
             this.getUserBookings(decoded.sub)
             :
             this.getAdminBookings()
@@ -46,26 +46,34 @@ class AllBookings extends React.Component {
         .catch((err) => { console.log(err) })
     }
 
+        // checkBookingStatus = (booking) => {
+        //     let bookingStatus = booking.bookingStatus
+        //     switch(bookingStatus){
+        //         case "approved":
+        //             this.setState({ approvedBookings: this.state.approvedBookings.concat(booking) })
+        //         break
+        //         case "declined":
+        //            this.setState({ declinedBookings: this.state.declinedBookings.concat(booking) })
+        //         break
+        //         case "pending":
+        //            this.setState({ pendingBookings: this.state.pendingBookings.concat(booking) })
+        //         break
+        //         case "completed":
+        //             this.setState({ completedBookings: this.state.completedBookings.concat(booking) })
+        //         break
+        //         case "cancelled":
+        //             this.setState({ cancelledBookings: this.state.cancelledBookings.concat(booking) })
+        //         break
+        //     }
+        // }
+
         checkBookingStatus = (booking) => {
             let bookingStatus = booking.bookingStatus
-            switch(bookingStatus){
-                case "approved":
-                    this.setState({ approvedBookings: this.state.approvedBookings.concat(booking) })
-                break
-                case "declined":
-                   this.setState({ declinedBookings: this.state.declinedBookings.concat(booking) })
-                break
-                case "pending":
-                   this.setState({ pendingBookings: this.state.pendingBookings.concat(booking) })
-                break
-                case "completed":
-                    this.setState({ completedBookings: this.state.completedBookings.concat(booking) })
-                break
-                case "cancelled":
-                    this.setState({ cancelledBookings: this.state.cancelledBookings.concat(booking) })
-                break
+                    this.setState({ [bookingStatus]: [...this.state.approvedBookings, booking] })
             }
         }
+        
+
 
         handleEditBooking = (bookingID) => {
             let copy = this.state[`${bookingID.bookingStatus}`]
