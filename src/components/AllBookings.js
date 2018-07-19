@@ -38,7 +38,7 @@ class AllBookings extends React.Component {
     }
 
     getUserBookings = (id) => {
-        api.get("users/bookings", {id})
+        api.get("users/bookings",{params : {id: id }})
         .then((response) => {
             let bookings = orderBy(response.data, (o) => { new moment(o.date).format('YYYYMMDD') })
             response.data.forEach((data) => { this.checkBookingStatus(data) })
