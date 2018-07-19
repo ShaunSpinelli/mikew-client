@@ -3,6 +3,8 @@ import DatePicker from 'react-datepicker'
 import TimePicker from 'react-bootstrap-time-picker'
 import moment from 'moment'
 import axios from 'axios'
+import TextField from 'material-ui/TextField'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import 'react-datepicker/dist/react-datepicker.css'
 
 class MakeBooking extends React.Component {
@@ -11,7 +13,7 @@ class MakeBooking extends React.Component {
       startTime: null,
       endTime: null,
       bookingButton: true,
-      note: "yo",
+      note: "",
       sent: "Make booking request",
       error: ""
     }
@@ -63,49 +65,62 @@ class MakeBooking extends React.Component {
   }
 
   render() {
-    const {error, sent, startTime, endTime, bookingButton} = this.state
+    const {note, error, sent, startTime, endTime, bookingButton} = this.state
     return (
-        <div className="Makebooking-container">
-            <div className= "Makebooking">
-                <div className= "Makebooking--header"> 
-                   <p className="Makebooking--headertitle"> Make a Booking Request </p>
-                   <p className="Makebooking--headername">  with Michael Waye </p>
+        <div>
+            <MuiThemeProvider>
+                <div className="Makebooking-container">
+                    <div className= "Makebooking">
+                        <div className= "Makebooking--header"> 
+                        <p className="Makebooking--headertitle"> Make a Booking Request </p>
+                        <p className="Makebooking--headername">  with Michael Waye </p>
+                        </div>
+                        <div className= "Makebooking--whatDate">
+                            <p> what day? </p>
+                            <DatePicker
+                                className= "Makebooking--datePicker"
+                                selected= {this.state.date}
+                                onChange={this.handleDateChange}
+                            />
+                        </div>
+                        <div className="Makebooking--whatTime">
+                            <p> what time? </p>
+                            <div>
+                                <span> start: </span> 
+                                <TimePicker 
+                                    className= "Makebooking--timePicker"
+                                    start={"7:00"}
+                                    end="16:00" 
+                                    step={30} 
+                                    value={startTime }
+                                    onChange={this.handleStartTimeChange}
+                                />
+                            </div>
+                            <span> end: </span> 
+                            <TimePicker 
+                                className= "Makebooking--timePicker"
+                                start={ this.timeConverter(startTime) || "7:30" } 
+                                end="17:00" 
+                                step={30}
+                                value={endTime} 
+                                onChange={this.handleEndTimeChange}
+                            />
+                        </div>
+                        <div className="Makebooking--note"> 
+                            <TextField
+                                    name= "note" 
+                                    floatingLabelText= "note"
+                                    value= {note}
+                                    onChange= {this.handleNote}
+                            />
+                        </div>
+                        <div className="Makebooking--buttonholder">
+                            <button className="Makebooking--button" disabled={bookingButton}  onClick={this.handleBookingRequest}> {sent} </button>
+                        </div>
+                        {error}
+                    </div>
                 </div>
-                <div className= "Makebooking--whatDate">
-                    <h3> what day? </h3>
-                    <DatePicker
-                        selected= {this.state.date}
-                        onChange={this.handleDateChange}
-                    />
-                </div>
-                <div className="Makebooking--whatTime">
-                    <h3> what time? </h3>
-                    <p> start </p> 
-                    <TimePicker 
-                        start={"7:00"}
-                        end="16:00" 
-                        step={30} 
-                        value={startTime }
-                        onChange={this.handleStartTimeChange}
-                    />
-                    <p> end </p> 
-                    <TimePicker 
-                        start={ this.timeConverter(startTime) || "7:30" } 
-                        end="17:00" 
-                        step={30}
-                        value={endTime} 
-                        onChange={this.handleEndTimeChange}
-                    />
-                </div>
-                <div className="Makebooking--note"> 
-                    <p> Leave a note: </p>
-                    <input className="Makebooking--note--input" onChange={this.handleNote} name="note" />
-                </div>
-                <div className="Makebooking--buttonholder">
-                    <button className="Makebooking--button" disabled={bookingButton}  onClick={this.handleBookingRequest}> {sent} </button>
-                </div>
-                {error}
-            </div>
+            </MuiThemeProvider>
         </div>
     )
   }
