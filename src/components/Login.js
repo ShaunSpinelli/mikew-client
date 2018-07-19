@@ -1,5 +1,7 @@
 import React, {Component, Fragment} from 'react'
 import Modal from 'react-modal'
+import TextField from 'material-ui/TextField'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import { api } from '../api/init'
 
   // Make sure to bind modal to your appElement (http://reactcommunity.org/react-modal/accessibility/)
@@ -20,7 +22,6 @@ import { api } from '../api/init'
     handleChange = (e) => {
       this.setState({ [e.target.name]: e.target.value })
     }
-    // on form submit run this function
 
     handleLogin = (e) =>{
       e.preventDefault()
@@ -30,11 +31,6 @@ import { api } from '../api/init'
       this.props.updatedLogIn()
       this.closeModal()})
       .catch(err => this.setState({loginError: true}))
-
-      //if login axios comes back with jwt then save token in storage and set modal is open to false
-      // else login comes back with error prompt for another login with message, maybe at a msg to the state
-      // this.setState({modalIsOpen: false});
-      
     }
 
     closeModal = (e) => {
@@ -43,6 +39,7 @@ import { api } from '../api/init'
    
     render() {
       return (
+        <MuiThemeProvider>
         <Fragment>
           <button className="login--button" onClick={this.openModal}>Login</button>
           <Modal
@@ -53,19 +50,31 @@ import { api } from '../api/init'
             contentLabel="Example Modal"
           >
    
-          <button  onClick={this.closeModal}>close</button>
-					<h1>Login to Your Account</h1><br />
+          <button  className="close--button" onClick={this.closeModal}> <img className="close--button--img"  src="http://www.myiconfinder.com/uploads/iconsets/256-256-46602df56c953c27348b14d8651dcdc5-close.png" /> </button>
+					<h1> Login </h1><br />
           <p>{this.state.loginError ? 'Invalid Login Details': ''}</p>
           <form>
-					  <input onChange={this.handleChange} type="text" name="email" placeholder="Username" />
-					  <input onChange={this.handleChange} type="password" name="password" placeholder="Password" />
-				  	<input onClick={this.handleLogin} type="submit" name="login" className="login loginmodal-submit" value="Login" />
+          <TextField
+              className="center--login--inputs"
+              name= "email" 
+              floatingLabelText= "email"
+              value= {this.state.email} 
+              onChange= {this.handleChange} />
+          <TextField
+              className="center--login--inputs"
+              name= "password" 
+              floatingLabelText= "password"
+              value= {this.state.password} 
+              onChange= {this.handleChange}
+              type="password" />
+				  	<button onClick={this.handleLogin} type="submit" name="login" className="Makebooking--button"> Login </button>
           </form>
           <div className="login-help">
 					  <a href="#">Register</a> - <a href="#">Forgot Password</a>
           </div>
           </Modal>
         </ Fragment>
+        </ MuiThemeProvider>
       );
     }
   }

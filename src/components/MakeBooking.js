@@ -23,11 +23,9 @@ class MakeBooking extends React.Component {
     }
 
     componentDidMount(){
-        try{
+        if(localStorage.getItem('token')){
             const decoded = jwtDecode(localStorage.getItem('token'))
             this.setState({userID: decoded.sub})
-        }catch(err){
-            
         }
     }
  
