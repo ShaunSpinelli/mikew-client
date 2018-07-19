@@ -150,8 +150,8 @@ class Contact extends React.Component{
                             floatingLabelText= "comment"
                             value= {comment} 
                             onChange= {handleChange} />
-                        <button onClick={this.contactRequest} disabled={this.state.contactButton} className="sendContact"> {sent} </button>
                     </form>
+                    <button onClick={this.contactRequest} disabled={this.state.contactButton} className="sendContact"> {sent} </button>
                 </div>
             </MuiThemeProvider>
         </div>
