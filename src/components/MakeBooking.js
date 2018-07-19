@@ -52,7 +52,7 @@ class MakeBooking extends React.Component {
             date: this.state.date.format('MM/DD/YYYY'),
             startTime: this.timeConverter(this.state.startTime),
             endTime: this.timeConverter(this.state.endTime),
-            clientId: 1,
+            clientId: this.state.userID,
             info: this.state.note,
             bookingStatus: "pending"
         }
