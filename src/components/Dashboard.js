@@ -6,17 +6,24 @@ const jwtDecode = require('jwt-decode')
 
 // const decoded = jwtDecode(localStorage.getItem('token'))
 
-export default () =>(
+export default class     extends React.Component  {
+    
+decoded = jwtDecode(localStorage.getItem('token'))
+    
+    
+    render(){
+        return(
+
     <div>
         <h1>DashBoard</h1>
         <p>Bookings</p>
-        {/* <AllBookings />
-        {decoded.role === 'admin' && 
+        <AllBookings />
+        {this.decoded.role === 'admin' && 
         <div>
             <p>Contact Requests</p>
              <AllContacts />
-        </div> */}
+        </div>
     
     }
     </div>
-)
+)}}
