@@ -13,9 +13,9 @@
 @import './components/not-found-page.css'; 
 
 :root {
-    --grey-color: #E0E0E0;
+    --grey-color: #c4c4c4;
     --dark-grey: #5C5C5C;
-    --aqua-color: #76DBDB; 
+    --aqua-color: #62c4c4; 
     --red-color: #FF8F8F;
 }
 

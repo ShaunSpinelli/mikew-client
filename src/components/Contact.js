@@ -107,10 +107,13 @@ class Contact extends React.Component{
         const {sent, fname, lname, phone, email, artist, comment, fnameError, lnameError, phoneError, emailError } = this.state
         const {handleChange} = this
         return(
-        <div>
+        <div className="contact--holder">
             <MuiThemeProvider>
                 <div className = "contact">
-                    <p> Contact Mike  </p>
+                    <div className= "Makebooking--header"> 
+                        <p className="Makebooking--headertitle"> Get in Contact Easily </p>
+                        <p className="Makebooking--headername">  with Michael Waye </p>
+                    </div>
                     <form className = "contact-form">
                         <TextField
                             name= "fname" 

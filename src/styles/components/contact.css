@@ -1,12 +1,63 @@
+.contact--holder{
+    padding: 1rem;
+    display: flex;
+    justify-content: center; 
+    text-align: center;
+}
+
+.contact--title{
+    text-align: center;
+}
+
+.contact{
+    padding-right: 1rem;
+    text-align: center;
+    width: 60vw;
+    font-family: 'Lato', sans-serif;
+    font-size: 1.3rem;
+}
+
 .contact > * {
     text-align: center;
     display: flex;
     flex-direction: column;
-    padding: 1rem 10rem 1rem 10rem; 
+    padding: 1rem 10rem 1rem 20rem; 
 }
 
-.contact--form > * {
-    width: 100%;
+
+.sendContact {
+    background: transparent;
+    border: none;
+    margin: .5rem auto 0;
+    display: block;
+    font-size: 1.3rem;
+    outline: none;
+    position: relative;
+    transition: 0.3s;
     padding: 1rem;
-}
+    color: black;
+    cursor: pointer;
+  }
+
+  .sendContact:before {
+    content: '';
+    border-bottom: 3px solid var(--aqua-color);
+    padding: 0 10px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 0;
+    transition: 0.3s;
+   }
+
+   .sendContact:hover:before {
+    width: 100%;
+    padding: 0;
+  }
+  .sendContact:active {
+    transition: none;
+  }
+  
 
