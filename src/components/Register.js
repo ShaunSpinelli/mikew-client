@@ -1,5 +1,7 @@
 import React, {Component, Fragment} from 'react'
 import Modal from 'react-modal'
+import TextField from 'material-ui/TextField'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import { api } from '../api/init'
 
   class Register extends Component {
@@ -49,6 +51,7 @@ import { api } from '../api/init'
     render() {
         const { openModal, closeModal, handleChange, handleRegister } = this
       return (
+        <MuiThemeProvider>
         <Fragment>
             <button className="register--button" onClick={openModal}>Register</button>
             <Modal
@@ -58,22 +61,49 @@ import { api } from '../api/init'
                 onRequestClose={closeModal}
                 contentLabel="Example Modal"
             >
-                <button  onClick={closeModal}>close</button>
+            <button  className="close--button" onClick={this.closeModal}> <img className="close--button--img"  src="http://www.myiconfinder.com/uploads/iconsets/256-256-46602df56c953c27348b14d8651dcdc5-close.png" /> </button>
                 <h1>Register Your Account</h1><br />
                 <p>{this.state.loginError ? 'Invalid Login Details': ''}</p>
                 <form>
-                    <input onChange={handleChange} name="firstName" placeholder="first name" />
-                    <input onChange={handleChange} name="lastName" placeholder="last name" />
-                    <input onChange={handleChange} name="phoneNumber" placeholder="phone number" />
-                    <input onChange={handleChange} type="email" name="email" placeholder="email" />
-                    <input onChange={handleChange} type="password" name="password" placeholder="password" />
-                    <input onClick={handleRegister} type="submit" name="register" className="login loginmodal-submit" value="Register" />
+                <TextField
+                    className="center--login--inputs"
+                    name= "firstName" 
+                    floatingLabelText= "first name"
+                    value= {this.state.firstName} 
+                    onChange= {this.handleChange} />
+                <TextField
+                    className="center--login--inputs"
+                    name= "lastName" 
+                    floatingLabelText= "last name"
+                    value= {this.state.lastName} 
+                    onChange= {this.handleChange} />
+                <TextField
+                    className="center--login--inputs"
+                    name= "phoneNumber" 
+                    floatingLabelText= "phone number"
+                    value= {this.state.phoneNumber} 
+                    onChange= {this.handleChange} />
+                <TextField
+                    className="center--login--inputs"
+                    name= "email" 
+                    floatingLabelText= "email"
+                    value= {this.state.email} 
+                    onChange= {this.handleChange} />
+                <TextField
+                    className="center--login--inputs"
+                    name= "password" 
+                    floatingLabelText= "password"
+                    value= {this.state.password} 
+                    onChange= {this.handleChange} 
+                    type= "password"/>   
+                <button onClick={this.handleLogin} type="submit" name="login" className="Makebooking--button"> Register </button>                 
                 </form>
                 <div className="login-help">
                     <a href="#">Login</a> - <a href="#">Forgot Password</a>
                 </div>
             </Modal>
         </Fragment>
+        </MuiThemeProvider>
       );
     }
   }
