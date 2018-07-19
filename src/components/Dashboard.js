@@ -4,18 +4,18 @@ import AllContacts from '../components/AllContacts.js'
 import AllUsers from '../components/AllUsers.js'
 const jwtDecode = require('jwt-decode')
 
-const decoded = jwtDecode(localStorage.getItem('token'))
+// const decoded = jwtDecode(localStorage.getItem('token'))
 
 export default () =>(
     <div>
         <h1>DashBoard</h1>
         <p>Bookings</p>
-        <AllBookings />
+        {/* <AllBookings />
         {decoded.role === 'admin' && 
         <div>
             <p>Contact Requests</p>
              <AllContacts />
-        </div>
+        </div> */}
     
     }
     </div>
