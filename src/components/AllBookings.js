@@ -21,11 +21,7 @@ class AllBookings extends React.Component {
 
     componentDidMount(){
         this.setState({loading: true})
-        const decodedYO = jwtDecode(localStorage.getItem('token'))
-        const decoded = {
-            role: 'user',
-            sub: "5b4ea7cfd882d80014954b7a"
-            }
+        const decoded = jwtDecode(localStorage.getItem('token'))
         decoded.role === "admin" ? 
             this.getUserBookings(decoded.sub)
             :

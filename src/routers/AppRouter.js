@@ -7,10 +7,9 @@ import About from '../components/About.js'
 import Contact from '../components/Contact.js'
 import MakeBooking from '../components/MakeBooking.js'
 import Footer from '../components/Footer.js'
-import AllBookings from '../components/AllBookings.js'
 import NotFoundPage from '../components/NotFoundPage.js'
-import AllContacts from '../components/AllContacts.js'
-import AllUsers from '../components/AllUsers.js'
+
+import Dashboard from '../components/Dashboard.js'
 
 class AppRouter extends Component {
     state= {
@@ -39,13 +38,7 @@ class AppRouter extends Component {
                  <Route exact path="/contact" component={Contact} />
                  <Route exact path="/booking" component={MakeBooking} />
                  {/* <Route exact path="/login" render={() => <Login  updatedLogIn={this.updateLoggedIn}/>} /> */}
-                 <Route exact path="/admin" render = { () =>
-                     <div> 
-                         <AllBookings />
-                         <AllContacts />
-                         <AllUsers />
-                     </div> 
-                 } />
+                 <Route exact path="/profile" component={Dashboard}/>
                  <Route component={NotFoundPage} />
              </Switch>      
              <Footer />
