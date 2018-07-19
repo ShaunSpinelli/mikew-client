@@ -7,7 +7,7 @@ const jwtDecode = require('jwt-decode')
 class Profile extends Component {
     state = {
         loading: false,
-        id:''
+        id: ""
     }
 
     componentDidMount(){
@@ -18,10 +18,11 @@ class Profile extends Component {
     }
 
     getUserProfile = (id) => {
-        api.get("users/id", {id: 'zz5b4ecaab3d9c6d403c1ea730' })
+        api.get("users/id", {params : {id: id }})
         .then((response) => {
             console.log(response)
-        this.setState({ id, loading: false }) })
+        this.setState({id, loading: false }) 
+        console.log(this.state.id)})
         .catch((err) => { console.log(err) })
         }
 
@@ -36,7 +37,5 @@ class Profile extends Component {
     }
 
 }
-
-
 
 export default Profile;
