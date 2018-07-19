@@ -107,7 +107,7 @@ class Contact extends React.Component{
         const {sent, fname, lname, phone, email, artist, comment, fnameError, lnameError, phoneError, emailError } = this.state
         const {handleChange} = this
         return(
-        <div>
+        <div className="contact--holder">
             <MuiThemeProvider>
                 <div className = "contact">
                     <p> Contact Mike  </p>
