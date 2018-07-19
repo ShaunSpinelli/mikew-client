@@ -23,6 +23,9 @@
     padding: 1rem 10rem 1rem 20rem; 
 }
 
+.contact > form > * {
+    margin-left: 6.5vw;
+}
 
 .sendContact {
     background: transparent;
