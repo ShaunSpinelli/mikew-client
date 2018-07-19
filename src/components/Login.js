@@ -55,17 +55,21 @@ import { api } from '../api/init'
           <p>{this.state.loginError ? 'Invalid Login Details': ''}</p>
           <div>
           <form className="login--form--container"> 
+          <p>
           <TextField
               name= "email" 
               floatingLabelText= "email"
               value= {this.state.email} 
               onChange= {this.handleChange} />
+          </p>
+          <p>
           <TextField
               name= "password" 
               floatingLabelText= "password"
               value= {this.state.password} 
               onChange= {this.handleChange}
               type="password" />
+            </p>
 				  	<button onClick={this.handleLogin} type="submit" name="login" className="Makebooking--button"> Login </button>
           </form>
           </div>
