@@ -1,5 +1,14 @@
 .Footer{
-    text-align: center;
-    background-color: pink;
-    padding: 1rem;
+    /* just for demo */
+    background-color: #F8F8F8;
+    border-top: 1px solid #E7E7E7;
+    text-align:center;
+    padding:20px;
+   /* just for demo */ 
+  
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 60px;
+    width: 100%;
 }
