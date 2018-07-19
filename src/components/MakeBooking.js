@@ -3,6 +3,8 @@ import DatePicker from 'react-datepicker'
 import TimePicker from 'react-bootstrap-time-picker'
 import moment from 'moment'
 import axios from 'axios'
+import TextField from 'material-ui/TextField'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import 'react-datepicker/dist/react-datepicker.css'
 
 class MakeBooking extends React.Component {
@@ -99,6 +101,12 @@ class MakeBooking extends React.Component {
                 </div>
                 <div className="Makebooking--note"> 
                     <p> Leave a note: </p>
+                    <TextField
+                            name= "fname" 
+                            floatingLabelText= "first name"
+                            value= {fname} 
+                            onChange= {handleChange}
+                            errorText = {fnameError} />
                     <input className="Makebooking--note--input" onChange={this.handleNote} name="note" />
                 </div>
                 <div className="Makebooking--buttonholder">

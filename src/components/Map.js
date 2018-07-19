@@ -19,9 +19,10 @@ class Map extends React.Component {
                         width: "50vw",
                     }}>
                         <Layer
-                        type="symbol"
-                        id="marker"
-                        layout={{ "icon-image": "marker-15" }}>
+                            type="symbol"
+                            id="marker"
+                            layout={{ "icon-image": "marker-15" }}>
+                            <Feature coordinates={[-79.6010196, 43.6565353]}/>
                         </Layer>
                     </Mapping>
                 </div>
