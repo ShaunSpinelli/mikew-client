@@ -1,23 +1,10 @@
-.Footer{
-    background-color: #F8F8F8;
-    border-top: 1px solid #E7E7E7;
-    text-align: center;
-    padding: 20px;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 3rem;
-    line-height: 3rem;
-    width: 100%;
-}
-
 .Footer--holder{
     background-color: white; 
     display: block;
     left: 0;
     padding: 20px;
     height: 3rem;
-    width: 100%;
+    width: 100vw;
     text-align: center;
     line-height: 3rem;
 }
