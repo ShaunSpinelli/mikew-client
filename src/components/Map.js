@@ -1,4 +1,9 @@
 import React from 'react'
+import ReactMapboxGl, { Layer, Feature } from "react-mapbox-gl";
+
+const Mapping = ReactMapboxGl({
+    accessToken: "pk.eyJ1IjoiZnJhc2VyaXNsYW5kIiwiYSI6ImNqanJ0YjdydzAxMzMzcG9zZzNydDR3NGsifQ.HGp2D9BXVgnAFIO1miIcXA"
+  });
 
 class Map extends React.Component {
     state = {  }
@@ -6,7 +11,19 @@ class Map extends React.Component {
         return ( 
             <div className="Map">
                 <div className="Map--frame">  
-                    <img src="https://www.harvard.edu/sites/default/files/content/harvard-map-google.jpg" />
+                    <Mapping
+                    center=  {[-79.6010196, 43.6565353]}
+                    style="mapbox://styles/mapbox/navigation-preview-night-v3"
+                    containerStyle={{
+                        height: "40vh",
+                        width: "50vw",
+                    }}>
+                        <Layer
+                        type="symbol"
+                        id="marker"
+                        layout={{ "icon-image": "marker-15" }}>
+                        </Layer>
+                    </Mapping>
                 </div>
                 <div className="Map--info">
                     <p> All producing enquires will be recieved at my home office. </p>
