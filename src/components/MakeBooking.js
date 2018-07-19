@@ -23,8 +23,12 @@ class MakeBooking extends React.Component {
     }
 
     componentDidMount(){
-        const decoded = jwtDecode(localStorage.getItem('token'))
-        this.setState({userID: decoded.sub})
+        try{
+            const decoded = jwtDecode(localStorage.getItem('token'))
+            this.setState({userID: decoded.sub})
+        }catch(err){
+            
+        }
     }
  
   handleDateChange = (date) => {
