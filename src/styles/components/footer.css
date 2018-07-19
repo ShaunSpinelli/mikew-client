@@ -1,13 +1,23 @@
 .Footer{
     background-color: #F8F8F8;
     border-top: 1px solid #E7E7E7;
-    text-align:center;
-    padding:20px;
+    text-align: center;
+    padding: 20px;
     position: absolute;
     left: 0;
     bottom: 0;
-    right:0;
-    line-height: 2.5rem;
-    height: 2.5rem;
+    height: 3rem;
+    line-height: 3rem;
     width: 100%;
+}
+
+.Footer--holder{
+    background-color: white; 
+    display: block;
+    left: 0;
+    padding: 20px;
+    height: 3rem;
+    width: 100%;
+    text-align: center;
+    line-height: 3rem;
 }
