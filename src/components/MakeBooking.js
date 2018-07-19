@@ -5,17 +5,26 @@ import moment from 'moment'
 import axios from 'axios'
 import TextField from 'material-ui/TextField'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import {api} from '../api/init.js'
 import 'react-datepicker/dist/react-datepicker.css'
+
+const jwtDecode = require('jwt-decode')
 
 class MakeBooking extends React.Component {
     state = {
       date: moment(),
       startTime: null,
       endTime: null,
-      bookingButton: true,
+      userID: "",
       note: "",
       sent: "Make booking request",
+      bookingButton: true,
       error: ""
+    }
+
+    componentDidMount(){
+        const decoded = jwtDecode(localStorage.getItem('token'))
+        this.setState({userID: decoded.sub})
     }
  
   handleDateChange = (date) => {
@@ -48,7 +57,8 @@ class MakeBooking extends React.Component {
             bookingStatus: "pending"
         }
     axios.post("https://mikewserver.herokuapp.com/bookings/new", booking)
-    .then(() => this.setState({sent: "sent!", bookingButton: true}))
+    .then(() => {this.setState({sent: "sent!", bookingButton: true}) 
+                console.log(this.state) })
     .catch((err) => { console.log(err) })
     } else {
         this.setState({error: "you must log in to make a request"})
