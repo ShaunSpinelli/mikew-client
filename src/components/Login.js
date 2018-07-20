@@ -75,9 +75,9 @@ import { api } from '../api/init'
 				  	<button onClick={this.handleLogin} type="submit" name="login" className="Makebooking--button"> Login </button>
           </form>
           </div>
-          <div className="login-help">
+          {/* <div className="login-help">
 					  <a href="#">Register</a> - <a href="#">Forgot Password</a>
-          </div>
+          </div> */}
           </Modal>
         </ Fragment>
         </ MuiThemeProvider>
