@@ -114,43 +114,57 @@ class Contact extends React.Component{
                         <p className="Makebooking--headertitle"> Get in Contact Easily </p>
                         <p className="Makebooking--headername">  with Michael Waye </p>
                     </div>
+                    <div className="contact--form--container">
                     <form className = "contact-form">
+                    <p>
                         <TextField
                             name= "fname" 
                             floatingLabelText= "first name"
                             value= {fname} 
                             onChange= {handleChange}
                             errorText = {fnameError} />
+                    </p>
+                    <p>
                         <TextField
                             name= "lname" 
                             floatingLabelText= "last name"
                             value= {lname} 
                             onChange= {handleChange}
                             errorText = {lnameError}  />
-                        <TextField
+                    </p>
+                    <p>
+                            <TextField
                             name= "phone" 
                             floatingLabelText= "phone"
                             value= {phone} 
                             onChange= {handleChange}
                             errorText = {phoneError}  />
+                    </p>
+                    <p>
                         <TextField
                             name= "email" 
                             floatingLabelText= "email"
                             value= {email} 
                             onChange= {handleChange}
                             errorText = {emailError} />
+                    </p>
+                    <p>
                         <TextField 
                             name= "artist" 
                             floatingLabelText= "artist"
                             value= {artist} 
                             onChange= {handleChange} />
+                    </p>
+                    <p>
                         <TextField 
                             name= "comment" 
                             hintText= "What would you like to talk about?" 
                             floatingLabelText= "comment"
                             value= {comment} 
                             onChange= {handleChange} />
+                    </p>
                     </form>
+                    </div>
                     <button onClick={this.contactRequest} disabled={this.state.contactButton} className="sendContact"> {sent} </button>
                 </div>
             </MuiThemeProvider>
