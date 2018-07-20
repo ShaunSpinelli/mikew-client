@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { api } from '../api/init'
 import Loading from './Loading'
-import TextField from 'material-ui/TextField'
 
 const jwtDecode = require('jwt-decode')
 
@@ -40,9 +39,12 @@ class Profile extends Component {
             <div className="profile--holder">
                 <div className="profile">
                     <img className="profilepic" src="https://eadb.org/wp-content/uploads/2015/08/profile-placeholder-300x300.jpg" />
-                    <h1 className="profile--title"> {fullName} </h1>
-                    <p className="profile">Email: { email } </p>
-                    <p>Phone: { phoneNumber } </p>
+                    <p className="profile--title"> { fullName } </p>
+                    <div className="profile--details--holder">
+                        <span className="profile--details"> <img className="Map--Icon" src="https://png.icons8.com/cotton/2x/secured-letter.png"/> { email } </span>
+                        <span className="profile--details"> <img className="Map--Icon" src="http://icons.iconarchive.com/icons/graphicloads/100-flat/256/phone-icon.png"/> { phoneNumber } </span>
+                        <span className="profile--details"> <img className="Map--Icon" src="https://cdn4.iconfinder.com/data/icons/basic-interface-overcolor/512/user-512.png"/> Edit Details </span>
+                    </div>
                 </div>
             </div>
         )

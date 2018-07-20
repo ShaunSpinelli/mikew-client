@@ -3,7 +3,8 @@ import axios from 'axios'
 
 class AllContacts extends React.Component {
     state = { 
-        allContacts: []
+        allContacts: [],
+        showContacts: false
      }
 
     componentWillMount(){
@@ -18,24 +19,35 @@ class AllContacts extends React.Component {
         .catch((err) => { console.log(err) })
     }
 
+    toggleContacts = () => {
+        this.setState({showContacts: !(this.state.showContacts)})
+        console.log('hey')
+    }
+
     render() { 
         return ( 
             <div>
+                <p>All Contacts </p>
+                <button onClick={this.toggleContacts}> Contacts </button>
+            <div className="allcontacts--holder">
             {
-                this.state.allContacts ? 
+                this.state.allContacts && this.state.showContacts ? 
                 this.state.allContacts.map((contact) => {
                     return (
-                        <div key = {contact._id}>  
-                            <h1> name: {contact.artist} </h1>
-                            <p> artist name: {contact.artist} </p>
-                            <p> email: {contact.email} </p>
-                            <p> phone: {contact.phone} </p>
-                            <p> comment: {contact.comment} </p>
+                        <div>
+                            <div className="contact" key = {contact._id}>  
+                                <h1> name: {contact.artist} </h1>
+                                <p> artist name: {contact.artist} </p>
+                                <p> email: {contact.email} </p>
+                                <p> phone: {contact.phone} </p>
+                                <p> comment: {contact.comment} </p>
+                            </div>
                         </div>
                     )
                 })
             : <p> loading hollup.. </p>
             }
+            </div>
             </div>
          );
     }

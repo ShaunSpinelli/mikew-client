@@ -116,53 +116,53 @@ class Contact extends React.Component{
                     </div>
                     <div className="contact--form--container">
                     <form className = "contact-form">
-                        <p>
+                    <p>
                         <TextField
                             name= "fname" 
                             floatingLabelText= "first name"
                             value= {fname} 
                             onChange= {handleChange}
                             errorText = {fnameError} />
-                        </p>
-                        <p>
+                    </p>
+                    <p>
                         <TextField
                             name= "lname" 
                             floatingLabelText= "last name"
                             value= {lname} 
                             onChange= {handleChange}
                             errorText = {lnameError}  />
-                        </p>
-                        <p>
-                        <TextField
+                    </p>
+                    <p>
+                            <TextField
                             name= "phone" 
                             floatingLabelText= "phone"
                             value= {phone} 
                             onChange= {handleChange}
                             errorText = {phoneError}  />
-                        </p>
-                        <p>
+                    </p>
+                    <p>
                         <TextField
                             name= "email" 
                             floatingLabelText= "email"
                             value= {email} 
                             onChange= {handleChange}
                             errorText = {emailError} />
-                        </p>
-                        <p>
+                    </p>
+                    <p>
                         <TextField 
                             name= "artist" 
                             floatingLabelText= "artist"
                             value= {artist} 
                             onChange= {handleChange} />
-                        </p>
-                        <p>
+                    </p>
+                    <p>
                         <TextField 
                             name= "comment" 
                             hintText= "What would you like to talk about?" 
                             floatingLabelText= "comment"
                             value= {comment} 
                             onChange= {handleChange} />
-                        </p>
+                    </p>
                     </form>
                     </div>
                     <button onClick={this.contactRequest} disabled={this.state.contactButton} className="sendContact"> {sent} </button>

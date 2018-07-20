@@ -12,6 +12,8 @@
 @import './components/map.css';
 @import './components/not-found-page.css'; 
 @import './components/profile.css'; 
+@import './components/allcontacts.css'; 
+@import './components/testimonies.css'; 
 
 :root {
     --grey-color: #c4c4c4;

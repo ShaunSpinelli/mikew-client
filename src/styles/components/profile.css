@@ -13,6 +13,16 @@
 
 .profile--title{
     text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.profile--details--holder{
+    text-align: center;
+}
+
+.profile--details{
+    padding: 1rem;
 }
 
 .profile{
