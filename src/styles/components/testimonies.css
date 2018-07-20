@@ -5,6 +5,7 @@
     background-image: url("http://jeffcoffin.com/wp-content/uploads/2014/10/0-JC-playing-banner-1440x561.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+    padding: 10vh;
 }
 
 .testimonies--title{

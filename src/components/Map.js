@@ -12,7 +12,8 @@ class Map extends React.Component {
             <div className="Map">
                 <div className="Map--frame">  
                     <Mapping
-                    center=  {[-79.6010196, 43.6565353]}
+                    zoom={[15]}
+                    center=  {[152.953761,-27.492133]}
                     style="mapbox://styles/mapbox/navigation-preview-night-v3"
                     containerStyle={{
                         height: "40vh",
@@ -22,23 +23,22 @@ class Map extends React.Component {
                             type="symbol"
                             id="marker"
                             layout={{ "icon-image": "marker-15" }}>
-                            <Feature coordinates={[-79.6010196, 43.6565353]}/>
+                            <Feature coordinates={[152.953761,-27.492133]}/>
                         </Layer>
                     </Mapping>
                 </div>
                 <div className="Map--info">
-                    <p> All producing enquires will be recieved at my home office. </p>
-                    <p> My studio has everything needed to produce proffesional music </p>
+                    <p> All production appointments will be received at my home office. My studio has everything needed to produce profesional music </p>
                     <div>
                         <p> <img className="Map--Icon" src="http://www.myiconfinder.com/uploads/iconsets/256-256-35be70cfc8168446fdd9c9803ea9f6a1.png"/>
-                         Address:  Elizabeth Drive, Rosebud, Victoria 3939 </p>
+                         Address:  1 Pilin Place, Chapel Hill, Queensland </p>
                     </div>
                     <p> <img className="Map--Icon" src="http://www.thamesriverservices.co.uk/assets/address.png"/> 
-                        Postal Address: PO Box 93 </p>
+                    Postal Address: PO Box 93 </p>
                     <p> <img className="Map--Icon" src="https://png.icons8.com/cotton/2x/secured-letter.png"/>
-                        MikeOxlong@gmail.com </p>
+                    michael.s.waye@gmail.com  </p>
                     <p> <img className="Map--Icon" src="http://icons.iconarchive.com/icons/graphicloads/100-flat/256/phone-icon.png"/>
-                        0450309283 </p>
+                    0450309283 </p>
                 </div>
             </div>
          )

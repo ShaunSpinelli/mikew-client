@@ -108,9 +108,7 @@ import { api } from '../api/init'
                 </p>
                 <button onClick={this.handleLogin} type="submit" name="login" className="Makebooking--button"> Register </button>                 
                 </form>
-                <div className="login-help">
-                    <a href="#">Login</a> - <a href="#">Forgot Password</a>
-                </div>
+
             </Modal>
         </Fragment>
         </MuiThemeProvider>
