@@ -1,5 +1,5 @@
 .Footer--holder{
-    background-color: white; 
+    background-color: var(--dark-grey);
     display: block;
     left: 0;
     height: 4rem;

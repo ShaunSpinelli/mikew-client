@@ -1,5 +1,6 @@
 import React from 'react'
 import Map from './Map'
+import Testimonies from './Testimonies.js'
 import Footer from './Footer.js'
 
 const HomePage = () => (
@@ -14,6 +15,7 @@ const HomePage = () => (
                     <img className="Homepage--icon" src="https://www.shareicon.net/data/256x256/2015/08/29/92757_like_606x606.png" alt="facebook logo"/>
                 </div>
         </div>
+        <Testimonies />
         <Map />
     </div>
 )
