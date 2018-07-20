@@ -1,8 +1,12 @@
 
 .Navbar {
+    position: relative;
+    top: 0;
+    width: 100%;
     text-align: center;
-    line-height: 5vh;
-    background-color: var(--dark-grey)
+    line-height: 4rem;
+    background-color: var(--dark-grey);
+    transition: 0.4s;
 }
 
 .Navbar--links > * {
