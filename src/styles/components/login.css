@@ -24,8 +24,8 @@
   width: 2rem;
 }
 
-.login--form--container{
-  text-align: center;
+.center--login--inputs{
+  margin-left: 5vw;
 }
 
 .loginmodal-container h1 {
@@ -61,3 +61,6 @@
   font-size: 12px;
 }
 
+.ReactModal__Overlay{
+  z-index: 1000000;
+}

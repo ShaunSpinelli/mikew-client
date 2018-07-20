@@ -1,7 +1,6 @@
 .Makebooking-container{
   display: flex;
   justify-content: center; 
-  height: 95vh;
 }
 
 .Makebooking {
