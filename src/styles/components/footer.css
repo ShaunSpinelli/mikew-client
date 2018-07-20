@@ -1,9 +1,14 @@
+
 .Footer--holder{
     background-color: var(--dark-grey);
     display: block;
+    border-top: 1px solid #E7E7E7;
+    text-align:center;
+    padding:20px;
     left: 0;
-    height: 4rem;
-    width: 100vw;
-    text-align: center;
-    line-height: 4rem;
+    bottom: 0;
+    right:0;
+    line-height: 2.5rem;
+    height: 2.5rem;
+    width: 100%;
 }
