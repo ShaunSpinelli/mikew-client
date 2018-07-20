@@ -1,9 +1,10 @@
-.Footer{
-    background-color: #F8F8F8;
+
+.Footer--holder{
+    background-color: var(--dark-grey);
+    display: block;
     border-top: 1px solid #E7E7E7;
     text-align:center;
     padding:20px;
-    position: absolute;
     left: 0;
     bottom: 0;
     right:0;
