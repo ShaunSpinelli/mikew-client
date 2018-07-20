@@ -16,7 +16,6 @@ decoded = jwtDecode(localStorage.getItem('token'))
         return(
 
     <div>
-        <h1>DashBoard</h1>
         <Profile />
         <p>Bookings</p>
         <AllBookings />
