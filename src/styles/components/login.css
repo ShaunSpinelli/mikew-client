@@ -24,8 +24,8 @@
   width: 2rem;
 }
 
-.center--login--inputs{
-  margin-left: 5vw;
+.login--form--container{
+  text-align: center;
 }
 
 .loginmodal-container h1 {

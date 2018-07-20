@@ -1,13 +1,5 @@
-html {
-    position: relative;
-    min-height: 100vh;
-    max-width: 100vw;
-    overflow-x: hidden;
-}
-
 body{
     margin: 0;
     font-family: 'Roboto', sans-serif;
     background-color: var(--grey-color)
-
 }
