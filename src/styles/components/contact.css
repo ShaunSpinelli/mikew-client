@@ -3,6 +3,7 @@
     display: flex;
     justify-content: center; 
     text-align: center;
+    height: 93vh;
 }
 
 .contact--title{
@@ -10,19 +11,13 @@
 }
 
 .contact{
-    padding-right: 1rem;
-    text-align: center;
     width: 60vw;
     font-size: 1.3rem;
 }
 
-.contact > * {
+.contact--form--container{
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    padding: 1rem 10rem 1rem 20rem; 
 }
-
 
 .sendContact {
     background: transparent;
