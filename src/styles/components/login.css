@@ -61,3 +61,6 @@
   font-size: 12px;
 }
 
+.ReactModal__Overlay{
+  z-index: 1000000;
+}
