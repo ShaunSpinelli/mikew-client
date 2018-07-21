@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import {Switch, BrowserRouter, Route} from 'react-router-dom'
-
 import Nav from '../components/Nav.js'
 import HomePage from '../components/HomePage.js'
 import About from '../components/About.js'
@@ -8,8 +7,8 @@ import Contact from '../components/Contact.js'
 import MakeBooking from '../components/MakeBooking.js'
 import Footer from '../components/Footer.js'
 import NotFoundPage from '../components/NotFoundPage.js'
-
 import Dashboard from '../components/Dashboard.js'
+import injectGlobal from '../styles/Global.styles'
 
 class AppRouter extends Component {
     state= {
