@@ -1,0 +1,39 @@
+.Homepage{
+    padding-left: 18vw;
+    height: 75vh;
+}
+ 
+p {
+    margin: 0;
+    padding: 0;
+}
+
+.Homepage--nametitle{
+    margin: 20vh 0 1rem 0;
+    font-size: 10rem;
+    font-weight: 700;
+}
+
+.Homepage--subtitle{
+    margin: 0rem 0 1rem 0;
+    font-size: 3rem;
+}
+
+.Homepage--slogan{
+    font-size: 1.5rem;
+    color: grey;
+}
+
+.Homepage--icons > *{
+    position: absolute;
+    padding-right: 5vw;
+    bottom: 1rem;
+    right: 3rem;
+    height: 2.5rem;
+}
+
+.Homepage--icons > *:last-child{
+    height: 2.5rem;
+    right: 0rem;
+}
+

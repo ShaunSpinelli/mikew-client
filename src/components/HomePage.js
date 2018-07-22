@@ -2,12 +2,14 @@ import React, {Fragment} from 'react'
 import Map from './Map'
 import Testimonies from './Testimonies.js'
 import Footer from './Footer.js'
-import { Title, Subtitle, Slogan, Home, Icon1, Icon2 } from '../styles/HomePage.styles';
+import { Title, Subtitle, Slogan, Home, Icon1, Icon2, Img } from '../styles/HomePage.styles';
+import michael from '../images/michael.jpg'
 
 
 const HomePage = () => (
     <Fragment>
         <Home>
+            <Img src={michael} alt="Photo of Michael Waye"></Img>
             <Title>Michael Waye</Title>
             <Subtitle> MUSIC PRODUCTION </Subtitle>
             <Slogan> Professional Producing Assistance <br />

@@ -1,6 +1,8 @@
 import React from 'react'
 import TextField from 'material-ui/TextField'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import { Title, Subtitle } from '../styles/Mixins.styles';
+import { ContactForm } from '../styles/Contact.styles';
 import axios from 'axios'
 
 class Contact extends React.Component{
@@ -107,13 +109,11 @@ class Contact extends React.Component{
         const {sent, fname, lname, phone, email, artist, comment, fnameError, lnameError, phoneError, emailError } = this.state
         const {handleChange} = this
         return(
-        <div className="contact--holder">
+        <ContactForm>
             <MuiThemeProvider>
-                <div className = "contact">
-                    <div className= "Makebooking--header"> 
-                        <p className="Makebooking--headertitle"> Get in Contact Easily </p>
-                        <p className="Makebooking--headername">  with Michael Waye </p>
-                    </div>
+                <div>
+                        <Title> Get in Contact Easily </Title>
+                        <Subtitle>  with Michael Waye </Subtitle>
                     <div className="contact--form--container">
                     <form className = "contact-form">
                     <p>
@@ -168,7 +168,7 @@ class Contact extends React.Component{
                     <button onClick={this.contactRequest} disabled={this.state.contactButton} className="sendContact"> {sent} </button>
                 </div>
             </MuiThemeProvider>
-        </div>
+        </ContactForm>
         )
     }
 }
