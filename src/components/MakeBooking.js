@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import DatePicker from 'react-datepicker'
 import TimePicker from 'react-bootstrap-time-picker'
 import moment from 'moment'
@@ -7,10 +7,13 @@ import TextField from 'material-ui/TextField'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import {api} from '../api/init.js'
 import 'react-datepicker/dist/react-datepicker.css'
+import { Title, Subtitle } from '../styles/Mixins.styles';
+import {BookingForm, Question, Text } from '../styles/MakeBooking.styles';
+
 
 const jwtDecode = require('jwt-decode')
 
-class MakeBooking extends React.Component {
+class MakeBooking extends Component {
     state = {
       date: moment(),
       startTime: null,
@@ -79,16 +82,13 @@ class MakeBooking extends React.Component {
   render() {
     const {note, error, sent, startTime, endTime, bookingButton} = this.state
     return (
-        <div>
+        <BookingForm>
             <MuiThemeProvider>
-                <div className="Makebooking-container">
-                    <div className= "Makebooking">
-                        <div className= "Makebooking--header"> 
-                        <p className="Makebooking--headertitle"> Make a Booking Request </p>
-                        <p className="Makebooking--headername">  with Michael Waye </p>
-                        </div>
+                        <Title> Make a Booking Request </Title>
+                        <Subtitle>  with Michael Waye </Subtitle>
+
                         <div className= "Makebooking--whatDate">
-                            <p> what day? </p>
+                        <Question>What day?</Question>
                             <DatePicker
                                 className= "Makebooking--datePicker"
                                 selected= {this.state.date}
@@ -96,9 +96,9 @@ class MakeBooking extends React.Component {
                             />
                         </div>
                         <div className="Makebooking--whatTime">
-                            <p> what time? </p>
+                        <Question>What time?</Question>
                             <div>
-                                <span> start: </span> 
+                                <Text>Start:&nbsp;</Text> 
                                 <TimePicker 
                                     className= "Makebooking--timePicker"
                                     start={"7:00"}
@@ -108,7 +108,7 @@ class MakeBooking extends React.Component {
                                     onChange={this.handleStartTimeChange}
                                 />
                             </div>
-                            <span> end: </span> 
+                            <Text>End:&nbsp;</Text> 
                             <TimePicker 
                                 className= "Makebooking--timePicker"
                                 start={ this.timeConverter(startTime) || "7:30" } 
@@ -130,10 +130,8 @@ class MakeBooking extends React.Component {
                             <button className="Makebooking--button" disabled={bookingButton}  onClick={this.handleBookingRequest}> {sent} </button>
                         </div>
                         {error}
-                    </div>
-                </div>
             </MuiThemeProvider>
-        </div>
+        </ BookingForm>
     )
   }
 }

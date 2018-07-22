@@ -36,7 +36,6 @@ class AppRouter extends Component {
                  <Route exact path="/about" component={About} />
                  <Route exact path="/contact" component={Contact} />
                  <Route exact path="/booking" component={MakeBooking} />
-                 {/* <Route exact path="/login" render={() => <Login  updatedLogIn={this.updateLoggedIn}/>} /> */}
                  <Route exact path="/profile" component={Dashboard}/>
                  <Route component={NotFoundPage} />
              </Switch>      

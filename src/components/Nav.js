@@ -1,54 +1,31 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
-import Login from './Login'
-import Register from './Register'
+import React, {Component, Fragment} from 'react'
+import { Navbar, StyledLink, FirstStyledLink, Button, Initial, Name } from '../styles/Nav.styles';
+import Login from '../components/Login'
+import Register from '../components/Register'
 
-class Nav extends React.Component {
-    // state ={ 
-    //     scrollingLock: false
-    // }
-
-    // componentDidMount(){
-    //     window.addEventListener('scroll', this.handleScroll);
-    // }
-    
-    // componentWillUnmount() {
-    //     window.removeEventListener('scroll', this.handleScroll);
-    // }
-    
-    // handleScroll = () => {
-
-    //     if (window.scrollY > 100) {
-    //       this.setState({
-    //         scrollingLock: true
-    //       });
-    //     } else if (window.scrollY < 100) {
-    //       this.setState({
-    //         scrollingLock: false
-    //       });
-    //     }
-    // }
+class Nav extends Component {
 
     render(){
         return (
-            <div className="Navbar">
-                <div className="Navbar--links"> 
-                    <NavLink exact to="/"> MW </NavLink>
-                    <NavLink exact to="/"> About Michael </NavLink>
-                    <NavLink exact to="/contact"> Contact </NavLink>
-                    <NavLink exact to="/booking"> Book an Appointment </NavLink>
-                    { localStorage.token ? 
-                        <React.Fragment> 
-                            <NavLink exact to="/profile"> Profile </NavLink>
-                            <NavLink to="/" onClick={this.props.logout}> Logout </NavLink> 
-                        </React.Fragment>
-                    :  
-                    <React.Fragment> 
-                        <Login updatedLogIn={this.props.updatedLogIn}/> 
-                        <Register /> 
-                    </React.Fragment> }
-                </div>
-            </div>
+            <Navbar>
+                <FirstStyledLink exact to="/">
+                    <Initial first>M</ Initial>
+                    <Initial>W</ Initial>
+                </FirstStyledLink>
+                <StyledLink exact to="/"> About Michael </StyledLink>
+                <StyledLink exact to="/contact"> Contact </StyledLink>
+                <StyledLink exact to="/booking"> Book an Appointment </StyledLink>
+                { localStorage.token ? 
+                    <Fragment> 
+                        <StyledLink exact to="/profile"> Profile </StyledLink>
+                        <StyledLink to="/" onClick={this.props.logout}> Logout </StyledLink> 
+                    </ Fragment>
+                :  
+                <Fragment> 
+                    <Login updatedLogIn={this.props.updatedLogIn}/>
+                    <Register />
+                </ Fragment> }
+            </ Navbar>
         )
     }
 }
