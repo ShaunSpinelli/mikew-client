@@ -16,7 +16,6 @@ class AllBookings extends React.Component {
         loading: false
      }
 
-
      isAdmin = () =>{
         const decoded = jwtDecode(localStorage.getItem('token'))
         return decoded.role === "admin" 
