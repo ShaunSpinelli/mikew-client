@@ -1,4 +1,4 @@
-import styled, { css, injectGlobal } from 'styled-components'
+import styled, { css } from 'styled-components'
 
 const Home = styled.div`
   height: 50vh;
@@ -36,8 +36,8 @@ ${setTextProps('1.5em','300','white', 'yellow')}
 const Icon1 = styled.img`
 ${setIconProps('absolute', '5vw', '1rem', '3rem', '2.5rem')}
 `
-const Icon2 = styled.img`
-${setIconProps('absolute', '5vw', '1rem', '0rem', '2.5rem')}
+const Icon2 = Icon1.extend`
+right: 0rem;
 `
 
 export { Title, Subtitle, Slogan, Home, Icon1, Icon2 }

@@ -1,40 +1,30 @@
-
-.Navbar {
-    position: relative;
-    top: 0;
-    width: 100%;
-    text-align: center;
-    line-height: 4rem;
-    background-color: var(--dark-grey);
-    transition: 0.4s;
+.login--button{
+    border: none;
+    padding: 0;
+    background: none;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;  
+    color: white;
 }
-
-.Navbar--links > * {
+.login--button > *:hover {
     margin-left: 3rem;
     vertical-align: middle;
     text-decoration: none;
-    color: white;
-    transition: 0.4s;
-/* below is to get rid of button styling  */
+    color: yellow;
+}
+.register--button{
     background: none;
     border: none;
     padding: 0;
     font: inherit;
     cursor: pointer;
-    outline: inherit;
+    outline: inherit;  
+    color: white;
 }
-
-
-.Navbar--links > *:first-child {
-    font-size: 1.5rem;
-    font-weight: 700;
-    float: left;
-    color: var(--aqua-color);
-}
-
-.Navbar--links > *:hover {
+.register--button > *:hover {
     margin-left: 3rem;
     vertical-align: middle;
     text-decoration: none;
-    color: var(--aqua-color);
+    color: yellow;
 }
