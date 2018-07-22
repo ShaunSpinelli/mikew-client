@@ -2,6 +2,7 @@ import React, {Component, Fragment} from 'react'
 import Modal from 'react-modal'
 import TextField from 'material-ui/TextField'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import { Button } from '../styles/Nav.styles';
 import { api } from '../api/init'
 
   // Make sure to bind modal to your appElement (http://reactcommunity.org/react-modal/accessibility/)
@@ -41,7 +42,7 @@ import { api } from '../api/init'
       return (
         <MuiThemeProvider>
         <Fragment>
-          <button className="login--button" onClick={this.openModal}>Login</button>
+          <Button onClick={this.openModal}>Login</ Button>
           <Modal
             className="modal fade modal-dialog loginmodal-container"
             id="login-modal"
