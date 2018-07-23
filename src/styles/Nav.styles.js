@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components'
 import { NavLink } from 'react-router-dom'
+import { setButtonProps} from '../styles/Mixins.styles';
 
 const Navbar = styled.div`
     height: 185px;
@@ -26,37 +27,22 @@ const StyledLink = styled(NavLink)`
         background-color: yellow;
         color: black;
         }
+        
 `
-const Button = styled.button`
-    margin-left: 1rem;
-    vertical-align: middle;
-    text-decoration: none;
-    color: white;
-    transition: 0.4s;
-    background: none;
-    &:hover {
-        margin-left: 1.5rem;
-        vertical-align: middle;
-        text-decoration: none;
-        color: yellow;
-        }
-    border: none;
-    font: inherit;
-    cursor: pointer;
-    outline: inherit;  
-`
-
 const FirstStyledLink = StyledLink.extend`
     background-color: #282727;
     postion: fixed;
     display: block;
     margin-left: 0;
-    padding-top: 1.5rem;
     &:hover {
         margin-left: 0;
         background-color: #282727;
-    }
+  `
+
+const Button = styled.button`
+    ${setButtonProps('#48474A', 'white', 'black', 'yellow', 'none', 'none')}
 `
+
 const Initial = styled.span`
     font-size: 3rem;
     font-weight: 700;

@@ -1,13 +1,10 @@
 import styled, { css } from 'styled-components'
-import { setTextProps, setIconProps } from '../styles/Mixins.styles';
+import { setTextProps, setIconProps, setImgProps } from '../styles/Mixins.styles';
 
 const Home = styled.div`
 `
 const Img = styled.img`
-  border-radius: 50%;
-  height: 250px;
-  width: 250px;
-  margin: 25px 0;
+  ${setImgProps('50%','250px', '250px', '25px', '0px')}
 `
 const Title = styled.h4`
   ${setTextProps('3em','300','yellow')}
