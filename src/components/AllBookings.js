@@ -3,6 +3,8 @@ import moment from 'moment'
 import Booking from './Booking'
 import Loading from './Loading'
 import { api } from '../api/init';
+import { Button } from '../styles/AllBookings.styles';
+
 
 const jwtDecode = require('jwt-decode')
 
@@ -113,10 +115,10 @@ class AllBookings extends React.Component {
         return ( 
             <div className="allbookings"> 
 
-            <button onClick={() => this.toggleShow("pending")}> Pending </button>
-            <button onClick={() => this.toggleShow("approved")}> Approved </button>
-            <button onClick={() => this.toggleShow("cancelled")}> Cancelled </button>
-            <button onClick={() => this.toggleShow("completed")}> Completed </button>
+            <Button onClick={() => this.toggleShow("pending")}> Pending </Button>
+            <Button onClick={() => this.toggleShow("approved")}> Approved </Button>
+            <Button onClick={() => this.toggleShow("cancelled")}> Cancelled </Button>
+            <Button onClick={() => this.toggleShow("completed")}> Completed </Button>
             
             {(this.state.show === "pending") && 
             <div>
