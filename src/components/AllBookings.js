@@ -14,7 +14,7 @@ class AllBookings extends React.Component {
         completed: [],
         cancelled: [],
         loading: false,
-        show: "approved"
+        show: "pending"
      }
 
      isAdmin = () =>{
@@ -110,7 +110,6 @@ class AllBookings extends React.Component {
     render() { 
         const { loading, completed, declined, approved, pending, cancelled } = this.state
         const { bookingSection, isAdmin } = this
-        { if(loading === true){ return <Loading className = "loadingScreen" /> } }  
         return ( 
             <div className="allbookings"> 
 

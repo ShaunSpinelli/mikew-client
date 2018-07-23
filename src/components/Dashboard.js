@@ -9,7 +9,7 @@ const jwtDecode = require('jwt-decode')
 
 export default class extends React.Component  {
     state = {
-        show: null
+        show: "bookings"
     }
 
     decoded = jwtDecode(localStorage.getItem('token'))
