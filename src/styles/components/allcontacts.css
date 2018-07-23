@@ -1,14 +1,6 @@
-.allcontacts--holder{
-    display: flex;
-    flex-wrap: wrap;
-    overflow-x: auto;
-    height: 50vw;
-    justify-content: center;
-    background-color: beige;
-}
-
 .contact{
     background-color: rgba(255,255,255, 0.7);
     margin: 1rem;
     text-align: center;
+    color: black;
 }

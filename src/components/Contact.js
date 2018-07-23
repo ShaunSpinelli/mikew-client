@@ -4,6 +4,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import { Title, Subtitle } from '../styles/Mixins.styles';
 import { ContactForm } from '../styles/Contact.styles';
 import axios from 'axios'
+import { Redirect } from 'react-router-dom'
 
 class Contact extends React.Component{
     state= {
@@ -18,7 +19,8 @@ class Contact extends React.Component{
         artist: '',
         comment: '',
         contactButton: false,
-        sent: "Send"
+        sent: "Send",
+        isAuthenticated: false
     }
 
     //feel free to add extra validation in this function.
@@ -95,7 +97,7 @@ class Contact extends React.Component{
             console.log(contactReq)
 
             axios.post("https://mikewserver.herokuapp.com/contact/new", contactReq)
-            .then(() => this.setState({ sent: "sent!", contactButton: true }))
+            .then(() => this.setState({ sent: "sent!", contactButton: true, isAuthenticated: true }))
             .catch((err) => { console.log(err) })
 
         }
@@ -106,8 +108,11 @@ class Contact extends React.Component{
     }
 
     render(){
-        const {sent, fname, lname, phone, email, artist, comment, fnameError, lnameError, phoneError, emailError } = this.state
+        const {sent, fname, lname, phone, email, artist, comment, fnameError, lnameError, phoneError, emailError, isAuthenticated } = this.state
         const {handleChange} = this
+        if (isAuthenticated) {
+            return <Redirect to='/' />
+        }
         return(
         <ContactForm>
             <MuiThemeProvider>

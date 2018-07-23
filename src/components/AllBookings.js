@@ -13,9 +13,9 @@ class AllBookings extends React.Component {
         pending: [],
         completed: [],
         cancelled: [],
-        loading: false
+        loading: false,
+        show: "approved"
      }
-
 
      isAdmin = () =>{
         const decoded = jwtDecode(localStorage.getItem('token'))
@@ -28,7 +28,6 @@ class AllBookings extends React.Component {
         if( this.isAdmin()){
             this.getAdminBookings()
         }else{ this.getUserBookings(decoded.sub) }
-
     }
 
     getAdminBookings = () => {
@@ -48,18 +47,15 @@ class AllBookings extends React.Component {
         .catch((err) => { console.log(err) })
     }
 
-
     checkBookingStatus = (booking) => {
         let bookingStatus = booking.bookingStatus
         this.setState({ [bookingStatus]: [...this.state[bookingStatus], booking] })
     }
-    
-
         
     bookingSection = (bookingArr,admin) =>{
         return bookingArr.map((booking) => {
             return (
-                <div key = {booking._id}>  
+                <div className="contact" key = {booking._id}>  
                         <Booking {...booking}/>
                         {/* check for related buttons to display*/}
                         {admin && booking.bookingStatus === 'pending' ? 
@@ -75,6 +71,10 @@ class AllBookings extends React.Component {
                 </div>
             )
         })
+    }
+
+    toggleShow = (section) => {
+        this.setState({show: section})
     }
 
         // updates state and back end when status of booking is changed
@@ -107,21 +107,38 @@ class AllBookings extends React.Component {
         // not being used right now 
         readableDate = (date) => ( moment(date, 'YYYYMMDD').format('MMM Do YY') )
 
-
-
     render() { 
         const { loading, completed, declined, approved, pending, cancelled } = this.state
+        const { bookingSection, isAdmin } = this
         { if(loading === true){ return <Loading className = "loadingScreen" /> } }  
         return ( 
+            <div className="allbookings"> 
+
+            <button onClick={() => this.toggleShow("pending")}> Pending </button>
+            <button onClick={() => this.toggleShow("approved")}> Approved </button>
+            <button onClick={() => this.toggleShow("cancelled")}> Cancelled </button>
+            <button onClick={() => this.toggleShow("completed")}> Completed </button>
+            
+            {(this.state.show === "pending") && 
             <div>
-                <h3> Pending Bookings </h3>
-                    {this.bookingSection(pending,this.isAdmin())}
-                <h3> Approved Bookings </h3>
-                    {this.bookingSection(approved,this.isAdmin())}
-                <h3> Completed Bookings </h3>
-                    {this.bookingSection(completed,this.isAdmin())}
-                <h3> Cancelled Bookings </h3>
-                    {this.bookingSection(cancelled,this.isAdmin())}
+                {bookingSection(pending,isAdmin())}
+            </div>
+            }
+            {(this.state.show === "approved") && 
+            <div>
+                {bookingSection(approved,isAdmin())}
+            </div>
+            }
+            {(this.state.show === "completed") && 
+            <div>
+                {bookingSection(completed,isAdmin())}
+            </div>
+            }
+            {(this.state.show === "cancelled") && 
+            <div >
+                {bookingSection(cancelled,isAdmin())}
+            </div>
+            }
             </div>
          )
     }
