@@ -3,13 +3,10 @@ import styled, { css, injectGlobal } from 'styled-components'
 const Home = styled.div`
   height: 75vh;
 `
-const setTextProps = (size, weight, colour, hovercolour ) => css`
+const setTextProps = (size, weight, colour ) => css`
   font-size: ${size};
   font-weight: ${weight};
   color: ${colour};
-  &:hover {
-    color:${hovercolour}
-  }
 `
 const Title = styled.h4`
   ${setTextProps('3.5em','300','white','yellow')}
@@ -28,19 +25,4 @@ const Icon = styled.img`
   right: 3rem;
   height: 2.5rem;
 `
-
-// .Homepage--icons > *{
-//   position: absolute;
-//   padding-right: 5vw;
-//   bottom: 1rem;
-//   right: 3rem;
-//   height: 2.5rem;
-// }
-
-// .Homepage--icons > *:last-child{
-//   height: 2.5rem;
-//   right: 0rem;
-// }
-
-
 export { Title, Subtitle, Slogan, Home, Icon }

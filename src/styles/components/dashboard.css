@@ -1,0 +1,9 @@
+.dashboard--toggler{
+    display: flex;
+    flex-wrap: wrap;
+    overflow-x: auto;
+    height: 50vh;
+    justify-content: center;
+    color: blue;
+    background-color: aqua;
+}
