@@ -7,15 +7,14 @@ const Img = styled.img`
   border-radius: 50%;
   height: 250px;
   width: 250px;
-  margin: 50px 0 20px 0;
+  margin: 25px 0;
 `
 const Title = styled.h4`
-padding-top: 0.5em;
-  ${setTextProps('3.5em','300','yellow')}
+  ${setTextProps('3em','300','yellow')}
 `
 const Subtitle = styled.h2`
 padding: 0.75em;
-${setTextProps('2em','300','white')}
+${setTextProps('1.9em','300','white')}
 `
 const Slogan = styled.h3`
 line-height: 1.5em;

@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 import { NavLink } from 'react-router-dom'
 
 const Navbar = styled.div`
-    height: 200px;
+    height: 185px;
     position: relative;
     top: 0;
     width: 100%;

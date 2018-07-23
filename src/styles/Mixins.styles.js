@@ -5,6 +5,7 @@ const setTextProps = (size, weight, colour) => css`
   font-weight: ${weight};
   color: ${colour};
   margin: 0;
+  padding: 0.35rem;
 `
 const setIconProps = (position, paddingr, bottom, right, height) => css`
   position: ${position};
