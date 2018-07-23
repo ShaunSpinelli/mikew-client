@@ -4,6 +4,43 @@
     overflow-x: auto;
     height: 50vh;
     justify-content: center;
-    color: blue;
-    background-color: aqua;
+    background-color: yellow;
+    margin: 1rem;
 }
+
+.dashboard--holder{
+    color: white;
+}
+
+.dash-btn{
+    color: white !important;
+}
+
+.dashboard--nav{
+    background: transparent;
+    border: none;
+    margin: .5rem auto 0;
+    display: block;
+    font-size: 1.3rem;
+    outline: none;
+    position: relative;
+    transition: 0.3s;
+    padding: 1rem;
+    color: black;
+    cursor: pointer;
+}
+
+.dashboard--nav:hover:before {
+    width: 100%;
+    padding: 0;
+  }
+
+ .dashboard--nav:active {
+    transition: none;
+  }
+  
+  .dashboard--nav:active {
+    transition: none;
+  }
+
+
