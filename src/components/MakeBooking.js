@@ -84,7 +84,7 @@ class MakeBooking extends Component {
   render() {
     const {note, error, sent, startTime, endTime, bookingButton, isAuthenticated} = this.state
         if (isAuthenticated) {
-            return <Redirect to='/' />
+            return <Redirect to='/profile' />
         }
     return (
         <BookingForm>

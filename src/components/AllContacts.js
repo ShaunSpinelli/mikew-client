@@ -22,26 +22,25 @@ class AllContacts extends React.Component {
     render() { 
         return ( 
             <div>
-                <p>All Contacts </p>
-            <div className="allcontacts--holder">
-            {
-                this.state.allContacts  ? 
-                this.state.allContacts.map((contact) => {
-                    return (
-                        <div>
-                            <div className="contact" key = {contact._id}>  
-                                <h1> name: {contact.artist} </h1>
-                                <p> artist name: {contact.artist} </p>
-                                <p> email: {contact.email} </p>
-                                <p> phone: {contact.phone} </p>
-                                <p> comment: {contact.comment} </p>
+                <div className="allcontacts--holder">
+                {
+                    this.state.allContacts  ? 
+                    this.state.allContacts.map((contact) => {
+                        return (
+                            <div>
+                                <div className="contact" key = {contact._id}>  
+                                    <h1> name: {contact.artist} </h1>
+                                    <p> artist name: {contact.artist} </p>
+                                    <p> email: {contact.email} </p>
+                                    <p> phone: {contact.phone} </p>
+                                    <p> comment: {contact.comment} </p>
+                                </div>
                             </div>
-                        </div>
-                    )
-                })
-            : <p> loading hollup.. </p>
-            }
-            </div>
+                        )
+                    })
+                : <p> loading hollup.. </p>
+                }
+                </div>
             </div>
          );
     }

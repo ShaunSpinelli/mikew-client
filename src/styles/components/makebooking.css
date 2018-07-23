@@ -66,13 +66,13 @@
     position: relative;
     transition: 0.3s;
     padding: 1rem;
-    color: black;
+    color: grey;
     cursor: pointer;
   }
 
   .Makebooking--button:before {
     content: '';
-    border-bottom: 3px solid var(--aqua-color);
+    border-bottom: 3px solid yellow;
     padding: 0 10px;
     position: absolute;
     bottom: 0;
