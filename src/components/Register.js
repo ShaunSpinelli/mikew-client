@@ -44,13 +44,11 @@ import { api } from '../api/init'
         }
         api.post('users/register', newUser)
         .then(res => { localStorage.setItem('token',res.data.token)
-            this.props.updatedLogIn()
             this.closeModal()})
-        .catch(err => this.setState({loginError: true}))
+        .catch(err => {this.setState({loginError: true})})
     }
 
     render() {
-        const { openModal, closeModal, handleChange, handleRegister } = this
       return (
         <MuiThemeProvider>
         <Fragment>
@@ -59,7 +57,7 @@ import { api } from '../api/init'
                 className="modal fade modal-dialog loginmodal-container"
                 id="login-modal"
                 isOpen={this.state.modalIsOpen}
-                onRequestClose={closeModal}
+                onRequestClose={this.closeModal}
                 contentLabel="Example Modal"
             >
             <button  className="close--button" onClick={this.closeModal}> <img className="close--button--img"  src="http://www.myiconfinder.com/uploads/iconsets/256-256-46602df56c953c27348b14d8651dcdc5-close.png" /> </button>
@@ -107,7 +105,7 @@ import { api } from '../api/init'
                     onChange= {this.handleChange} 
                     type= "password"/>   
                 </p>
-                <button onClick={this.handleLogin} type="submit" name="login" className="Makebooking--button"> Register </button>                 
+                <button onClick={this.handleRegister} type="submit" name="login" className="Makebooking--button"> Register </button>                 
                 </form>
 
             </Modal>
