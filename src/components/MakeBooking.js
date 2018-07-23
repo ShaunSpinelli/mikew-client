@@ -6,6 +6,7 @@ import axios from 'axios'
 import TextField from 'material-ui/TextField'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import {api} from '../api/init.js'
+import { Redirect } from 'react-router-dom'
 import 'react-datepicker/dist/react-datepicker.css'
 import { Title, Subtitle } from '../styles/Mixins.styles';
 import {BookingForm, Question, Text } from '../styles/MakeBooking.styles';
@@ -22,7 +23,8 @@ class MakeBooking extends Component {
       note: "",
       sent: "Make booking request",
       bookingButton: true,
-      error: ""
+      error: "",
+      isAuthenticated: false
     }
 
     componentDidMount(){
@@ -62,7 +64,7 @@ class MakeBooking extends Component {
             bookingStatus: "pending"
         }
     axios.post("https://mikewserver.herokuapp.com/bookings/new", booking)
-    .then(() => {this.setState({sent: "sent!", bookingButton: true}) 
+    .then(() => {this.setState({sent: "sent!", bookingButton: true, isAuthenticated: true}) 
                 console.log(this.state) })
     .catch((err) => { console.log(err) })
     } else {
@@ -80,7 +82,10 @@ class MakeBooking extends Component {
   }
 
   render() {
-    const {note, error, sent, startTime, endTime, bookingButton} = this.state
+    const {note, error, sent, startTime, endTime, bookingButton, isAuthenticated} = this.state
+        if (isAuthenticated) {
+            return <Redirect to='/' />
+        }
     return (
         <BookingForm>
             <MuiThemeProvider>

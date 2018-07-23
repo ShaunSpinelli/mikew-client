@@ -14,7 +14,7 @@ class AllBookings extends React.Component {
         completed: [],
         cancelled: [],
         loading: false,
-        show: null
+        show: "approved"
      }
 
      isAdmin = () =>{
