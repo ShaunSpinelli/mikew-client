@@ -15,7 +15,8 @@ import { api } from '../api/init'
       role: 'user',
       profileImg: 'url',
       registerError: false,
-      modalIsOpen: false
+      modalIsOpen: false,
+      registerError: false
     }
    
     openModal = () => {
@@ -45,7 +46,7 @@ import { api } from '../api/init'
         api.post('users/register', newUser)
         .then(res => { localStorage.setItem('token',res.data.token)
             this.closeModal()})
-        .catch(err => {this.setState({loginError: true})})
+        .catch(err => {this.setState({registerError: true})})
     }
 
     render() {
@@ -62,7 +63,7 @@ import { api } from '../api/init'
             >
             <button  className="close--button" onClick={this.closeModal}> <img className="close--button--img"  src="http://www.myiconfinder.com/uploads/iconsets/256-256-46602df56c953c27348b14d8651dcdc5-close.png" /> </button>
                 <h1>Register Your Account</h1><br />
-                <p>{this.state.loginError ? 'Invalid Login Details': ''}</p>
+                <p>{this.state.loginError ? 'This email address already exists': ''}</p>
                 <form className="login--form--container">
                 <p>
                 <TextField
