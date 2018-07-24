@@ -8,8 +8,8 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import {api} from '../api/init.js'
 import { Redirect } from 'react-router-dom'
 import 'react-datepicker/dist/react-datepicker.css'
-import { Title, Subtitle } from '../styles/Mixins.styles';
-import {BookingForm, Question, Text } from '../styles/MakeBooking.styles';
+import { Title, Subtitle } from '../styles/cssInJs/Mixins.styles';
+import {BookingForm, Question, Text } from '../styles/cssInJs/MakeBooking.styles';
 
 
 const jwtDecode = require('jwt-decode')

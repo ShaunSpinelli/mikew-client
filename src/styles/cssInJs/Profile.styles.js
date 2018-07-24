@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { setTextProps, setImgProps} from '../styles/Mixins.styles';
+import { setTextProps, setImgProps} from './Mixins.styles';
 
 const Name = styled.h3`
 ${setTextProps('2rem', '500', 'white')}

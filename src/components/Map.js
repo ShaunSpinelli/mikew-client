@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import ReactMapboxGl, { Layer, Feature } from "react-mapbox-gl";
-import { BodyText, Para, MapFrame } from '../styles/Map.styles'
+import { BodyText, Para, MapFrame } from '../styles/cssInJs/Map.styles'
 
 const Mapping = ReactMapboxGl({
     accessToken: "pk.eyJ1IjoiZnJhc2VyaXNsYW5kIiwiYSI6ImNqanJ0YjdydzAxMzMzcG9zZzNydDR3NGsifQ.HGp2D9BXVgnAFIO1miIcXA"

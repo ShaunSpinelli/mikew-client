@@ -2,7 +2,7 @@ import React, {Fragment} from 'react'
 import Map from './Map'
 import Testimonies from './Testimonies.js'
 import Footer from './Footer.js'
-import { Title, Subtitle, Slogan, Home, Icon1, Icon2, Img } from '../styles/HomePage.styles';
+import { Title, Subtitle, Slogan, Home, Icon1, Icon2, Img } from '../styles/cssInJs/HomePage.styles';
 import michael from '../images/michael.jpg'
 
 

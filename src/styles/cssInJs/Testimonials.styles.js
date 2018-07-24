@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import guitar from '../images/guitar-pic.jpeg'
+import guitar from '../../images/guitar-pic.jpeg'
 
 const Testimonials = styled.div`
 `

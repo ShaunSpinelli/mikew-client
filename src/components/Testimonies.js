@@ -1,7 +1,7 @@
 import React from 'react'
 import TestimonieSingle from './TestimonieSingle'
 import guitar from '../images/guitar-pic.jpeg'
-import { Testimonials, Title } from '../styles/Testimonials.styles';
+import { Testimonials, Title } from '../styles/cssInJs/Testimonials.styles';
 
 const Testimonies = () => {
     return ( 

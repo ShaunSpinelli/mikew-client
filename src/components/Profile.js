@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react'
 import { api } from '../api/init'
 import Loading from './Loading'
-import { Title, Subtitle } from '../styles/Mixins.styles';
-import { Name, Img } from '../styles/Profile.styles';
+import { Title, Subtitle } from '../styles/cssInJs/Mixins.styles';
+import { Name, Img } from '../styles/cssInJs/Profile.styles';
 
 
 const jwtDecode = require('jwt-decode')
