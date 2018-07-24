@@ -5,6 +5,7 @@ const setTextProps = (size, weight, colour) => css`
   font-weight: ${weight};
   color: ${colour};
   margin: 0;
+  padding: 0.35rem;
 `
 const setIconProps = (position, paddingr, bottom, right, height) => css`
   position: ${position};
@@ -12,6 +13,35 @@ const setIconProps = (position, paddingr, bottom, right, height) => css`
   bottom: ${bottom};
   right: ${right};
   height: ${height};
+`
+const setImgProps = (radius,height,width,margin1,margin2) => css`
+border-radius: ${radius};
+height: ${height};
+width: ${width};
+margin-top: ${margin1};
+margin-bottom: ${margin2};
+`
+const setButtonProps = (bgcolour,colour,colour2,colour3,border1, border2) => css`
+background-color: ${bgcolour};
+color: ${colour};
+padding: 13px 15px;
+margin-left: 1rem;
+vertical-align: middle;
+text-decoration: none;
+transition: 0.4s;
+background: none;
+&:hover {
+    margin-left: 1.5rem;
+    vertical-align: middle;
+    text-decoration: none;
+    color: ${colour2};
+    background-color: ${colour3}
+    border: ${border1}
+    }
+border: ${border2};
+font: inherit;
+cursor: pointer;
+outline: inherit;  
 `
 const Title = styled.h4`
     padding-top: 0.5em;
@@ -22,4 +52,5 @@ const Subtitle = styled.h2`
     ${setTextProps('1em','300','white')}
 `
 
-  export {setTextProps, setIconProps, Title, Subtitle}
+
+  export {setTextProps, setIconProps, setImgProps, setButtonProps, Title, Subtitle}

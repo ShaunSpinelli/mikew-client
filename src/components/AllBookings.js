@@ -3,6 +3,8 @@ import moment from 'moment'
 import Booking from './Booking'
 import Loading from './Loading'
 import { api } from '../api/init';
+import { Button } from '../styles/AllBookings.styles';
+
 
 const jwtDecode = require('jwt-decode')
 
@@ -138,7 +140,6 @@ class AllBookings extends React.Component {
                     {bookingSection(cancelled,isAdmin())}
                 </div>
                 }
-
             </div>
          )
     }
