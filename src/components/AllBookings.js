@@ -59,14 +59,14 @@ class AllBookings extends React.Component {
                         <Booking {...booking}/>
                         {/* check for related buttons to display*/}
                         {admin && booking.bookingStatus === 'pending' ? 
-                        <button className="approve-button" onClick={() => 
+                        <Button onClick={() => 
                             this.handleBookingChange(booking._id,booking.bookingStatus, 'approved')
-                        }> Approve Booking? </button>:<p></p>}
+                        }> Approve Booking? </Button>:<p></p>}
 
                         {booking.bookingStatus === 'approved' || booking.bookingStatus === 'pending' ?
-                        <button onClick={() => 
+                        <Button onClick={() => 
                             this.handleBookingChange(booking._id,booking.bookingStatus,'cancelled' )
-                        }> Cancel Booking? </button>:<p></p>
+                        }> Cancel Booking? </Button>:<p></p>
                     }
                 </div>
             )
@@ -112,10 +112,10 @@ class AllBookings extends React.Component {
         const { bookingSection, isAdmin, toggleShow } = this
         return ( 
             <div className="allbookings"> 
-                <button onClick={() => toggleShow("pending")}> Pending </button>
-                <button onClick={() => toggleShow("approved")}> Approved </button>
-                <button onClick={() => toggleShow("cancelled")}> Cancelled </button>
-                <button onClick={() => toggleShow("completed")}> Completed </button>
+                <Button onClick={() => toggleShow("pending")}> Pending </Button>
+                <Button onClick={() => toggleShow("approved")}> Approved </Button>
+                <Button onClick={() => toggleShow("cancelled")}> Cancelled </Button>
+                <Button onClick={() => toggleShow("completed")}> Completed </Button>
                 
                 {/* depending on what this.state.show is, is what category of bookings
                 will be displayed, so only one can be shown at a time */}

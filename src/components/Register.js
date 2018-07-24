@@ -15,8 +15,7 @@ import { api } from '../api/init'
       role: 'user', 
       profileImg: 'url',
       registerError: false,
-      modalIsOpen: false,
-      registerError: false
+      modalIsOpen: false
     }
    
     openModal = () => {

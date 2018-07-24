@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { api } from '../api/init'
 import Loading from './Loading'
 import { Title, Subtitle } from '../styles/cssInJs/Mixins.styles';
