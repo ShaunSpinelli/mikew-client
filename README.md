@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/ShaunSpinelli/mikew-server.svg?branch=master)](https://travis-ci.org/ShaunSpinelli/mikew-server)![](https://david-dm.org/ShaunSpinelli/ca-collab-server.svg)
 
-Below is the documentation for Michael's Production booking platform that was created as part of assessment for coder academy.
+Below is the documentation for Michael's Production booking platform that was created as part of assessment for Coder Academy.
 
 This application was created by [Caroline Evans](https://github.com/CaroEvans), [Fraser Solomon](https://github.com/fraserisland), [Shaun Spinelli](https://github.com/ShaunSpinelli) and [Isaac Powell](https://github.com/DeezyE) under the [GWSS](https://github.com/Global-Worldwide-Synergetic-Solutions) orginisation.
 
@@ -131,15 +131,15 @@ show communication with client
 
 Roles where divided based on skill set, availability and interest in certain areas.
 
-Fraser - Front end development direction, styling, API integration, Test design- front end
+**Fraser** - Front end development direction, styling, API integration, Test design- front end
 
-Caroline - Design Direction, client relations, Authentication and authorization on the server and client.
+**Caroline** - Design Direction, client relations, Authentication and authorization on the server and client.
 
-Shaun - Server side development, Dev Ops, CI & CD, Test design- back end ,Front end when needed.
+**Shaun** - Server side development, Dev Ops, CI & CD, Test design- back end ,Front end when needed.
 
-Isaac - Security and data, documentation, Quality and user testing, Front end when needed.
+**Isaac** - Security and data, documentation, Quality and user testing, Front end when needed.
 
-Work was monitored through trello board. See [Trello](#trello) for more information.
+Work was monitored through Trello. See [Trello](#trello) for more information.
 
 ### Post Project review
 
