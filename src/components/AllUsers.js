@@ -9,15 +9,15 @@ class AllUsers extends React.Component {
         }
     }
 
-    componentDidMount() {
+    componentDidMount() { //fetches all user accounts.
         api.get('users/all')
         .then((response) => {
-            console.log(response.data) 
-            this.setState({allUsers: response.data})
+            this.setState({allUsers: response.data}) //sets response to state.
         })
         .catch((err) => {console.log(err)})
     }
 
+    //MVP +, not implemented yet.
     removeUser = (id) => {
         console.log('remove!' + id)
     }
