@@ -104,7 +104,17 @@ show communication with client
 
 ### Team Management
 
-5,6
+Roles where divided based on skill set, availability and interest in certain areas.
+
+Fraser - Front end development direction, styling, API integration, Test design- front end
+
+Caroline - Design Direction, client relations, Authentication and authorization on the server and client.
+
+Shaun - Server side development, Dev Ops, CI & CD, Test design- back end ,Front end when needed.
+
+Isaac - Security and data, documentation, Quality and user testing, Front end when needed.
+
+Work was monitored through trello board. See [Trello](#trello) for more information.
 
 ### Post Project review
 
@@ -113,6 +123,12 @@ show communication with client
 ## Project Management tools
 
 ### Trello
+
+Trello was used  to divide tasks, prioritise them and estimate how long they will take to complete. This is achieved through Backlog, To Do, In Progress, Done and Approved cards. Each card was assigned to specific team member who would complete them. Each card also had a check list of related jobs that needed to be fnished in order for the card to be completed.
+
+**Card Example**
+
+![trello board card](./assests/trello.png)
 
 ### Github
 
