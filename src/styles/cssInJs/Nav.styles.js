@@ -40,7 +40,7 @@ const FirstStyledLink = StyledLink.extend`
   `
 
 const Button = styled.button`
-    ${setButtonProps('#48474A', 'white', 'black', 'yellow', 'none', 'none')}
+    ${setButtonProps('#48474A', 'white', 'none', 'none', 'none', 'none')}
 `
 
 const Initial = styled.span`
