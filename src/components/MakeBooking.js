@@ -53,14 +53,13 @@ class MakeBooking extends Component {
   }
 
   handleStartTimeChange = (startTime) => { //triggered when start time is edited
-     this.setState({ startTime }, () => { console.log('Start time is: ', this.state.startTime) })
-     this.setState({ bookingButton: false })
+     this.setState({ startTime, bookingButton: false }, () => { console.log('Start time is: ', this.state.startTime) })
      local['start'] = startTime
      localStorage.setItem('bookingForm', JSON.stringify(local))
   }
 
   handleEndTimeChange = (endTime) => { //triggered when end time is edited
-    this.setState({ endTime }, () => { console.log('End time is: ', this.state.endTime) })
+    this.setState({ endTime,  bookingButton: false  }, () => { console.log('End time is: ', this.state.endTime) })
     local['end'] = endTime
     localStorage.setItem('bookingForm', JSON.stringify(local))
   }

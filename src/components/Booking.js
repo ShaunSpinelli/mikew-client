@@ -2,8 +2,14 @@ import React from 'react';
 
 const Booking = (props) => {
     return (   //formating for single bookings, to be used in AllBookings component.
-        <div key = {props._id}> 
-            <p> Date: {props.date} Starts: {props.startTime} Ends: {props.endTime} Booking status: {props.bookingStatus} Note: {props.info} </p>
+         <div>
+             <div className="contact" key = {props._id}>  
+                <h1> Date: {props.date} </h1>
+                <p> Start Time: {props.startTime} </p>
+                <p> End Time: {props.endTime} </p>
+                <p> Status: {props.bookingStatus} </p>
+                <p> Note: {props.info} </p>
+            </div>
          </div>
      )
 }

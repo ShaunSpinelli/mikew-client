@@ -59,14 +59,14 @@ class AllBookings extends React.Component {
                         <Booking {...booking}/>
                         {/* check for related buttons to display*/}
                         {admin && booking.bookingStatus === 'pending' ? 
-                        <button className="approve-button" onClick={() => 
+                        <Button onClick={() => 
                             this.handleBookingChange(booking._id,booking.bookingStatus, 'approved')
-                        }> Approve Booking? </button>:<p></p>}
+                        }> Approve Booking? </Button>:<p></p>}
 
                         {booking.bookingStatus === 'approved' || booking.bookingStatus === 'pending' ?
-                        <button onClick={() => 
+                        <Button onClick={() => 
                             this.handleBookingChange(booking._id,booking.bookingStatus,'cancelled' )
-                        }> Cancel Booking? </button>:<p></p>
+                        }> Cancel Booking? </Button>:<p></p>
                     }
                 </div>
             )
