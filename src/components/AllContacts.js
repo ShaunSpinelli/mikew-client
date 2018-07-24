@@ -3,28 +3,27 @@ import axios from 'axios'
 
 class AllContacts extends React.Component {
     state = { 
-        allContacts: []
+        allContacts: [] //filled by ajax request.
      }
 
     componentWillMount(){
-        axios.get("https://mikewserver.herokuapp.com/contact/all")
+        axios.get("https://mikewserver.herokuapp.com/contact/all") //gets all contact
         .then((response) => {
             let contactRequests = []
             response.data.forEach((req) => {
-                contactRequests.push(req)
+                contactRequests.push(req) //pushes into contactRequest which is then assigned to the allContacts state.
             })
             this.setState({ allContacts: contactRequests }, () => console.log(this.state))
         })
         .catch((err) => { console.log(err) })
     }
 
-
     render() { 
         return ( 
             <div>
                 <div className="allcontacts--holder">
                 {
-                    this.state.allContacts  ? 
+                    this.state.allContacts  ?  //only display if contacts exists, otherwise show laoding.
                     this.state.allContacts.map((contact) => {
                         return (
                             <div>

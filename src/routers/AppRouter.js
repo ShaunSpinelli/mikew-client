@@ -8,7 +8,7 @@ import MakeBooking from '../components/MakeBooking.js'
 import Footer from '../components/Footer.js'
 import NotFoundPage from '../components/NotFoundPage.js'
 import Dashboard from '../components/Dashboard.js'
-import injectGlobal from '../styles/Global.styles'
+import injectGlobal from '../styles/cssInJs/Global.styles'
 
 class AppRouter extends Component {
     state= {

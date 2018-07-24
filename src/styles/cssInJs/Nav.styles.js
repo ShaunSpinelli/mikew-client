@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 import { NavLink } from 'react-router-dom'
-import { setButtonProps} from '../styles/Mixins.styles';
+import { setButtonProps} from './Mixins.styles';
 
 const Navbar = styled.div`
     height: 185px;

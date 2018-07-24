@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { setTextProps, Title, Subtitle } from '../styles/Mixins.styles';
+import { setTextProps, Title, Subtitle } from './Mixins.styles';
 
 const ContactForm = styled.div`
     postion: fixed;

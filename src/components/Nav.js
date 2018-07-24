@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from 'react'
-import { Navbar, StyledLink, FirstStyledLink, Button, Initial, Name } from '../styles/Nav.styles';
+import { Navbar, StyledLink, FirstStyledLink, Button, Initial, Name } from '../styles/cssInJs/Nav.styles';
 import Login from '../components/Login'
 import Register from '../components/Register'
 

@@ -2,7 +2,7 @@ import React, {Component, Fragment} from 'react'
 import Modal from 'react-modal'
 import TextField from 'material-ui/TextField'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import { Button } from '../styles/Nav.styles';
+import { Button } from '../styles/cssInJs/Nav.styles';
 import { api } from '../api/init'
 
   // Make sure to bind modal to your appElement (http://reactcommunity.org/react-modal/accessibility/)
@@ -17,17 +17,17 @@ import { api } from '../api/init'
     }
    
     openModal = () => {
-      this.setState({modalIsOpen: true});
+      this.setState({modalIsOpen: true})
     }
    
     handleChange = (e) => {
-      this.setState({ [e.target.name]: e.target.value })
+      this.setState({ [e.target.name]: e.target.value }) //changes state corressponding to inputs name attribute.
     }
 
     handleLogin = (e) =>{
-      e.preventDefault()
+      e.preventDefault() //prevents page refresh.
       
-      api.post('users/login',{email: this.state.email, password:this.state.password})
+      api.post('users/login',{email: this.state.email, password:this.state.password}) //posts this to server
       .then(res => { localStorage.setItem('token',res.data.token)
       this.props.updatedLogIn()
       this.closeModal()})
@@ -51,8 +51,11 @@ import { api } from '../api/init'
             contentLabel="Example Modal"
           >
    
-          <button  className="close--button" onClick={this.closeModal}> <img className="close--button--img"  src="http://www.myiconfinder.com/uploads/iconsets/256-256-46602df56c953c27348b14d8651dcdc5-close.png" /> </button>
-					<h1> Login </h1><br />
+          <button  className="close--button" onClick={this.closeModal}> 
+            <img className="close--button--img"  src="http://www.myiconfinder.com/uploads/iconsets/256-256-46602df56c953c27348b14d8651dcdc5-close.png" /> 
+          </button>
+          <h1> Login </h1>
+          <br/>
           <p>{this.state.loginError ? 'Invalid Login Details': ''}</p>
           <div>
           <form className="login--form--container"> 
