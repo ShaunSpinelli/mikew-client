@@ -1,4 +1,6 @@
-# Michael Waye Productions
+# Michael Waye Productions Booking Application
+
+[![Build Status](https://travis-ci.org/ShaunSpinelli/mikew-server.svg?branch=master)](https://travis-ci.org/ShaunSpinelli/mikew-server)![](https://david-dm.org/ShaunSpinelli/ca-collab-server.svg)
 
 Below is the documentation for Michael's Production booking platform that was created as part of assessment for coder academy.
 
@@ -26,7 +28,6 @@ The site can be viewed [here](https://suspicious-bhabha-21b6a1.netlify.com/) and
   - [Github](#github)
   - [Agile](#agile)
   - [Code Review](#code-review)
-
 
 ## Summary
 
@@ -88,9 +89,33 @@ need to draw diagram for this
 
 [Wire Frames](https://balsamiq.cloud/s6j7lng/pwumg1f)
 
+**About**
+
+![about](./assests/about.png)
+
+**Account**
+
+![account](./assests/account.png)
+
+**Contact**
+
+![contact](./assests/contact.png)
+
+**Packages**
+
+![packages](./assests/pp.png)
+
+**Sign Up**
+
+![sign up](./assests/signup.png)
+
+**Booking**
+
+![booking](./assests/ppcopy.png)
+
 ## Project Management
 
-Below is and overview of how the project was managed.
+Below is an overview on how the project was managed.
 
 ### Working with the Client
 
@@ -123,6 +148,8 @@ Work was monitored through trello board. See [Trello](#trello) for more informat
 ## Project Management tools
 
 ### Trello
+
+[Board](https://trello.com/b/OFAmrk4Z/producer-app)
 
 Trello was used  to divide tasks, prioritise them and estimate how long they will take to complete. This is achieved through Backlog, To Do, In Progress, Done and Approved cards. Each card was assigned to specific team member who would complete them. Each card also had a check list of related jobs that needed to be fnished in order for the card to be completed.
 
