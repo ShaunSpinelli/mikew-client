@@ -6,6 +6,8 @@ import { ContactForm } from '../styles/cssInJs/Contact.styles';
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
 
+let local = {}
+
 class Contact extends React.Component{
     state= {
         fname: '',
@@ -21,6 +23,19 @@ class Contact extends React.Component{
         contactButton: false, //if true, no contact request can be sent.
         sent: "Send", //changes depending on axios request status, "sending, or "sent""
         isAuthenticated: false //if true, they will be redirected after the contact request is sent.
+    }
+
+    componentDidMount(){
+        local = (JSON.parse(localStorage.getItem('contactForm')))
+        console.log(JSON.parse(localStorage.getItem('contactForm')))
+        this.setState({
+            fname: local.fname,
+            lname: local.lname,
+            phone: local.phone,
+            email: local.email,
+            artist: local.artist,
+            comment: local.comment
+        })
     }
 
     //feel free to add extra validation in this function.
@@ -93,6 +108,8 @@ class Contact extends React.Component{
                 comment: ''
             })
 
+            
+
             axios.post("https://mikewserver.herokuapp.com/contact/new", contactReq)
             .then(() => this.setState({ sent: "sent!", contactButton: true, isAuthenticated: true }))
             .catch((err) => { console.log(err) })
@@ -101,6 +118,8 @@ class Contact extends React.Component{
 
     handleChange = (e) => {
         this.setState({ [e.target.name]: e.target.value }) //inputs name will be set to corresponding value, state, and name are the same.
+        local[e.target.name] =  e.target.value
+        localStorage.setItem('contactForm', JSON.stringify(local))
     }
 
     render(){
