@@ -68,11 +68,11 @@ class Contact extends React.Component{
         const err = this.validate()
 
         //clear form
-        if(!err) {
+        if(!err) { //checks for error
             
             this.setState({sent: "sending"})
 
-            let contactReq = {
+            let contactReq = { //defines what is sent to the server, only does this if no errors.
                 name: `${fname} ${lname}`,
                 email: email,
                 phone: phone,
@@ -93,28 +93,25 @@ class Contact extends React.Component{
                 comment: ''
             })
 
-            console.log(contactReq)
-
             axios.post("https://mikewserver.herokuapp.com/contact/new", contactReq)
             .then(() => this.setState({ sent: "sent!", contactButton: true, isAuthenticated: true }))
             .catch((err) => { console.log(err) })
-
         }
     }
 
     handleChange = (e) => {
-        this.setState({ [e.target.name]: e.target.value })
+        this.setState({ [e.target.name]: e.target.value }) //inputs name will be set to corresponding value, state, and name are the same.
     }
 
     render(){
         const {sent, fname, lname, phone, email, artist, comment, fnameError, lnameError, phoneError, emailError, isAuthenticated } = this.state
         const {handleChange} = this
-        if (isAuthenticated) {
-            return <Redirect to='/' />
+        if (isAuthenticated) { //set to true after contact req is sent
+            return <Redirect to='/' /> 
         }
         return(
         <ContactForm>
-            <MuiThemeProvider>
+            <MuiThemeProvider> 
                 <div>
                         <Title> Get in Contact Easily </Title>
                         <Subtitle>  with Michael Waye </Subtitle>
@@ -169,7 +166,7 @@ class Contact extends React.Component{
                     </p>
                     </form>
                     </div>
-                    <button onClick={this.contactRequest} disabled={this.state.contactButton} className="sendContact"> {sent} </button>
+                    <button onClick={this.contactRequest} disabled={this.state.contactButton} className="sendContact"> {sent} </button> {/* button text changes depending on sent state. */}
                 </div>
             </MuiThemeProvider>
         </ContactForm>

@@ -9,14 +9,13 @@ const jwtDecode = require('jwt-decode')
 
 export default class extends React.Component  {
     state = {
-        show: "bookings"
+        show: "bookings" //can also be contact, or users, this is what determines which section is rendered to the screen at a time.
     }
 
     decoded = jwtDecode(localStorage.getItem('token'))
-    
 
     toggleShow = (section) => {
-        this.setState({show: section})
+        this.setState({show: section}) //triggered by button, button will pass "contact", "booking", or "user" which will change the view.
     }
 
     render(){

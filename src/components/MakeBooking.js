@@ -23,27 +23,27 @@ class MakeBooking extends Component {
       note: "",
       sent: "Make booking request",
       bookingButton: true,
-      error: "",
-      isAuthenticated: false
+      error: "", 
+      isAuthenticated: false // if true user will be redirected to home page.
     }
 
     componentDidMount(){
         if(localStorage.getItem('token')){
-            const decoded = jwtDecode(localStorage.getItem('token'))
+            const decoded = jwtDecode(localStorage.getItem('token')) //checks token
             this.setState({userID: decoded.sub})
         }
     }
  
-  handleDateChange = (date) => {
+  handleDateChange = (date) => { //triggered when calender is used.
     this.setState({ date }, () => { console.log('The Date is: ', (this.state.date).format('YYYYMMDD')) }) 
   }
 
-  handleStartTimeChange = (startTime) => {
+  handleStartTimeChange = (startTime) => { //triggered when start time is edited
      this.setState({ startTime }, () => { console.log('Start time is: ', this.state.startTime) })
      this.setState({ bookingButton: false })
   }
 
-  handleEndTimeChange = (endTime) => {
+  handleEndTimeChange = (endTime) => { //triggered when end time is edited
     this.setState({ endTime }, () => { console.log('End time is: ', this.state.endTime) })
   }
 
@@ -55,7 +55,7 @@ class MakeBooking extends Component {
   handleBookingRequest = () => { //puts state into an object, with date formatted, and in 24hr time
     if(localStorage.getItem('token')){
         this.setState({sent: "sending"})
-        let booking = {
+        let booking = { // this is whats sent to the server.
             date: this.state.date.format('MM/DD/YYYY'),
             startTime: this.timeConverter(this.state.startTime),
             endTime: this.timeConverter(this.state.endTime),
@@ -64,7 +64,7 @@ class MakeBooking extends Component {
             bookingStatus: "pending"
         }
     axios.post("https://mikewserver.herokuapp.com/bookings/new", booking)
-    .then(() => {this.setState({sent: "sent!", bookingButton: true, isAuthenticated: true}) 
+    .then(() => {this.setState({sent: "sent!", bookingButton: true, isAuthenticated: true}) //redirects if successful( is Authenticated )
                 console.log(this.state) })
     .catch((err) => { console.log(err) })
     } else {
@@ -72,7 +72,7 @@ class MakeBooking extends Component {
     }
   }
 
-  timeConverter = (time) => {
+  timeConverter = (time) => { //when start time is changed, the end time field value will change to 30mins later then the start time.
     let single = (time/3600)
     if((single % 1) !== 0){
         single -= .5
@@ -94,7 +94,7 @@ class MakeBooking extends Component {
 
                         <div className= "Makebooking--whatDate">
                         <Question>What day?</Question>
-                            <DatePicker
+                            <DatePicker //calender.
                                 className= "Makebooking--datePicker"
                                 selected= {this.state.date}
                                 onChange={this.handleDateChange}
@@ -104,7 +104,7 @@ class MakeBooking extends Component {
                         <Question>What time?</Question>
                             <div>
                                 <Text>Start:&nbsp;</Text> 
-                                <TimePicker 
+                                <TimePicker //start time
                                     className= "Makebooking--timePicker"
                                     start={"7:00"}
                                     end="16:00" 
@@ -114,7 +114,7 @@ class MakeBooking extends Component {
                                 />
                             </div>
                             <Text>End:&nbsp;</Text> 
-                            <TimePicker 
+                            <TimePicker //end time
                                 className= "Makebooking--timePicker"
                                 start={ this.timeConverter(startTime) || "7:30" } 
                                 end="17:00" 
@@ -124,7 +124,7 @@ class MakeBooking extends Component {
                             />
                         </div>
                         <div className="Makebooking--note"> 
-                            <TextField
+                            <TextField //note field
                                     name= "note" 
                                     floatingLabelText= "note"
                                     value= {note}

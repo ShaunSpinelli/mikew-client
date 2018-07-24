@@ -8,7 +8,7 @@ const Testimonies = () => {
         <Testimonials>
             <Title> Testimonials </ Title>
             <div className="scrolling-wrapper">
-                    <TestimonieSingle 
+                    <TestimonieSingle // renders testomie signle format for all testimonies.
                         image= "https://busites_www.s3.amazonaws.com/acdccom/content/discography/highwaytohell.jpg"
                         testimonie= "totally awesome dude."
                         />

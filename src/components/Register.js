@@ -2,7 +2,7 @@ import React, {Component, Fragment} from 'react'
 import Modal from 'react-modal'
 import TextField from 'material-ui/TextField'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import { Button } from '../styles/Nav.styles';
+import { Button } from '../styles/Nav.styles'
 import { api } from '../api/init'
 
   class Register extends Component {
@@ -12,7 +12,7 @@ import { api } from '../api/init'
       email: '',
       phoneNumber: '',
       password: '',
-      role: 'user',
+      role: 'user', 
       profileImg: 'url',
       registerError: false,
       modalIsOpen: false
@@ -27,13 +27,13 @@ import { api } from '../api/init'
     }
    
     handleChange = (e) => {
-        this.setState({ [e.target.name]: e.target.value })
+        this.setState({ [e.target.name]: e.target.value }) //changes state corressponding to inputs name attribute.
     }
 
     handleRegister = (e) =>{
         const {firstName, lastName, email, phoneNumber, password } = this.state
-        e.preventDefault()
-        let newUser = {
+        e.preventDefault() //prevents page refresh.
+        let newUser = { //posts this to server
             firstName: firstName,
             lastName: lastName,
             email: email,
