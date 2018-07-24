@@ -21,13 +21,13 @@ class Profile extends Component {
     componentDidMount(){
         this.setState( {loading: true} )
         const decoded = jwtDecode(localStorage.getItem('token'))
-        this.getUserProfile(decoded.sub)
+        this.getUserProfile(decoded.sub) //decoded.sub is users unique ID, uses it to make an axios request for the specific user.
     }
 
     getUserProfile = (id) => {
-        api.get("users/id", {params : {id: id }})
+        api.get("users/id", {params : {id: id }}) //only returns information relevent to the user.
         .then((response) => {
-        const {id, firstName, lastName, email, phoneNumber, profileImg} = response.data
+        const {id, firstName, lastName, email, phoneNumber, profileImg} = response.data //decontructind for response.
         this.setState(
             {id, firstName, lastName, email, phoneNumber, profileImg, loading: false })})
         // console.log(res.data.firstName)})
@@ -36,8 +36,8 @@ class Profile extends Component {
 
     render () {
         const { loading, firstName, lastName, email, phoneNumber, profileImg } = this.state
-        const fullName = `${firstName} ${lastName}`
-        { if(loading) {return <Loading className = "loadingScreen" /> }}
+        const fullName = `${firstName} ${lastName}` //formats for readability.
+        { if(loading) {return <Loading className = "loadingScreen" /> }} //finishes loading once axios responser recieved.
         return (
             <div className="profile--holder">
                 <div className="profile">

@@ -18,9 +18,9 @@ class Contact extends React.Component{
         emailError: '',
         artist: '',
         comment: '',
-        contactButton: false,
-        sent: "Send",
-        isAuthenticated: false
+        contactButton: false, //if true, no contact request can be sent.
+        sent: "Send", //changes depending on axios request status, "sending, or "sent""
+        isAuthenticated: false //if true, they will be redirected after the contact request is sent.
     }
 
     //feel free to add extra validation in this function.
@@ -34,31 +34,30 @@ class Contact extends React.Component{
             emailError: '',
         }
 
-        if(fname.length <= 1 && isNaN(fname)){
+        if(fname.length <= 1 && isNaN(fname)){ //checks firstname field for numbers and length
             isError = true
             errors.fnameError = "please enter a valid first name."
         }
 
-        if(lname.length <= 1 && isNaN(lname)){
+        if(lname.length <= 1 && isNaN(lname)){ //checks lastname field for numbers and length
             isError = true
             errors.lnameError = "please enter a valid last name."
         }
 
-        if(email.indexOf("@") === -1 && email.indexOf(".") === -1 ){
+        if(email.indexOf("@") === -1 && email.indexOf(".") === -1 ){ //checks email feild for @ and .
             isError = true
             errors.emailError = "please enter a valid email address"
         }
 
-        if( isNaN(parseInt(phone)) ){
+        if( isNaN(parseInt(phone)) ){ //checks phone number field is a number
             isError = true
             errors.phoneError = "please enter a valid phone number"
         }
 
-        this.setState ({
+        this.setState ({ //sets error state if error is present.
             ...this.state,
             ...errors
         })
-
         return isError
     }
 
@@ -69,11 +68,11 @@ class Contact extends React.Component{
         const err = this.validate()
 
         //clear form
-        if(!err) {
+        if(!err) { //checks for error
             
             this.setState({sent: "sending"})
 
-            let contactReq = {
+            let contactReq = { //defines what is sent to the server, only does this if no errors.
                 name: `${fname} ${lname}`,
                 email: email,
                 phone: phone,
@@ -94,28 +93,25 @@ class Contact extends React.Component{
                 comment: ''
             })
 
-            console.log(contactReq)
-
             axios.post("https://mikewserver.herokuapp.com/contact/new", contactReq)
             .then(() => this.setState({ sent: "sent!", contactButton: true, isAuthenticated: true }))
             .catch((err) => { console.log(err) })
-
         }
     }
 
     handleChange = (e) => {
-        this.setState({ [e.target.name]: e.target.value })
+        this.setState({ [e.target.name]: e.target.value }) //inputs name will be set to corresponding value, state, and name are the same.
     }
 
     render(){
         const {sent, fname, lname, phone, email, artist, comment, fnameError, lnameError, phoneError, emailError, isAuthenticated } = this.state
         const {handleChange} = this
-        if (isAuthenticated) {
-            return <Redirect to='/' />
+        if (isAuthenticated) { //set to true after contact req is sent
+            return <Redirect to='/' /> 
         }
         return(
         <ContactForm>
-            <MuiThemeProvider>
+            <MuiThemeProvider> 
                 <div>
                         <Title> Get in Contact Easily </Title>
                         <Subtitle>  with Michael Waye </Subtitle>
@@ -170,7 +166,7 @@ class Contact extends React.Component{
                     </p>
                     </form>
                     </div>
-                    <button onClick={this.contactRequest} disabled={this.state.contactButton} className="sendContact"> {sent} </button>
+                    <button onClick={this.contactRequest} disabled={this.state.contactButton} className="sendContact"> {sent} </button> {/* button text changes depending on sent state. */}
                 </div>
             </MuiThemeProvider>
         </ContactForm>

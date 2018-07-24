@@ -1,5 +1,6 @@
 import React from 'react'
 
+//this component is rendered in Testimonies, making it easier to edit the view of each Testimony.
 const TestimonieSingle = (props) => {
     return ( 
         <div>
