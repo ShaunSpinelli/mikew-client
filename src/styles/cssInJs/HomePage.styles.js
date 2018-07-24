@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { setTextProps, setIconProps, setImgProps } from '../styles/Mixins.styles';
+import { setTextProps, setIconProps, setImgProps } from './Mixins.styles';
 
 const Home = styled.div`
 `

@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { setTextProps} from '../styles/Mixins.styles';
+import { setTextProps} from './Mixins.styles';
 
 const BookingForm = styled.div`
     postion: fixed;

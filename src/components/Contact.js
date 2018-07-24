@@ -1,8 +1,8 @@
 import React from 'react'
 import TextField from 'material-ui/TextField'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import { Title, Subtitle } from '../styles/Mixins.styles';
-import { ContactForm } from '../styles/Contact.styles';
+import { Title, Subtitle } from '../styles/cssInJs/Mixins.styles';
+import { ContactForm } from '../styles/cssInJs/Contact.styles';
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
 

@@ -2,9 +2,8 @@ import React from 'react'
 import moment from 'moment'
 import Booking from './Booking'
 import Loading from './Loading'
-import { api } from '../api/init';
-import { Button } from '../styles/AllBookings.styles';
-
+import { api } from '../api/init'
+import { Button } from '../styles/cssInJs/AllBookings.styles.js'
 
 const jwtDecode = require('jwt-decode')
 

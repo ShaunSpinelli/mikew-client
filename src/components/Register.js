@@ -2,7 +2,7 @@ import React, {Component, Fragment} from 'react'
 import Modal from 'react-modal'
 import TextField from 'material-ui/TextField'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import { Button } from '../styles/Nav.styles'
+import { Button } from '../styles/cssInJs/Nav.styles'
 import { api } from '../api/init'
 
   class Register extends Component {

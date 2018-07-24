@@ -12,4 +12,4 @@ const TestimonieSingle = (props) => {
      )
 }
  
-export default TestimonieSingle;
+export default TestimonieSingle
