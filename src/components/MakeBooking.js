@@ -11,8 +11,8 @@ import 'react-datepicker/dist/react-datepicker.css'
 import { Title, Subtitle } from '../styles/cssInJs/Mixins.styles';
 import {BookingForm, Question, Text } from '../styles/cssInJs/MakeBooking.styles';
 
-
 const jwtDecode = require('jwt-decode')
+let local = {}
 
 class MakeBooking extends Component {
     state = {
@@ -27,29 +27,49 @@ class MakeBooking extends Component {
       isAuthenticated: false // if true user will be redirected to home page.
     }
 
-    componentDidMount(){
+    componentWillMount(){
+        console.log(moment())
         if(localStorage.getItem('token')){
             const decoded = jwtDecode(localStorage.getItem('token')) //checks token
             this.setState({userID: decoded.sub})
+        }
+        if(localStorage.getItem('bookingForm')){
+            local = (JSON.parse(localStorage.getItem('bookingForm')))
+            console.log(JSON.parse(localStorage.getItem('bookingForm')))
+            this.setState({
+                note: local.note,
+                startTime: (local.start || null),
+                endTime: (local.end || null),
+                //date: local.date this needs to be in the same format as moment() would return... dont know what property date picker reads from.
+            })
         }
     }
  
   handleDateChange = (date) => { //triggered when calender is used.
     this.setState({ date }, () => { console.log('The Date is: ', (this.state.date).format('YYYYMMDD')) }) 
+    local['date'] = { _d: this.state.date}
+    console.log(local)
+    localStorage.setItem('bookingForm', JSON.stringify(local))
   }
 
   handleStartTimeChange = (startTime) => { //triggered when start time is edited
      this.setState({ startTime }, () => { console.log('Start time is: ', this.state.startTime) })
      this.setState({ bookingButton: false })
+     local['start'] = startTime
+     localStorage.setItem('bookingForm', JSON.stringify(local))
   }
 
   handleEndTimeChange = (endTime) => { //triggered when end time is edited
     this.setState({ endTime }, () => { console.log('End time is: ', this.state.endTime) })
+    local['end'] = endTime
+    localStorage.setItem('bookingForm', JSON.stringify(local))
   }
 
   handleNote = (e) => {
       let note = e.target.value
       this.setState({ note })
+      local['note'] = this.state.note
+      localStorage.setItem('bookingForm', JSON.stringify(local))
   } 
 
   handleBookingRequest = () => { //puts state into an object, with date formatted, and in 24hr time
