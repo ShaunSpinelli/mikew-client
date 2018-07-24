@@ -87,7 +87,7 @@ class MakeBooking extends Component {
             return <Redirect to='/profile' />
         }
     return (
-        <BookingForm>
+        <BookingForm className="Makebooking-container">
             <MuiThemeProvider>
                         <Title> Make a Booking Request </Title>
                         <Subtitle>  with Michael Waye </Subtitle>

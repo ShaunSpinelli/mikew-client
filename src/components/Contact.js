@@ -133,7 +133,7 @@ class Contact extends React.Component{
         return(
         <ContactForm>
             <MuiThemeProvider> 
-                <div>
+                <div className="contact--holder">
                         <Title> Get in Contact Easily </Title>
                         <Subtitle>  with Michael Waye </Subtitle>
                     <div className="contact--form--container">
