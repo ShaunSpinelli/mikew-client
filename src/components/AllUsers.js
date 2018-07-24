@@ -1,5 +1,6 @@
 import React from 'react'
 import {api} from '../api/init.js'
+import { Button } from '../styles/cssInJs/AllBookings.styles.js'
 
 class AllUsers extends React.Component {
     state = { 
@@ -21,23 +22,22 @@ class AllUsers extends React.Component {
     }
 
     render() { 
-        return ( 
-            <div>
-                <h1> All Users </h1>
-                {
-                    this.state.allUsers.map((user) => {
-                        return (
-                            <div key= {user._id}>
-                                <p> {`${user.firstName} ${user.lastName}`} </p>
-                                <p> {`${user.email}`} </p>
-                                <p> {`${user.phoneNumber}`} </p>
-                                <button onClick={() => this.removeUser(user._id)}> remove user </button>
-                            </div>
-                        )
-                    })
-                }
-            </div>
-        )
+        const {allUsers} = this.state
+        return(
+        allUsers.map((user) => {
+            return ( 
+                <div>
+                    <div className= "contact" key= {user._id}>
+                        <h1> {`${user.firstName} ${user.lastName}`} </h1>
+                        <p> {`${user.email}`} </p>
+                        <p> {`${user.phoneNumber}`} </p>
+                        <Button onClick={() => this.removeUser(user._id)}> remove user </Button>
+                     </div>
+                </div>
+            )
+        
+        })
+    )
     }
 }
  
