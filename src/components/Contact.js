@@ -26,16 +26,18 @@ class Contact extends React.Component{
     }
 
     componentDidMount(){
-        local = (JSON.parse(localStorage.getItem('contactForm')))
-        console.log(JSON.parse(localStorage.getItem('contactForm')))
-        this.setState({
-            fname: local.fname,
-            lname: local.lname,
-            phone: local.phone,
-            email: local.email,
-            artist: local.artist,
-            comment: local.comment
-        })
+        if(localStorage.getItem('contactForm')){
+            local = (JSON.parse(localStorage.getItem('contactForm')))
+            console.log(JSON.parse(localStorage.getItem('contactForm')))
+            this.setState({
+                fname: local.fname,
+                lname: local.lname,
+                phone: local.phone,
+                email: local.email,
+                artist: local.artist,
+                comment: local.comment
+            })
+        }
     }
 
     //feel free to add extra validation in this function.
@@ -108,7 +110,7 @@ class Contact extends React.Component{
                 comment: ''
             })
 
-            
+            localStorage.removeItem('contactForm')
 
             axios.post("https://mikewserver.herokuapp.com/contact/new", contactReq)
             .then(() => this.setState({ sent: "sent!", contactButton: true, isAuthenticated: true }))
