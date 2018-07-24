@@ -24,6 +24,7 @@ export default class extends React.Component  {
             <Profile />
             <button className="sendContact dash-btn" onClick={() => this.toggleShow("contacts")}> Contacts </button>
             <button className="sendContact dash-btn" onClick={() => this.toggleShow("bookings")}> Bookings </button>
+            <button className="sendContact dash-btn" onClick={() => this.toggleShow("users")}> Users </button>
             <div className="dashboard--toggler">
                 {(this.state.show === "bookings") && 
                 <div>
@@ -34,6 +35,11 @@ export default class extends React.Component  {
                 {(this.decoded.role === 'admin' && this.state.show === "contacts") && 
                 <div>
                     <AllContacts />
+                </div>
+                }
+                {(this.decoded.role === 'admin' && this.state.show === "users") && 
+                <div>
+                    <AllUsers />
                 </div>
                 }
             </div>

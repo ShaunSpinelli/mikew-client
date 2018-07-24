@@ -2,17 +2,15 @@ import React from 'react'
 import {api} from '../api/init.js'
 
 class AllUsers extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = { 
+    state = { 
             allUsers: []
         }
-    }
 
     componentDidMount() { //fetches all user accounts.
         api.get('users/all')
         .then((response) => {
             this.setState({allUsers: response.data}) //sets response to state.
+            console.log('hello')
         })
         .catch((err) => {console.log(err)})
     }
