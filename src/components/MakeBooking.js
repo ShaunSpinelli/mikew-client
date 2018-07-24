@@ -87,6 +87,7 @@ class MakeBooking extends Component {
     .then(() => {this.setState({sent: "sent!", bookingButton: true, isAuthenticated: true}) //redirects if successful( is Authenticated )
                 console.log(this.state) })
     .catch((err) => { console.log(err) })
+    localStorage.removeItem('bookingForm')
     } else {
         this.setState({error: "you must log in to make a request"})
     }
