@@ -181,6 +181,10 @@ Isaac - [front end](https://github.com/DeezyE/mikew-client)
 
 ### Agile
 
+A call between two colleagues over slack.
+
+![slack call screen shot](./assests/call.png)
+
 ### Code Review
 
 
