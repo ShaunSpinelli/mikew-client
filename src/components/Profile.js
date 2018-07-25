@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { api } from '../api/init'
+import { api, setJwt } from '../api/init'
 import Loading from './Loading'
 import { Title, Subtitle } from '../styles/cssInJs/Mixins.styles';
 import { Name, Img } from '../styles/cssInJs/Profile.styles';
@@ -19,6 +19,7 @@ class Profile extends Component {
     }
 
     componentDidMount(){
+        setJwt(localStorage.getItem('token'))
         this.setState( {loading: true} )
         const decoded = jwtDecode(localStorage.getItem('token'))
         this.getUserProfile(decoded.sub) //decoded.sub is users unique ID, uses it to make an axios request for the specific user.

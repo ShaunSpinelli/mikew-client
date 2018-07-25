@@ -4,7 +4,7 @@ import TimePicker from 'react-bootstrap-time-picker'
 import moment from 'moment'
 import TextField from 'material-ui/TextField'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import {api} from '../api/init.js'
+import {api, setJwt} from '../api/init.js'
 import { Redirect } from 'react-router-dom'
 import 'react-datepicker/dist/react-datepicker.css'
 import { Title, Subtitle } from '../styles/cssInJs/Mixins.styles';
@@ -27,6 +27,7 @@ class MakeBooking extends Component {
     }
 
     componentWillMount(){
+        setJwt(localStorage.getItem('token'))
         console.log(moment())
         if(localStorage.getItem('token')){
             const decoded = jwtDecode(localStorage.getItem('token')) //checks token

@@ -1,5 +1,5 @@
 import React from 'react'
-import {api} from '../api/init'
+import {api, setJwt} from '../api/init'
 
 class AllContacts extends React.Component {
     state = { 
@@ -7,6 +7,8 @@ class AllContacts extends React.Component {
      }
 
     componentWillMount(){
+        setJwt(localStorage.getItem('token'))
+        
         api.get("/contact/all") //gets all contact
         .then((response) => {
             let contactRequests = []
