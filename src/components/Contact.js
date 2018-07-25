@@ -10,14 +10,14 @@ let local = {}
 
 class Contact extends React.Component{
     state= {
-        fname: '',
+        fname: ' ',
         fnameError: ' ',
         lname: ' ',
         lnameError: ' ',
         phone: ' ',
         phoneError: ' ',
         email: ' ',
-        emailError: ' ',
+        emailError: '',
         artist: ' ',
         comment: ' ',
         contactButton: false, //if true, no contact request can be sent.
@@ -51,7 +51,7 @@ class Contact extends React.Component{
             emailError: '',
         }
 
-            if(fname.length < 2){ //checks firstname field for numbers and length
+            if(fname === ''){ //checks firstname field for numbers and length
                 isError = true
                 errors.fnameError = "please enter a valid first name."
             }
