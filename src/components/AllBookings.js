@@ -2,7 +2,7 @@ import React from 'react'
 import moment from 'moment'
 import Booking from './Booking'
 import Loading from './Loading'
-import { api } from '../api/init'
+import { api, setJwt } from '../api/init'
 import { Button } from '../styles/cssInJs/AllBookings.styles.js'
 
 const jwtDecode = require('jwt-decode')
@@ -21,6 +21,10 @@ class AllBookings extends React.Component {
      isAdmin = () =>{ //used in callbacks, and in statements, to check whether the decoded token is an admin.
         const decoded = jwtDecode(localStorage.getItem('token'))
         return decoded.role === "admin" 
+     }
+
+     componentWillMount(){
+         setJwt(localStorage.getItem('token'))
      }
 
     componentDidMount(){

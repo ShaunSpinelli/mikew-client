@@ -1,5 +1,5 @@
 import React from 'react'
-import axios from 'axios'
+import {api, setJwt} from '../api/init'
 
 class AllContacts extends React.Component {
     state = { 
@@ -7,7 +7,9 @@ class AllContacts extends React.Component {
      }
 
     componentWillMount(){
-        axios.get("https://mikewserver.herokuapp.com/contact/all") //gets all contact
+        setJwt(localStorage.getItem('token'))
+        
+        api.get("/contact/all") //gets all contact
         .then((response) => {
             let contactRequests = []
             response.data.forEach((req) => {
