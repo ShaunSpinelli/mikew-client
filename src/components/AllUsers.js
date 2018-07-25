@@ -1,5 +1,5 @@
 import React from 'react'
-import {api} from '../api/init.js'
+import {api, setJwt} from '../api/init.js'
 import { Button } from '../styles/cssInJs/AllBookings.styles.js'
 
 class AllUsers extends React.Component {
@@ -8,6 +8,7 @@ class AllUsers extends React.Component {
         }
 
     componentDidMount() { //fetches all user accounts.
+        setJwt(localStorage.getItem('token'))
         api.get('users/all')
         .then((response) => {
             this.setState({allUsers: response.data}) //sets response to state.
@@ -18,7 +19,12 @@ class AllUsers extends React.Component {
 
     //MVP +, not implemented yet.
     removeUser = (id) => {
-        console.log('remove!' + id)
+        api.delete('/users/delete',{params : {id: id }})
+        this.setState(
+            prevState => {
+                const allUsers = prevState.allUsers.filter(user => user._id !== id);
+                return { allUsers }
+         })
     }
 
     render() { 

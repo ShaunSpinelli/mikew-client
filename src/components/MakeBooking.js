@@ -2,10 +2,9 @@ import React, { Component } from 'react'
 import DatePicker from 'react-datepicker'
 import TimePicker from 'react-bootstrap-time-picker'
 import moment from 'moment'
-import axios from 'axios'
 import TextField from 'material-ui/TextField'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import {api} from '../api/init.js'
+import {api, setJwt} from '../api/init.js'
 import { Redirect } from 'react-router-dom'
 import 'react-datepicker/dist/react-datepicker.css'
 import { Title, Subtitle } from '../styles/cssInJs/Mixins.styles';
@@ -28,6 +27,7 @@ class MakeBooking extends Component {
     }
 
     componentWillMount(){
+        setJwt(localStorage.getItem('token'))
         console.log(moment())
         if(localStorage.getItem('token')){
             const decoded = jwtDecode(localStorage.getItem('token')) //checks token
@@ -82,7 +82,7 @@ class MakeBooking extends Component {
             info: this.state.note,
             bookingStatus: "pending"
         }
-    axios.post("https://mikewserver.herokuapp.com/bookings/new", booking)
+    api.post("/bookings/new", booking)
     .then(() => {this.setState({sent: "sent!", bookingButton: true, isAuthenticated: true}) //redirects if successful( is Authenticated )
                 console.log(this.state) })
     .catch((err) => { console.log(err) })
