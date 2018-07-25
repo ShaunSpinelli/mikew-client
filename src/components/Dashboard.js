@@ -5,8 +5,6 @@ import AllUsers from '../components/AllUsers.js'
 import Profile from '../components/Profile.js'
 const jwtDecode = require('jwt-decode')
 
-// const decoded = jwtDecode(localStorage.getItem('token'))
-
 export default class extends React.Component  {
     state = {
         show: "bookings" //can also be contact, or users, this is what determines which section is rendered to the screen at a time.
@@ -20,33 +18,32 @@ export default class extends React.Component  {
 
     render(){
         return(
-        <div className="dashboard--holder">
-            <Profile />
-            <button className="sendContact dash-btn" onClick={() => this.toggleShow("contacts")}> Contacts </button>
-            <button className="sendContact dash-btn" onClick={() => this.toggleShow("bookings")}> Bookings </button>
+            <div className="dashboard--holder">
+                <Profile />
+                <button className="sendContact dash-btn" onClick={() => this.toggleShow("contacts")}> Contacts </button>
+                <button className="sendContact dash-btn" onClick={() => this.toggleShow("bookings")}> Bookings </button>
                 {(this.decoded.role === 'admin') && 
                     <button className="sendContact dash-btn" onClick={() => this.toggleShow("users")}> Users </button>
                 }
-            <div className="dashboard--toggler">
-                {(this.state.show === "bookings") && 
-                <div>
-                    <AllBookings />
-                </div>
-                }
+                <div className="dashboard--toggler">
+                    {(this.state.show === "bookings") && 
+                        <div>
+                            <AllBookings />
+                        </div>
+                    }
 
-                {(this.decoded.role === 'admin' && this.state.show === "contacts") && 
-                <div>
-                    <AllContacts />
+                    {(this.decoded.role === 'admin' && this.state.show === "contacts") && 
+                        <div>
+                            <AllContacts />
+                        </div>
+                    }
+                    {(this.decoded.role === 'admin' && this.state.show === "users") && 
+                        <div>
+                            <AllUsers />
+                        </div>
+                    }
                 </div>
-                }
-                {(this.decoded.role === 'admin' && this.state.show === "users") && 
-                <div>
-                    <AllUsers />
-                </div>
-                }
             </div>
-
-        </div>
         )
     }
 }

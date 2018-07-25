@@ -4,7 +4,6 @@ import Loading from './Loading'
 import { Title, Subtitle } from '../styles/cssInJs/Mixins.styles';
 import { Name, Img } from '../styles/cssInJs/Profile.styles';
 
-
 const jwtDecode = require('jwt-decode')
 
 class Profile extends Component {
@@ -28,12 +27,11 @@ class Profile extends Component {
     getUserProfile = (id) => {
         api.get("users/id", {params : {id: id }}) //only returns information relevent to the user.
         .then((response) => {
-        const {id, firstName, lastName, email, phoneNumber, profileImg} = response.data //decontructind for response.
-        this.setState(
-            {id, firstName, lastName, email, phoneNumber, profileImg, loading: false })})
-        // console.log(res.data.firstName)})
+            const {id, firstName, lastName, email, phoneNumber, profileImg} = response.data //decontructind for response.
+            this.setState(
+                {id, firstName, lastName, email, phoneNumber, profileImg, loading: false })})
         .catch((err) => { console.log(err) })
-        }
+    }
 
     render () {
         const { loading, firstName, lastName, email, phoneNumber, profileImg } = this.state

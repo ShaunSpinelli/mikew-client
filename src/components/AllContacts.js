@@ -1,5 +1,5 @@
 import React from 'react'
-import {api, setJwt} from '../api/init'
+import { api, setJwt } from '../api/init'
 
 class AllContacts extends React.Component {
     state = { 

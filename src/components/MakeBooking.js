@@ -48,7 +48,6 @@ class MakeBooking extends Component {
   handleDateChange = (date) => { //triggered when calender is used.
     this.setState({ date }, () => { console.log('The Date is: ', (this.state.date).format('YYYYMMDD')) }) 
     local['date'] = { _d: this.state.date}
-    console.log(local)
     localStorage.setItem('bookingForm', JSON.stringify(local))
   }
 
@@ -82,11 +81,10 @@ class MakeBooking extends Component {
             info: this.state.note,
             bookingStatus: "pending"
         }
-    api.post("/bookings/new", booking)
-    .then(() => {this.setState({sent: "sent!", bookingButton: true, isAuthenticated: true}) //redirects if successful( is Authenticated )
-                console.log(this.state) })
-    .catch((err) => { console.log(err) })
-    localStorage.removeItem('bookingForm')
+        api.post("/bookings/new", booking)
+            .then(() => {this.setState({sent: "sent!", bookingButton: true, isAuthenticated: true}) })//redirects if successful( is Authenticated )
+            .catch((err) => { console.log(err) })
+        localStorage.removeItem('bookingForm')
     } else {
         this.setState({error: "you must log in to make a request"})
     }
@@ -102,59 +100,58 @@ class MakeBooking extends Component {
   }
 
   render() {
-    const {note, error, sent, startTime, endTime, bookingButton, isAuthenticated} = this.state
+    const { note, error, sent, startTime, endTime, bookingButton, isAuthenticated } = this.state
         if (isAuthenticated) {
             return <Redirect to='/profile' />
         }
     return (
         <BookingForm className="Makebooking-container">
             <MuiThemeProvider>
-                        <Title> Make a Booking Request </Title>
-                        <Subtitle>  with Michael Waye </Subtitle>
-
-                        <div className= "Makebooking--whatDate">
-                        <Question>What day?</Question>
-                            <DatePicker //calender.
-                                className= "Makebooking--datePicker"
-                                selected= {this.state.date}
-                                onChange={this.handleDateChange}
-                            />
-                        </div>
-                        <div className="Makebooking--whatTime">
-                        <Question>What time?</Question>
-                            <div>
-                                <Text>Start:&nbsp;</Text> 
-                                <TimePicker //start time
-                                    className= "Makebooking--timePicker"
-                                    start={"7:00"}
-                                    end="16:00" 
-                                    step={30} 
-                                    value={startTime }
-                                    onChange={this.handleStartTimeChange}
-                                />
-                            </div>
-                            <Text>End:&nbsp;</Text> 
-                            <TimePicker //end time
-                                className= "Makebooking--timePicker"
-                                start={ this.timeConverter(startTime) || "7:30" } 
-                                end="17:00" 
-                                step={30}
-                                value={endTime} 
-                                onChange={this.handleEndTimeChange}
-                            />
-                        </div>
-                        <div className="Makebooking--note"> 
-                            <TextField //note field
-                                    name= "note" 
-                                    floatingLabelText= "note"
-                                    value= {note}
-                                    onChange= {this.handleNote}
-                            />
-                        </div>
-                        <div className="Makebooking--buttonholder">
-                            <button className="Makebooking--button" disabled={bookingButton}  onClick={this.handleBookingRequest}> {sent} </button>
-                        </div>
-                        {error}
+                <Title> Make a Booking Request </Title>
+                <Subtitle>  with Michael Waye </Subtitle>
+                <div className= "Makebooking--whatDate">
+                    <Question>What day?</Question>
+                    <DatePicker //calender.
+                        className= "Makebooking--datePicker"
+                        selected= {this.state.date}
+                        onChange={this.handleDateChange}
+                    />
+                </div>
+                <div className="Makebooking--whatTime">
+                    <Question>What time?</Question>
+                    <div>
+                        <Text>Start:&nbsp;</Text> 
+                        <TimePicker //start time
+                            className= "Makebooking--timePicker"
+                            start={"7:00"}
+                            end="16:00" 
+                            step={30} 
+                            value={startTime }
+                            onChange={this.handleStartTimeChange}
+                        />
+                    </div>
+                    <Text>End:&nbsp;</Text> 
+                    <TimePicker //end time
+                        className= "Makebooking--timePicker"
+                        start={ this.timeConverter(startTime) || "7:30" } 
+                        end="17:00" 
+                        step={30}
+                        value={endTime} 
+                        onChange={this.handleEndTimeChange}
+                    />
+                </div>
+                <div className="Makebooking--note"> 
+                    <TextField //note field
+                        name= "note" 
+                        floatingLabelText= "note"
+                        value= {note}
+                        onChange= {this.handleNote}
+                    />
+                </div>
+                <div className="Makebooking--buttonholder">
+                    <button className="Makebooking--button" disabled={bookingButton}  onClick={this.handleBookingRequest}> {sent} </button>
+                </div>
+                {error}
             </MuiThemeProvider>
         </ BookingForm>
     )

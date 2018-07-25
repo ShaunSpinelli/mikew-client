@@ -51,69 +51,73 @@ import { api } from '../api/init'
     render() {
       return (
         <MuiThemeProvider>
-        <Fragment>
-            <Button onClick={this.openModal}>Register</ Button>
-            <Modal
-                className="modal fade modal-dialog loginmodal-container"
-                id="login-modal"
-                isOpen={this.state.modalIsOpen}
-                onRequestClose={this.closeModal}
-                contentLabel="Example Modal"
-            >
-            <button  className="close--button" onClick={this.closeModal}> <img className="close--button--img"  src="http://www.myiconfinder.com/uploads/iconsets/256-256-46602df56c953c27348b14d8651dcdc5-close.png" /> </button>
-                <h1>Register Your Account</h1><br />
-                <p>{this.state.loginError ? 'This email address already exists': ''}</p>
-                <form className="login--form--container">
-                <p>
-                <TextField
-                    className="center--login--inputs"
-                    name= "firstName" 
-                    floatingLabelText= "first name"
-                    value= {this.state.firstName} 
-                    onChange= {this.handleChange} />
-                </p>
-                <p>
-                <TextField
-                    className="center--login--inputs"
-                    name= "lastName" 
-                    floatingLabelText= "last name"
-                    value= {this.state.lastName} 
-                    onChange= {this.handleChange} />
-                </p>
-                <p>
-                <TextField
-                    className="center--login--inputs"
-                    name= "phoneNumber" 
-                    floatingLabelText= "phone number"
-                    value= {this.state.phoneNumber} 
-                    onChange= {this.handleChange} />
-                </p>
-                <p>
-                <TextField
-                    className="center--login--inputs"
-                    name= "email" 
-                    floatingLabelText= "email"
-                    value= {this.state.email} 
-                    onChange= {this.handleChange} />
-                </p>
-                <p>
-                <TextField
-                    className="center--login--inputs"
-                    name= "password" 
-                    floatingLabelText= "password"
-                    value= {this.state.password} 
-                    onChange= {this.handleChange} 
-                    type= "password"/>   
-                </p>
-                <button onClick={this.handleRegister} type="submit" name="login" className="Makebooking--button"> Register </button>                 
-                </form>
-
-            </Modal>
-        </Fragment>
+            <Fragment>
+                <Button onClick={this.openModal}>Register</ Button>
+                <Modal
+                    className="modal fade modal-dialog loginmodal-container"
+                    id="login-modal"
+                    isOpen={this.state.modalIsOpen}
+                    onRequestClose={this.closeModal}
+                    contentLabel="Example Modal"
+                >
+                    <button  className="close--button" onClick={this.closeModal}> <img className="close--button--img"  src="http://www.myiconfinder.com/uploads/iconsets/256-256-46602df56c953c27348b14d8651dcdc5-close.png" /> </button>
+                    <h1>Register Your Account</h1><br />
+                    <p>{this.state.loginError ? 'This email address already exists': ''}</p>
+                    <form className="login--form--container">
+                        <p>
+                            <TextField
+                                className="center--login--inputs"
+                                name= "firstName" 
+                                floatingLabelText= "first name"
+                                value= {this.state.firstName} 
+                                onChange= {this.handleChange} 
+                            />
+                        </p>
+                        <p>
+                            <TextField
+                                className="center--login--inputs"
+                                name= "lastName" 
+                                floatingLabelText= "last name"
+                                value= {this.state.lastName} 
+                                onChange= {this.handleChange}
+                            />
+                        </p>
+                        <p>
+                            <TextField
+                                className="center--login--inputs"
+                                name= "phoneNumber" 
+                                floatingLabelText= "phone number"
+                                value= {this.state.phoneNumber} 
+                                onChange= {this.handleChange} 
+                            />
+                        </p>
+                        <p>
+                            <TextField
+                                className="center--login--inputs"
+                                name= "email" 
+                                floatingLabelText= "email"
+                                value= {this.state.email} 
+                                onChange= {this.handleChange} 
+                            />
+                        </p>
+                        <p>
+                            <TextField
+                                className="center--login--inputs"
+                                name= "password" 
+                                floatingLabelText= "password"
+                                value= {this.state.password} 
+                                onChange= {this.handleChange} 
+                                type= "password"
+                            />   
+                        </p>
+                        <button onClick={this.handleRegister} type="submit" name="login" className="Makebooking--button"> Register </button>                 
+                    </form>
+                </Modal>
+            </Fragment>
         </MuiThemeProvider>
-      );
+      )
     }
-  }
+}
 
 export default Register
 

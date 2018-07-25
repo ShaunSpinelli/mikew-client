@@ -50,38 +50,37 @@ import { api } from '../api/init'
             onRequestClose={this.closeModal}
             contentLabel="Example Modal"
           >
-   
-          <button  className="close--button" onClick={this.closeModal}> 
-            <img className="close--button--img"  src="http://www.myiconfinder.com/uploads/iconsets/256-256-46602df56c953c27348b14d8651dcdc5-close.png" /> 
-          </button>
-          <h1> Login </h1>
-          <br/>
-          <p>{this.state.loginError ? 'Invalid Login Details': ''}</p>
-          <div>
-          <form className="login--form--container"> 
-          <p>
-          <TextField
-              className="center--login--inputs"
-              name= "email" 
-              floatingLabelText= "email"
-              value= {this.state.email} 
-              onChange= {this.handleChange} />
-          </p>
-          <p>
-          <TextField
-              className="center--login--inputs"
-              name= "password" 
-              floatingLabelText= "password"
-              value= {this.state.password} 
-              onChange= {this.handleChange}
-              type="password" />
-            </p>
-				  	<button onClick={this.handleLogin} type="submit" name="login" className="Makebooking--button"> Login </button>
-          </form>
-          </div>
-          {/* <div className="login-help">
-					  <a href="#">Register</a> - <a href="#">Forgot Password</a>
-          </div> */}
+            <button  className="close--button" onClick={this.closeModal}> 
+              <img className="close--button--img"  src="http://www.myiconfinder.com/uploads/iconsets/256-256-46602df56c953c27348b14d8651dcdc5-close.png" /> 
+            </button>
+            <h1> Login </h1>
+            <br/>
+            <p>{this.state.loginError ? 'Invalid Login Details': ''}</p>
+            <div>
+              <form className="login--form--container"> 
+                <p>
+                  <TextField
+                      className="center--login--inputs"
+                      name= "email" 
+                      floatingLabelText= "email"
+                      value= {this.state.email} 
+                      onChange= {this.handleChange} />
+                </p>
+                <p>
+                  <TextField
+                      className="center--login--inputs"
+                      name= "password" 
+                      floatingLabelText= "password"
+                      value= {this.state.password} 
+                      onChange= {this.handleChange}
+                      type="password" />
+                  </p>
+                <button onClick={this.handleLogin} type="submit" name="login" className="Makebooking--button"> Login </button>
+              </form>
+            </div>
+            {/* <div className="login-help">
+              <a href="#">Register</a> - <a href="#">Forgot Password</a>
+            </div> */}
           </Modal>
         </ Fragment>
         </ MuiThemeProvider>
