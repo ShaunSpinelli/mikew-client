@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import DatePicker from 'react-datepicker'
 import TimePicker from 'react-bootstrap-time-picker'
 import moment from 'moment'
-import axios from 'axios'
 import TextField from 'material-ui/TextField'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import {api} from '../api/init.js'
@@ -82,7 +81,7 @@ class MakeBooking extends Component {
             info: this.state.note,
             bookingStatus: "pending"
         }
-    axios.post("https://mikewserver.herokuapp.com/bookings/new", booking)
+    api.post("/bookings/new", booking)
     .then(() => {this.setState({sent: "sent!", bookingButton: true, isAuthenticated: true}) //redirects if successful( is Authenticated )
                 console.log(this.state) })
     .catch((err) => { console.log(err) })

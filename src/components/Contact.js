@@ -3,7 +3,7 @@ import TextField from 'material-ui/TextField'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import { Title, Subtitle } from '../styles/cssInJs/Mixins.styles';
 import { ContactForm } from '../styles/cssInJs/Contact.styles';
-import axios from 'axios'
+import {api} from '../api/init.js'
 import { Redirect } from 'react-router-dom'
 
 let local = {}
@@ -112,7 +112,7 @@ class Contact extends React.Component{
 
             localStorage.removeItem('contactForm')
 
-            axios.post("https://mikewserver.herokuapp.com/contact/new", contactReq)
+            api.post("/contact/new", contactReq)
             .then(() => this.setState({ sent: "sent!", contactButton: true, isAuthenticated: true }))
             .catch((err) => { console.log(err) })
         }
