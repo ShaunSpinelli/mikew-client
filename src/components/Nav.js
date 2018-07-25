@@ -23,7 +23,7 @@ class Nav extends Component {
                 :  
                 <Fragment> 
                     <Login updatedLogIn={this.props.updatedLogIn}/>
-                    <Register />
+                    <Register updatedLogIn={this.props.updatedLogIn} />
                 </ Fragment> }
             </ Navbar>
         )

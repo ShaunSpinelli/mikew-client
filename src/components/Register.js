@@ -44,7 +44,9 @@ import { api } from '../api/init'
         }
         api.post('users/register', newUser)
         .then(res => { localStorage.setItem('token',res.data.token)
-            this.closeModal()})
+            this.props.updatedLogIn()
+            this.closeModal()
+        })
         .catch(err => {this.setState({registerError: true})})
     }
 
