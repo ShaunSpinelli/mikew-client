@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 import { setButtonProps} from './Mixins.styles';
 
 const Navbar = styled.div`
-    height: 185px;
+    height: 12rem;
     position: relative;
     top: 0;
     width: 100%;
