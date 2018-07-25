@@ -10,13 +10,13 @@ let local = {}
 
 class Contact extends React.Component{
     state= {
-        fname: ' ',
-        fnameError: ' ',
-        lname: ' ',
-        lnameError: ' ',
-        phone: ' ',
-        phoneError: ' ',
-        email: ' ',
+        fname: '',
+        fnameError: '',
+        lname: '',
+        lnameError: '',
+        phone: '',
+        phoneError: '',
+        email: '',
         emailError: '',
         artist: ' ',
         comment: ' ',
