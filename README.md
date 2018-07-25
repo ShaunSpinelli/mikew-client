@@ -83,7 +83,9 @@ Review the conceptual design with the client and edit based on their feedback
 
 ### User Journeys
 
-need to draw diagram for this
+![user journey](./assests/uj.png)
+
+![admin journey](./assests/adminj.png  )
 
 ### Wire Frames
 
@@ -119,12 +121,32 @@ Below is an overview on how the project was managed.
 
 ### Working with the Client
 
-1,2
+Meetings were held periodically with the client to ensure contsant communication and feedback during development.
 
-show communication with client
+**Meeting Checkpoints**
+
+6 July: Found our client. Asked him about potential problems with how he intends to set up his music consultancy business. We learnt that he did not have a website and no way to easily keep track of his clients and their appointments.
+
+Showed client our user flow diagram and basic wire frames and he approved them.
+
+10 July: 
+
+12 July: Showed client 3 logo concepts, he selected one. Approved layout and design mockup.
+
+22 July: took photos and videos of client.
+
+24 July: Got client to user test app, his feedback:
+
+> Contact form should also have fields for these questions:
+>1) Do you have an idea of what style of music you’d like to create?
+>2) Can you play an instrument, if so, please list those instruments
+>3) Are you looking to record stylised covers?
+>4) Do you have your own lyrics, chord structure or any other musical elements? If not just leave blank
+
+
+> wants to go to clients, not for them to come to him.
 
 ### Project Charter
-
 
 ### Project Schedule
 
