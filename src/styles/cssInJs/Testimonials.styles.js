@@ -5,10 +5,11 @@ const Testimonials = styled.div`
 `
 const Title = styled.h2`
     display: block;
-    color: white;
+    color: yellow;
     text-align: center;
     font-size: 3rem;
-    font-weight: 700;
+    font-weight: 300;
+    margin: 1rem;
 `
 
 export { Testimonials, Title }

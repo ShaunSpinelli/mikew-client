@@ -4,7 +4,7 @@ import { setTextProps, setIconProps, setImgProps } from './Mixins.styles';
 const Home = styled.div`
 `
 const Img = styled.img`
-  ${setImgProps('50%','250px', '250px', '25px', '0px')}
+  ${setImgProps('50%','21rem', '21rem', '25px', '0px')}
 `
 const Title = styled.h4`
   ${setTextProps('3em','300','yellow')}

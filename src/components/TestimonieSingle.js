@@ -7,6 +7,7 @@ const TestimonieSingle = (props) => {
             <div className="card">
                 <img className="testimonie--image" src= {props.image} />
                 <p className="tesimonie--description"> {props.testimonie} </p>
+                <p className="tesimonie--author"> {props.author} </p>
             </div>
         </div>
      )
