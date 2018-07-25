@@ -17,7 +17,7 @@ const Slogan = styled.h3`
 line-height: 1.5em;
 padding-bottom: 0.5em;
 display: block;
-${setTextProps('1.5em','300','white')}
+${setTextProps('1.5em','300','grey')}
 `
 const Icon1 = styled.img`
 ${setIconProps('absolute', '5vw', '1rem', '3rem', '2.5rem')}
