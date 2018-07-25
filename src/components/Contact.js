@@ -10,7 +10,7 @@ let local = {}
 
 class Contact extends React.Component{
     state= {
-        fname: ' ',
+        fname: '',
         fnameError: ' ',
         lname: ' ',
         lnameError: ' ',
@@ -51,17 +51,17 @@ class Contact extends React.Component{
             emailError: '',
         }
 
-            if(fname.trim() == ''){ //checks firstname field for numbers and length
+            if(fname.length < 2){ //checks firstname field for numbers and length
                 isError = true
                 errors.fnameError = "please enter a valid first name."
             }
 
-            if(lname.trim() == '' ){ //checks lastname field for numbers and length
+            if(lname === '' ){ //checks lastname field for numbers and length
                 isError = true
                 errors.lnameError = "please enter a valid last name."
             }
         
-            if(email.trim() == ''){ 
+            if(email === ''){ 
                 isError = true
                 errors.emailError = "please enter a valid email address"
             }

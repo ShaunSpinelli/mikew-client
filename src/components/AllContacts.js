@@ -39,7 +39,7 @@ class AllContacts extends React.Component {
                             </div>
                         )
                     })
-                : <p> loading hollup.. </p>
+                : <p> No contacts.. </p>
                 }
                 </div>
             </div>
