@@ -8,7 +8,7 @@ import michael from '../images/michael.jpg'
 
 const HomePage = () => (
     <Fragment>
-        <Home>
+        <Home className= "homepage--holder">
             <Img src={michael} alt="Photo of Michael Waye"></Img>
             <Title>Michael Waye</Title>
             <Subtitle> MUSIC PRODUCTION </Subtitle>

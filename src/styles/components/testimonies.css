@@ -21,7 +21,7 @@
     flex: 0 0 auto;
     color: white;
     max-width: 35vw;
-    height: 37vh;
+    height: 35vh;
     background-color: #282727;
     margin: 1rem;
     text-align: center;
@@ -39,7 +39,7 @@
 .testimonie--image{
     margin: 1rem;
     max-width: 30vw; 
-    max-height: 17vw;
+    max-height: 20vh;
 }
 
 .tesimonie--description{

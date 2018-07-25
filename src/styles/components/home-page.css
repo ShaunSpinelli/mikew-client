@@ -1,9 +1,7 @@
-.Homepage{
-    padding-left: 18vw;
-    height: 75vh;
+.homepage--holder{
+    height: 50vh;
 }
- 
-p {
+ p {
     margin: 0;
     padding: 0;
 }
