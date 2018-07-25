@@ -14,7 +14,7 @@ const Navbar = styled.div`
 `
 const StyledLink = styled(NavLink)`
     background-color: #48474A;
-    padding: 13px 15px;
+    padding: 10px 10px;
     margin-left: 1rem;
     vertical-align: middle;
     text-decoration: none;

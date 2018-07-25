@@ -10,16 +10,16 @@ let local = {}
 
 class Contact extends React.Component{
     state= {
-        fname: '',
-        fnameError: '',
-        lname: '',
-        lnameError: '',
-        phone: '',
-        phoneError: '',
-        email: '',
-        emailError: '',
-        artist: '',
-        comment: '',
+        fname: ' ',
+        fnameError: ' ',
+        lname: ' ',
+        lnameError: ' ',
+        phone: ' ',
+        phoneError: ' ',
+        email: ' ',
+        emailError: ' ',
+        artist: ' ',
+        comment: ' ',
         contactButton: false, //if true, no contact request can be sent.
         sent: "Send", //changes depending on axios request status, "sending, or "sent""
         isAuthenticated: false //if true, they will be redirected after the contact request is sent.
@@ -51,25 +51,25 @@ class Contact extends React.Component{
             emailError: '',
         }
 
-        if(fname.length <= 1 && isNaN(fname)){ //checks firstname field for numbers and length
-            isError = true
-            errors.fnameError = "please enter a valid first name."
-        }
+            if(fname.trim() == ''){ //checks firstname field for numbers and length
+                isError = true
+                errors.fnameError = "please enter a valid first name."
+            }
 
-        if(lname.length <= 1 && isNaN(lname)){ //checks lastname field for numbers and length
-            isError = true
-            errors.lnameError = "please enter a valid last name."
-        }
+            if(lname.trim() == '' ){ //checks lastname field for numbers and length
+                isError = true
+                errors.lnameError = "please enter a valid last name."
+            }
+        
+            if(email.trim() == ''){ 
+                isError = true
+                errors.emailError = "please enter a valid email address"
+            }
 
-        if(email.indexOf("@") === -1 && email.indexOf(".") === -1 ){ //checks email feild for @ and .
-            isError = true
-            errors.emailError = "please enter a valid email address"
-        }
-
-        if( isNaN(parseInt(phone)) ){ //checks phone number field is a number
-            isError = true
-            errors.phoneError = "please enter a valid phone number"
-        }
+            if( isNaN(parseInt(phone)) ){ //checks phone number field is a number
+                isError = true
+                errors.phoneError = "please enter a valid phone number"
+            }
 
         this.setState ({ //sets error state if error is present.
             ...this.state,
