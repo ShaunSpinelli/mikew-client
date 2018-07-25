@@ -1,11 +1,6 @@
 .testimonies--holder{
-    height: 50vh;
+    height: 38vh;
     width: 100vw;
-    background-color: black;
-    background-image: url("http://jeffcoffin.com/wp-content/uploads/2014/10/0-JC-playing-banner-1440x561.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    padding: 10vh;
 }
 
 .testimonies--title{
@@ -24,21 +19,36 @@
 
 .card {
     flex: 0 0 auto;
+    color: white;
     max-width: 35vw;
-    min-width: 25vw;
-    height: 40vh;
-    background-color: rgba(255,255,255, 0.7);
+    height: 35vh;
+    background-color: #282727;
     margin: 1rem;
     text-align: center;
+    border: 1px solid black;
+    opacity: 0.8;
+    transition: 0.5s;
+}
+
+.card:hover{
+    color: black;
+    cursor: pointer;
+    background-color: yellow;
 }
 
 .testimonie--image{
     margin: 1rem;
-    max-height: 22vw; 
+    max-width: 30vw; 
+    max-height: 20vh;
 }
 
 .tesimonie--description{
-    font-size: 1.5rem;
+    font-size: 1rem;
     width: 100%; 
     text-align: center;
+    font-style: italic;
+}
+
+.tesimonie--author{
+    color: var(--grey-color);
 }

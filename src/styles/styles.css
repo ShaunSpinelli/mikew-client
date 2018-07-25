@@ -21,4 +21,14 @@
     --red-color: #FF8F8F;
 }
 
+html {
+    font-size: 12px;
+}
+
+body {
+    font-size: 12px;
+}
+
+/* body and html are usually 16px. this size looks weird on local host, but good on a live site.....  */
+/* 16 for local  12 for live*/
 /* add more plz */

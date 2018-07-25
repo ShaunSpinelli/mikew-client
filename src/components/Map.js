@@ -32,13 +32,12 @@ class Map extends Component {
                         My studio has everything needed to produce professional music </ Para>
                         <Para> <img className="Map--Icon" src="http://www.myiconfinder.com/uploads/iconsets/256-256-35be70cfc8168446fdd9c9803ea9f6a1.png" alt="map icon"/>
                         Address: 1 Pilin Place, Chapel Hill, Queensland </ Para> 
-                    
                         <Para> <img className="Map--Icon" src="http://www.thamesriverservices.co.uk/assets/address.png" alt="address icon"/> 
                     Postal Address: PO Box 93 </ Para>
                     <Para> <img className="Map--Icon" src="https://png.icons8.com/cotton/2x/secured-letter.png" alt="email icon"/>
-                    michael.s.waye@gmail.com  </ Para>
+                    Email: michael.s.waye@gmail.com  </ Para>
                     <Para> <img className="Map--Icon" src="http://icons.iconarchive.com/icons/graphicloads/100-flat/256/phone-icon.png" alt="phone icon"/>
-                    0450309283 </ Para>
+                    Phone: 0488 768 864 </ Para>
                     </ BodyText>
             </ MapFrame>
          )

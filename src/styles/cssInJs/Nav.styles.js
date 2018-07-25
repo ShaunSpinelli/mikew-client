@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 import { setButtonProps} from './Mixins.styles';
 
 const Navbar = styled.div`
-    height: 185px;
+    height: 12rem;
     position: relative;
     top: 0;
     width: 100%;
@@ -14,7 +14,7 @@ const Navbar = styled.div`
 `
 const StyledLink = styled(NavLink)`
     background-color: #48474A;
-    padding: 13px 15px;
+    padding: 10px 10px;
     margin-left: 1rem;
     vertical-align: middle;
     text-decoration: none;
@@ -40,7 +40,7 @@ const FirstStyledLink = StyledLink.extend`
   `
 
 const Button = styled.button`
-    ${setButtonProps('#48474A', 'white', 'black', 'yellow', 'none', 'none')}
+    ${setButtonProps('#48474A', 'white', 'none', 'none', 'none', 'none')}
 `
 
 const Initial = styled.span`
