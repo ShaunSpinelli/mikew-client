@@ -1,5 +1,5 @@
 import React from 'react'
-import {api, setJwt} from '../api/init.js'
+import { api, setJwt}  from '../api/init.js'
 import { Button } from '../styles/cssInJs/AllBookings.styles.js'
 
 class AllUsers extends React.Component {
@@ -28,22 +28,22 @@ class AllUsers extends React.Component {
     }
 
     render() { 
-        const {allUsers} = this.state
-        return(
-        allUsers.map((user) => {
-            return ( 
-                <div>
-                    <div className= "contact" key= {user._id}>
-                        <h1> {`${user.firstName} ${user.lastName}`} </h1>
-                        <p> {`${user.email}`} </p>
-                        <p> {`${user.phoneNumber}`} </p>
-                        <Button onClick={() => this.removeUser(user._id)}> remove user </Button>
-                     </div>
-                </div>
-            )
-        
-        })
-    )
+        const { allUsers } = this.state
+        return (
+            allUsers.map((user) => {
+                return ( 
+                    <div>
+                        <div className= "contact" key= {user._id}>
+                            <h1> {`${user.firstName} ${user.lastName}`} </h1>
+                            <p> {`${user.email}`} </p>
+                            <p> {`${user.phoneNumber}`} </p>
+                            <Button onClick={() => this.removeUser(user._id)}> remove user </Button>
+                        </div>
+                    </div>
+                )
+            
+            })
+        )
     }
 }
  
