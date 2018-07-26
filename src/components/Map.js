@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import ReactMapboxGl, { Layer, Feature } from "react-mapbox-gl";
 import { BodyText, Para, MapFrame, MainP, Label } from '../styles/cssInJs/Map.styles'
+import jimi from '../images/testimonies/jimi.jpg'
 
 const Mapping = ReactMapboxGl({
     accessToken: "pk.eyJ1IjoiZnJhc2VyaXNsYW5kIiwiYSI6ImNqanJ0YjdydzAxMzMzcG9zZzNydDR3NGsifQ.HGp2D9BXVgnAFIO1miIcXA"
@@ -12,7 +13,7 @@ class Map extends Component {
             <MapFrame>
                 <div className="Map--frame">  
                     <Mapping
-                        zoom={[15]} //how far it is viewed from
+                        zoom={[14]} //how far it is viewed from
                         center=  {[152.953761,-27.492133]} //where the center of the map will point
                         style="mapbox://styles/mapbox/navigation-preview-night-v3" //pre-defined map theme
                         containerStyle={{
@@ -22,7 +23,8 @@ class Map extends Component {
                         <Layer
                             type="symbol"
                             id="marker"
-                            layout={{ "icon-image": "marker-15" }}>
+                            layout={{ "icon-image": "music-15" }}
+                            >
                             <Feature coordinates={[152.953761,-27.492133]}/>{/* makes a land makr at his house. */}
                         </Layer>
                     </Mapping>
