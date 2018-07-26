@@ -223,9 +223,13 @@ A call between two colleagues over slack.
 
 Another aspect of our project that makes it more agile is that we have a continuous integration and deployment pipeline set up. So we can respond to change and these new features can be quickly test, merged and deployed to the website automatically.
 
-When a team member makes a pull request on master for the front end we get a notification slack and can review all the changes live in a deployed preview that Netlify automatically builds on pull requests.
+When a team member makes a pull request on master for the client side we get a notification slack. We can review all the changes live in a deployed preview that Netlify automatically builds on pull requests before merging the changes.
 
+![pull request on slack](./assests/pr.png)
 
-### Code Review
+Code Review where done on pull requests and also in person.
+
+![code review](./assests/codereview.png)
+
 
 
