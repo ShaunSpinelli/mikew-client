@@ -7,5 +7,4 @@ const ContactForm = styled.div`
     text-align: center;
     background-color:#181818;
 `
-
 export { ContactForm }

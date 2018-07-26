@@ -1,15 +1,14 @@
 .contact--holder{
     padding-top: 3vh;
-    height: 78vh;
+    height: 85vh;
 }
 
 .contact--title{
     text-align: center;
 }
 
-.contact{
-    width: 60vw;
-    font-size: 1.3rem;
+.text--field{
+    color: white !important;
 }
 
 .contact--form--container{

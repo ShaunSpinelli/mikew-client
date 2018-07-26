@@ -26,6 +26,8 @@ class Contact extends React.Component{
         isAuthenticated: false //if true, they will be redirected after the contact request is sent.
     }
 
+    
+
     componentDidMount(){
         if(localStorage.getItem('contactForm')){
             local = (JSON.parse(localStorage.getItem('contactForm')))
@@ -150,7 +152,8 @@ class Contact extends React.Component{
                                         floatingLabelText= "first name"
                                         value= {fname} 
                                         onChange= {handleChange}
-                                        errorText = {fnameError} />
+                                        errorText = {fnameError} 
+                                        />
                                 </p>
                                 <p>
                                     <TextField
