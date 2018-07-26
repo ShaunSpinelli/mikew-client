@@ -22,7 +22,6 @@ class Nav extends Component {
                         <StyledLink to="/" onClick={this.props.logout}> Logout </StyledLink> 
                     </ Fragment>
                 :  
-
                 <Fragment> 
                     <Login updatedLogIn={this.props.updatedLogIn}/>
                     <Register updatedLogIn={this.props.updatedLogIn} />
