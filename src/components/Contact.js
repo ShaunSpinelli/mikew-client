@@ -19,8 +19,8 @@ class Contact extends React.Component{
         phoneError: '',
         email: '',
         emailError: '',
-        artist: ' ',
-        comment: ' ',
+        artist: '',
+        comment: '',
         contactButton: false, //if true, no contact request can be sent.
         sent: "Send", //changes depending on axios request status, "sending, or "sent""
         isAuthenticated: false //if true, they will be redirected after the contact request is sent.
@@ -181,21 +181,24 @@ class Contact extends React.Component{
                                         floatingLabelText= "email"
                                         value= {email} 
                                         onChange= {handleChange}
-                                        errorText = {emailError} />
+                                        errorText = {emailError}
+                                         />
                                 </p>
                                 <p>
                                     <TextField 
                                         name= "artist" 
                                         placeholder="artist"
                                         value= {artist} 
-                                        onChange= {handleChange} />
+                                        onChange= {handleChange}
+                                        />
                                 </p>
                                 <p>
                                     <TextField 
                                         placeholder= "comment"
                                         name= "comment" 
                                         value= {comment} 
-                                        onChange= {handleChange} />
+                                        onChange= {handleChange} 
+                                        />
                                 </p>
                             </form>
                         </div>
