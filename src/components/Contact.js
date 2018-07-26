@@ -1,7 +1,7 @@
 import React from 'react'
 import TextField from 'material-ui/TextField'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import { Title, Subtitle } from '../styles/cssInJs/Mixins.styles';
+import { MuiThemeProvider } from 'material-ui/styles'
+import { theme, Title, Subtitle } from '../styles/cssInJs/Mixins.styles';
 import { ContactForm } from '../styles/cssInJs/Contact.styles';
 import {api} from '../api/init.js'
 import axios from 'axios'
@@ -140,7 +140,7 @@ class Contact extends React.Component{
         }
         return(
             <ContactForm>
-                <MuiThemeProvider> 
+                <MuiThemeProvider theme={theme}> 
                     <div className="contact--holder">
                         <Title> Get in Contact Easily </Title>
                         <Subtitle>  with Michael Waye </Subtitle>
@@ -149,15 +149,17 @@ class Contact extends React.Component{
                                 <p>
                                     <TextField
                                         name= "fname" 
-                                        floatingLabelText= "first name"
+                                        placeholder="first name"
                                         value= {fname} 
                                         onChange= {handleChange}
                                         errorText = {fnameError} 
+                                        inputStyle = {{color: 'white'}}
                                         />
                                 </p>
                                 <p>
                                     <TextField
                                         name= "lname" 
+                                        placeholder="last name"
                                         floatingLabelText= "last name"
                                         value= {lname} 
                                         onChange= {handleChange}
@@ -166,6 +168,7 @@ class Contact extends React.Component{
                                 <p>
                                         <TextField
                                         name= "phone" 
+                                        placeholder="phone"
                                         floatingLabelText= "phone"
                                         value= {phone} 
                                         onChange= {handleChange}
@@ -174,6 +177,7 @@ class Contact extends React.Component{
                                 <p>
                                     <TextField
                                         name= "email" 
+                                        placeholder="email"
                                         floatingLabelText= "email"
                                         value= {email} 
                                         onChange= {handleChange}
@@ -182,15 +186,14 @@ class Contact extends React.Component{
                                 <p>
                                     <TextField 
                                         name= "artist" 
-                                        floatingLabelText= "artist"
+                                        placeholder="artist"
                                         value= {artist} 
                                         onChange= {handleChange} />
                                 </p>
                                 <p>
                                     <TextField 
+                                        placeholder= "comment"
                                         name= "comment" 
-                                        hintText= "What would you like to talk about?" 
-                                        floatingLabelText= "comment"
                                         value= {comment} 
                                         onChange= {handleChange} />
                                 </p>
