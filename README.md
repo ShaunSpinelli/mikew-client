@@ -128,7 +128,7 @@ Below is an overview on how the project was managed.
 
 ### Working with the Client
 
-Meetings were held periodically with the client to ensure contsant communication and feedback during development.
+Meetings were held periodically with the client to ensure constant communication and feedback during development.
 
 **Meeting Checkpoints**
 
@@ -152,6 +152,32 @@ Meetings were held periodically with the client to ensure contsant communication
 
 ### Project Charter
 
+**Goals**
+
+To create a personal website which client of Michael Waye, can use to book appointments to use his producing services, and get a great idea of the service he is offering.
+
+**Scope**
+
+- 3 weeks
+- 4 group member
+- Sort out with client
+
+**Objectives**
+
+- Allow Michael to give people an idea of his service.
+- Allow anyone to contact Michael about his services.
+- Allow people to book appointments.
+- Allow Michael to manage all his bookings, and users.
+- Expose Michaels producing skills to the Web.
+
+**Stakeholders** 
+
+- Developers, responsible for development of application
+
+- CA instructors - provided guidance for the developers of the project.
+
+- Client - Micahel Waye, Music Producer feedback and direction of application.
+
 ### Project Schedule
 
 ![project schedule](./assests/projsched.png)
@@ -172,7 +198,13 @@ Work was monitored through Trello. See [Trello](#trello) for more information.
 
 ### Post Project review
 
-All features planned for MVP were completed on time.
+**Summary**
+
+All features planned for MVP were completed on time and the client was satisfied with the application.
+
+**Project Managment**
+
+Occasionally bugs found there way into the production site. By having development branch that was live we could have been able to fully test new features before adding them to the master and fix bugs before merging with master.
 
 **Future Improvements** 
 
