@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import { createMuiTheme } from 'material-ui/styles'
 
 const setTextProps = (size, weight, colour) => css`
   font-size: ${size};
@@ -50,6 +51,23 @@ const Subtitle = styled.h2`
     padding: 0.75em;
     ${setTextProps('1em','300','white')}
 `
+const theme = createMuiTheme({
+    overrides: {
+      MuiInput: {
+        input: {
+            color: 'white'
+        },
+        underline: {
+          '&:before': { //underline color when textfield is inactive
+            backgroundColor: 'yellow',
+          },
+          '&:hover:not($disabled):before': { //underline color when hovered 
+            backgroundColor: 'white',
+          },
+        }
+      }
+    }
+})
 
 
-  export {setTextProps, setIconProps, setImgProps, setButtonProps, Title, Subtitle}
+  export {theme, setTextProps, setIconProps, setImgProps, setButtonProps, Title, Subtitle}

@@ -3,6 +3,7 @@ import Modal from 'react-modal'
 import TextField from 'material-ui/TextField'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import { Button } from '../styles/cssInJs/Nav.styles';
+import { theme } from '../styles/cssInJs/Mixins.styles';
 import { api } from '../api/init'
 
   // Make sure to bind modal to your appElement (http://reactcommunity.org/react-modal/accessibility/)
@@ -40,7 +41,7 @@ import { api } from '../api/init'
    
     render() {
       return (
-        <MuiThemeProvider>
+        <MuiThemeProvider theme={theme}>
         <Fragment>
           <Button onClick={this.openModal}>Login</ Button>
           <Modal
@@ -51,7 +52,7 @@ import { api } from '../api/init'
             contentLabel="Example Modal"
           >
             <button  className="close--button" onClick={this.closeModal}> 
-              <img className="close--button--img"  src="http://www.myiconfinder.com/uploads/iconsets/256-256-46602df56c953c27348b14d8651dcdc5-close.png" /> 
+              <img className="close--button--img"  src="https://res.cloudinary.com/shaundev/image/upload/v1532582666/faef.png" /> 
             </button>
             <h1> Login </h1>
             <br/>
@@ -61,6 +62,7 @@ import { api } from '../api/init'
                 <p>
                   <TextField
                       className="center--login--inputs"
+                      placeholder="email"
                       name= "email" 
                       floatingLabelText= "email"
                       value= {this.state.email} 
@@ -69,6 +71,7 @@ import { api } from '../api/init'
                 <p>
                   <TextField
                       className="center--login--inputs"
+                      placeholder="password"
                       name= "password" 
                       floatingLabelText= "password"
                       value= {this.state.password} 
