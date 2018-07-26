@@ -18,11 +18,15 @@ The site can be viewed [here](https://suspicious-bhabha-21b6a1.netlify.com/) and
   - [User Stories](#user-stories)
   - [User Journeys](#user-journeys)
   - [Wire Frames](#wire-frames)
+  - [Entity Relational Diagram](#entity-relational-diagram)
 - [Project Management](#project-management)
   - [Working with the Client](#working-with-the-client)
+  - [Project Charter](#project-charter)
+  - [Project Schedule](#project-schedule)
   - [Manage Project](#manage-project)
   - [Team Management](#team-management)
   - [Post Project Review](#post-project-review)
+  - [Questionnaire With Client](#questionnaire-with-client)
 - [Project Management Tools](#project-management-tools)
   - [Trello](#trello)
   - [Github](#github)
@@ -84,7 +88,7 @@ Review the conceptual design with the client and edit based on their feedback
 
 ![user journey](./assests/uj.png)
 
-![admin journey](./assests/adminj.png  )
+![admin journey](./assests/adminj.png)
 
 ### Wire Frames
 
@@ -114,6 +118,10 @@ Review the conceptual design with the client and edit based on their feedback
 
 ![booking](./assests/ppcopy.png)
 
+## Entity Relational Diagram
+
+![Entity Relational Diagram](./assests/erd.png)
+
 ## Project Management
 
 Below is an overview on how the project was managed.
@@ -126,9 +134,7 @@ Meetings were held periodically with the client to ensure contsant communication
 
 6 July: Found our client. Asked him about potential problems with how he intends to set up his music consultancy business. We learnt that he did not have a website and no way to easily keep track of his clients and their appointments.
 
-Showed client our user flow diagram and basic wire frames and he approved them.
-
-10 July:
+10 July: Showed client our user flow diagram and basic wire frames and he approved them.
 
 12 July: Showed client 3 logo concepts, he selected one. Approved layout and design mockup.
 
@@ -150,8 +156,6 @@ Showed client our user flow diagram and basic wire frames and he approved them.
 
 ![project schedule](./assests/projsched.png)
 
-### reassess project scope
-
 ### Team Management
 
 Roles where divided based on skill set, availability and interest in certain areas.
@@ -167,6 +171,20 @@ Roles where divided based on skill set, availability and interest in certain are
 Work was monitored through Trello. See [Trello](#trello) for more information.
 
 ### Post Project review
+
+All features planned for MVP were completed on time.
+
+**Future Improvements** 
+
+- use a state managent system on the client side like Redux
+
+- Add payment method
+
+- Set up recurring appointments
+
+- Allow other music producers to use service to manage there bookings
+
+- Integrate email notifications
 
 ### Questionnaire from client
 
