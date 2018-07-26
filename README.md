@@ -140,26 +140,19 @@ Meetings were held periodically with the client to ensure constant communication
 
 22 July: took photos and videos of client.
 
-24 July: Got client to user test app, his feedback:
+24 July: Got client to fill out a questionare, his feedback will be used to improve on the site and get it closer to launch.
 
-> Contact form should also have fields for these questions:
->1) Do you have an idea of what style of music you’d like to create?
->2) Can you play an instrument, if so, please list those instruments
->3) Are you looking to record stylised covers?
->4) Do you have your own lyrics, chord structure or any other musical elements? If not just leave blank
-
-> wants to go to clients, not for them to come to him.
 
 ### Project Charter
 
 **Goals**
 
-To create a personal website which client of Michael Waye, can use to book appointments to use his producing services, and get a great idea of the service he is offering.
+To create a personal website which our client, Michael Waye, can use to book appointments with his music production clients, and give prospective clients a great idea of the service he is offering.
 
 **Scope**
 
 - 3 weeks
-- 4 group member
+- 4 group members
 - Sort out with client
 
 **Objectives**
@@ -168,7 +161,7 @@ To create a personal website which client of Michael Waye, can use to book appoi
 - Allow anyone to contact Michael about his services.
 - Allow people to book appointments.
 - Allow Michael to manage all his bookings, and users.
-- Expose Michaels producing skills to the Web.
+- Expose Michaels music production skills to the Web.
 
 **Stakeholders** 
 
@@ -208,17 +201,34 @@ Occasionally bugs found there way into the production site. By having developmen
 
 **Future Improvements** 
 
-- use a state managent system on the client side like Redux
+- use a state management system on the client side like Redux
 
 - Add payment method
 
 - Set up recurring appointments
 
-- Allow other music producers to use service to manage there bookings
+- Allow other music producers to use service to manage their bookings
 
 - Integrate email notifications
 
 ### Questionnaire from client
+
+Q: How would you rate your satisfication with the current version of the site on a scale from 1 to 10?
+
+Q: What changes would you like to see made to the site?
+A: I would like to see these fields in the contact form and/or booking form:
+>1) Do you have an idea of what style of music you’d like to create?
+>2) Can you play an instrument, if so, please list those instruments.
+>3) Are you looking to record stylised covers?
+>4) Do you have your own lyrics, chord structure or any other musical elements? If not just leave blank.
+
+I also would prefer to travel to clients, not for them to come to me.
+
+Q: Is there any functionality that you would remove from the site?
+
+Q: Do you have any feedback on the UX and design of the site?
+
+Q: Do you have any additional feedback for us?
 
 ## Project Management tools
 
