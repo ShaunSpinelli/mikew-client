@@ -9,6 +9,11 @@
     transition: 0.4s;
 }
 
+.testimonieLink{
+    text-decoration: none;
+    color: inherit;
+}
+
 .Navbar--links > * {
     margin-left: 3rem;
     vertical-align: middle;

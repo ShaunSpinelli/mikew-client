@@ -1,6 +1,7 @@
 .Makebooking-container{
-    padding-top: 3vh;
-    height: 78vh;
+    padding-top: 5vh;
+    height: 68vh;
+    font-size: 1.3rem;
 }
 
 .Makebooking {

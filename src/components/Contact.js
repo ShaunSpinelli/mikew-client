@@ -25,7 +25,6 @@ class Contact extends React.Component{
         sent: "Send", //changes depending on axios request status, "sending, or "sent""
         isAuthenticated: false //if true, they will be redirected after the contact request is sent.
     }
-
     
 
     componentDidMount(){

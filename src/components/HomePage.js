@@ -16,6 +16,7 @@ const HomePage = () => (
             <Icon1 src="http://icons.iconarchive.com/icons/xenatt/minimalism/256/App-SoundCloud-icon.png" alt="soundcloud logo" />
             <Icon2 src="https://www.shareicon.net/data/256x256/2015/08/29/92757_like_606x606.png" alt="facebook logo"/>
         </ Home>
+            <p id= "testimonies"></p>
         <Testimonies />
         <Map />
     </ Fragment>
