@@ -129,7 +129,7 @@ Meetings were held periodically with the client to ensure contsant communication
 
 Showed client our user flow diagram and basic wire frames and he approved them.
 
-10 July: 
+10 July:
 
 12 July: Showed client 3 logo concepts, he selected one. Approved layout and design mockup.
 
@@ -142,7 +142,6 @@ Showed client our user flow diagram and basic wire frames and he approved them.
 >2) Can you play an instrument, if so, please list those instruments
 >3) Are you looking to record stylised covers?
 >4) Do you have your own lyrics, chord structure or any other musical elements? If not just leave blank
-
 
 > wants to go to clients, not for them to come to him.
 
@@ -206,9 +205,26 @@ Isaac - [front end](https://github.com/DeezyE/mikew-client)
 
 ### Agile
 
+Our Agile Approach was based on for values:
+
+- Individuals and Interactions over processes and tools
+
+- Working Software over comprehensive documentation
+
+- Customer Collaboration over contract negotiation
+
+- Responding to Change over following a plan
+
+We conducted daily stand ups on Slack where we share what our focus is for that day, usually picking 1 or 2 user stories to work on and what roadblocks we are facing. We also use Trello to divide tasks, prioritise them and estimate how long they will take to complete. This is achieved through Backlog, To Do, In Progress, Done and Approved cards. We again use Slack to communicate with each other throughout the planning, design and development process.
+
 A call between two colleagues over slack.
 
 ![slack call screen shot](./assests/call.png)
+
+Another aspect of our project that makes it more agile is that we have a continuous integration and deployment pipeline set up. So we can respond to change and these new features can be quickly test, merged and deployed to the website automatically.
+
+When a team member makes a pull request on master for the front end we get a notification slack and can review all the changes live in a deployed preview that Netlify automatically builds on pull requests.
+
 
 ### Code Review
 
