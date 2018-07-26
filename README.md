@@ -27,7 +27,6 @@ The site can be viewed [here](https://suspicious-bhabha-21b6a1.netlify.com/) and
   - [Trello](#trello)
   - [Github](#github)
   - [Agile](#agile)
-  - [Code Review](#code-review)
 
 ## Summary
 
@@ -149,6 +148,8 @@ Showed client our user flow diagram and basic wire frames and he approved them.
 
 ### Project Schedule
 
+![project schedule](./assests/projsched.png)
+
 ### reassess project scope
 
 ### Team Management
@@ -230,6 +231,3 @@ When a team member makes a pull request on master for the client side we get a n
 Code Review where done on pull requests and also in person.
 
 ![code review](./assests/codereview.png)
-
-
-
