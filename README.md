@@ -18,16 +18,19 @@ The site can be viewed [here](https://suspicious-bhabha-21b6a1.netlify.com/) and
   - [User Stories](#user-stories)
   - [User Journeys](#user-journeys)
   - [Wire Frames](#wire-frames)
+  - [Entity Relational Diagram](#entity-relational-diagram)
 - [Project Management](#project-management)
   - [Working with the Client](#working-with-the-client)
+  - [Project Charter](#project-charter)
+  - [Project Schedule](#project-schedule)
   - [Manage Project](#manage-project)
   - [Team Management](#team-management)
   - [Post Project Review](#post-project-review)
+  - [Questionnaire With Client](#questionnaire-with-client)
 - [Project Management Tools](#project-management-tools)
   - [Trello](#trello)
   - [Github](#github)
   - [Agile](#agile)
-  - [Code Review](#code-review)
 
 ## Summary
 
@@ -83,7 +86,9 @@ Review the conceptual design with the client and edit based on their feedback
 
 ### User Journeys
 
-need to draw diagram for this
+![user journey](./assests/uj.png)
+
+![admin journey](./assests/adminj.png)
 
 ### Wire Frames
 
@@ -113,19 +118,69 @@ need to draw diagram for this
 
 ![booking](./assests/ppcopy.png)
 
+## Entity Relational Diagram
+
+![Entity Relational Diagram](./assests/erd.png)
+
 ## Project Management
 
 Below is an overview on how the project was managed.
 
 ### Working with the Client
 
-1,2
+Meetings were held periodically with the client to ensure constant communication and feedback during development.
 
-show communication with client
+**Meeting Checkpoints**
 
-### Manage Project
+6 July: Found our client. Asked him about potential problems with how he intends to set up his music consultancy business. We learnt that he did not have a website and no way to easily keep track of his clients and their appointments.
 
-3,4,7
+10 July: Showed client our user flow diagram and basic wire frames and he approved them.
+
+12 July: Showed client 3 logo concepts, he selected one. Approved layout and design mockup.
+
+22 July: took photos and videos of client.
+
+24 July: Got client to user test app, his feedback:
+
+> Contact form should also have fields for these questions:
+>1) Do you have an idea of what style of music you’d like to create?
+>2) Can you play an instrument, if so, please list those instruments
+>3) Are you looking to record stylised covers?
+>4) Do you have your own lyrics, chord structure or any other musical elements? If not just leave blank
+
+> wants to go to clients, not for them to come to him.
+
+### Project Charter
+
+**Goals**
+
+To create a personal website which client of Michael Waye, can use to book appointments to use his producing services, and get a great idea of the service he is offering.
+
+**Scope**
+
+- 3 weeks
+- 4 group member
+- Sort out with client
+
+**Objectives**
+
+- Allow Michael to give people an idea of his service.
+- Allow anyone to contact Michael about his services.
+- Allow people to book appointments.
+- Allow Michael to manage all his bookings, and users.
+- Expose Michaels producing skills to the Web.
+
+**Stakeholders** 
+
+- Developers, responsible for development of application
+
+- CA instructors - provided guidance for the developers of the project.
+
+- Client - Micahel Waye, Music Producer feedback and direction of application.
+
+### Project Schedule
+
+![project schedule](./assests/projsched.png)
 
 ### Team Management
 
@@ -133,7 +188,7 @@ Roles where divided based on skill set, availability and interest in certain are
 
 **Fraser** - Front end development direction, styling, API integration, Test design- front end
 
-**Caroline** - Design Direction, client relations, Authentication and authorization on the server and client.
+**Caroline** - Design Direction, front end development,client relations, Authentication and authorization on the server and client.
 
 **Shaun** - Server side development, Dev Ops, CI & CD, Test design- back end ,Front end when needed.
 
@@ -143,7 +198,27 @@ Work was monitored through Trello. See [Trello](#trello) for more information.
 
 ### Post Project review
 
-9,10,11
+**Summary**
+
+All features planned for MVP were completed on time and the client was satisfied with the application.
+
+**Project Managment**
+
+Occasionally bugs found there way into the production site. By having development branch that was live we could have been able to fully test new features before adding them to the master and fix bugs before merging with master.
+
+**Future Improvements** 
+
+- use a state managent system on the client side like Redux
+
+- Add payment method
+
+- Set up recurring appointments
+
+- Allow other music producers to use service to manage there bookings
+
+- Integrate email notifications
+
+### Questionnaire from client
 
 ## Project Management tools
 
@@ -181,10 +256,28 @@ Isaac - [front end](https://github.com/DeezyE/mikew-client)
 
 ### Agile
 
+Our Agile Approach was based on for values:
+
+- Individuals and Interactions over processes and tools
+
+- Working Software over comprehensive documentation
+
+- Customer Collaboration over contract negotiation
+
+- Responding to Change over following a plan
+
+We conducted daily stand ups on Slack where we share what our focus is for that day, usually picking 1 or 2 user stories to work on and what roadblocks we are facing. We also use Trello to divide tasks, prioritise them and estimate how long they will take to complete. This is achieved through Backlog, To Do, In Progress, Done and Approved cards. We again use Slack to communicate with each other throughout the planning, design and development process.
+
 A call between two colleagues over slack.
 
 ![slack call screen shot](./assests/call.png)
 
-### Code Review
+Another aspect of our project that makes it more agile is that we have a continuous integration and deployment pipeline set up. So we can respond to change and these new features can be quickly test, merged and deployed to the website automatically.
 
+When a team member makes a pull request on master for the client side we get a notification slack. We can review all the changes live in a deployed preview that Netlify automatically builds on pull requests before merging the changes.
 
+![pull request on slack](./assests/pr.png)
+
+Code Review where done on pull requests and also in person.
+
+![code review](./assests/codereview.png)
