@@ -36,7 +36,7 @@ The site can be viewed [here](https://suspicious-bhabha-21b6a1.netlify.com/) and
 
 ### Problem Definition
 
-Our client is Michael Waye, a local musician and producer. Currently Michael collects appointment details by phone and social media, keeping track of upcoming appointments in Google Calendar and saving customers details in his phone contacts.This as many issues such has .....
+Our client is Michael Waye, a local musician and producer. Currently Michael collects appointment details by phone and social media, keeping track of upcoming appointments in Google Calendar and saving customers details in his phone contacts. Michael ran into many issues using this approach such as losing contact information, forgetting too schedule appoints and not being able to advertise his services.
 
 ### Solution
 
