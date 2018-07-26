@@ -2,7 +2,7 @@ import React, {Component, Fragment} from 'react'
 import Modal from 'react-modal'
 import TextField from 'material-ui/TextField'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import { Button } from '../styles/cssInJs/Nav.styles';
+import { NavButton } from '../styles/cssInJs/Nav.styles';
 import { theme } from '../styles/cssInJs/Mixins.styles';
 import { api } from '../api/init'
 
@@ -14,7 +14,8 @@ import { api } from '../api/init'
       modalIsOpen: false,
       email: '',
       password: '',
-      loginError: false
+      loginError: false,
+      loginButton: 'Login'
     }
    
     openModal = () => {
@@ -26,6 +27,7 @@ import { api } from '../api/init'
     }
 
     handleLogin = (e) =>{
+      this.setState({loginButton: "logging in..."})
       e.preventDefault() //prevents page refresh.
       
       api.post('users/login',{email: this.state.email, password:this.state.password}) //posts this to server
@@ -43,7 +45,7 @@ import { api } from '../api/init'
       return (
         <MuiThemeProvider theme={theme}>
         <Fragment>
-          <Button onClick={this.openModal}>Login</ Button>
+          <NavButton onClick={this.openModal}>Login</ NavButton>
           <Modal
             className="modal fade modal-dialog loginmodal-container"
             id="login-modal"
@@ -78,7 +80,7 @@ import { api } from '../api/init'
                       onChange= {this.handleChange}
                       type="password" />
                   </p>
-                <button onClick={this.handleLogin} type="submit" name="login" className="Makebooking--button"> Login </button>
+                <button onClick={this.handleLogin} type="submit" name="login" className="Makebooking--button"> {this.state.loginButton} </button>
               </form>
             </div>
             {/* <div className="login-help">
