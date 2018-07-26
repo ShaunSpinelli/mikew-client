@@ -4,7 +4,8 @@ import TextField from 'material-ui/TextField'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import { NavButton } from '../styles/cssInJs/Nav.styles'
 import { api } from '../api/init'
-import { theme } from '../styles/cssInJs/Mixins.styles';
+import { theme } from '../styles/cssInJs/Mixins.styles'
+import { Redirect } from 'react-router-dom'
 
   class Register extends Component {
     state = {

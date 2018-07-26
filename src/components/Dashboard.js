@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import AllBookings from '../components/AllBookings.js'
 import AllContacts from '../components/AllContacts.js'
 import AllUsers from '../components/AllUsers.js'
@@ -20,10 +20,12 @@ export default class extends React.Component  {
         return(
             <div className="dashboard--holder">
                 <Profile />
-                <button className="sendContact dash-btn" onClick={() => this.toggleShow("contacts")}> Contacts </button>
                 <button className="sendContact dash-btn" onClick={() => this.toggleShow("bookings")}> Bookings </button>
                 {(this.decoded.role === 'admin') && 
+                    <Fragment>
+                    <button className="sendContact dash-btn" onClick={() => this.toggleShow("contacts")}> Contacts </button>
                     <button className="sendContact dash-btn" onClick={() => this.toggleShow("users")}> Users </button>
+                    </Fragment>
                 }
                 <div className="dashboard--toggler">
                     {(this.state.show === "bookings") && 
