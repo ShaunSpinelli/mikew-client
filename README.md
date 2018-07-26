@@ -213,7 +213,11 @@ Occasionally bugs found there way into the production site. By having developmen
 
 ### Questionnaire from client
 
-Q: How would you rate your satisfication with the current version of the site on a scale from 1 to 10?
+Q: How satisfied are you with the site on a scale from 1 to 10? 
+A: 8
+
+Q: How easy do you find the site to navigate on a scale from 1 to 10?
+A: 7
 
 Q: What changes would you like to see made to the site?
 A: I would like to see these fields in the contact form and/or booking form:
@@ -225,10 +229,20 @@ A: I would like to see these fields in the contact form and/or booking form:
 I also would prefer to travel to clients, not for them to come to me.
 
 Q: Is there any functionality that you would remove from the site?
+A: There a lot of info in the contact and user pages, 
+I think you could hide some of the information until you hover over it or click on it.
 
-Q: Do you have any feedback on the UX and design of the site?
+Q: How easy do you find the site maintenance tools available to you as an admin?
+A: I think it would be nicer to be able to see my bookings in calendar view.
+I also think the space could be used more effectively in the profile layout so that I have to scroll less.
+It would be great to be able to search through the users and contacts, rather than scroll through them manually.
 
-Q: Do you have any additional feedback for us?
+Q: Do you feel that the site represents you and your business?
+Yes.
+
+Q: Do you have any additional feedback for us? 
+A: Not at the moment, no.
+
 
 ## Project Management tools
 

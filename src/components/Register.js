@@ -2,9 +2,10 @@ import React, {Component, Fragment} from 'react'
 import Modal from 'react-modal'
 import TextField from 'material-ui/TextField'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import { Button } from '../styles/cssInJs/Nav.styles'
+import { NavButton } from '../styles/cssInJs/Nav.styles'
 import { api } from '../api/init'
-import { theme } from '../styles/cssInJs/Mixins.styles';
+import { theme } from '../styles/cssInJs/Mixins.styles'
+import { Redirect } from 'react-router-dom'
 
   class Register extends Component {
     state = {
@@ -16,7 +17,8 @@ import { theme } from '../styles/cssInJs/Mixins.styles';
       role: 'user', 
       profileImg: 'url',
       registerError: false,
-      modalIsOpen: false
+      modalIsOpen: false,
+      registerButton: 'Register'
     }
    
     openModal = () => {
@@ -33,6 +35,7 @@ import { theme } from '../styles/cssInJs/Mixins.styles';
 
     handleRegister = (e) =>{
         const {firstName, lastName, email, phoneNumber, password } = this.state
+        this.setState({registerButton: "Registering.." })
         e.preventDefault() //prevents page refresh.
         let newUser = { //posts this to server
             firstName: firstName,
@@ -55,7 +58,7 @@ import { theme } from '../styles/cssInJs/Mixins.styles';
       return (
         <MuiThemeProvider theme={theme}>
             <Fragment>
-                <Button onClick={this.openModal}>Register</ Button>
+                <NavButton onClick={this.openModal}>Register</ NavButton>
                 <Modal
                     className="modal fade modal-dialog loginmodal-container"
                     id="login-modal"
@@ -113,7 +116,7 @@ import { theme } from '../styles/cssInJs/Mixins.styles';
                                 type= "password"
                             />   
                         </p>
-                        <button onClick={this.handleRegister} type="submit" name="login" className="Makebooking--button"> Register </button>                 
+                        <button onClick={this.handleRegister} type="submit" name="login" className="Makebooking--button"> {this.state.registerButton} </button>                 
                     </form>
                 </Modal>
             </Fragment>

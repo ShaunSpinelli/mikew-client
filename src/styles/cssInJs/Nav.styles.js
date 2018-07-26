@@ -6,7 +6,7 @@ const Navbar = styled.div`
     font-size: 1.2rem;
     height: 12rem;
     position: relative;
-    top: 0;
+    top: 0; 
     width: 100%;
     line-height: 4rem;
     background-color: #282727;
@@ -30,6 +30,27 @@ const StyledLink = styled(NavLink)`
         }
         
 `
+
+const NavButton = styled.button`
+    background-color: #48474A;
+    font-size: 1.2rem;
+    padding: 1rem 1rem;
+    margin-left: 1rem;
+    vertical-align: middle;
+    text-decoration: none;
+    color: white;
+    transition: 0.4s;
+    border: none;
+    cursor: pointer;
+    &:hover {
+        margin-left: 1.5rem;
+        vertical-align: middle;
+        text-decoration: none;
+        background-color: yellow;
+        color: black;
+        }
+`
+
 const FirstStyledLink = StyledLink.extend`
     background-color: #282727;
     postion: fixed;
@@ -54,4 +75,4 @@ const Initial = styled.span`
     } 
 `
 
-export {Navbar, StyledLink, FirstStyledLink, Button, Initial};
+export {Navbar, StyledLink, FirstStyledLink, Button, Initial, NavButton};
