@@ -12,10 +12,9 @@ const HomePage = () => (
             <Img src={michael} alt="Photo of Michael Waye"></Img>
             <Title>Michael Waye</Title>
             <Subtitle> MUSIC PRODUCTION </Subtitle>
-            <Slogan> Professional Production Assistance <br />
-                Consultancy, Producing Quality Music & Technical Help </ Slogan>
-                <Icon1 src="http://icons.iconarchive.com/icons/xenatt/minimalism/256/App-SoundCloud-icon.png" alt="soundcloud logo" />
-                <Icon2 src="https://www.shareicon.net/data/256x256/2015/08/29/92757_like_606x606.png" alt="facebook logo"/>
+            <Slogan> Professional Production Assistance <br /> Consultancy, Producing Quality Music & Technical Help </ Slogan>
+            <Icon1 src="http://icons.iconarchive.com/icons/xenatt/minimalism/256/App-SoundCloud-icon.png" alt="soundcloud logo" />
+            <Icon2 src="https://www.shareicon.net/data/256x256/2015/08/29/92757_like_606x606.png" alt="facebook logo"/>
         </ Home>
         <Testimonies />
         <Map />

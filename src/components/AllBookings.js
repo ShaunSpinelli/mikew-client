@@ -1,7 +1,6 @@
 import React from 'react'
 import moment from 'moment'
 import Booking from './Booking'
-import Loading from './Loading'
 import { api, setJwt } from '../api/init'
 import { Button } from '../styles/cssInJs/AllBookings.styles.js'
 
@@ -71,7 +70,7 @@ class AllBookings extends React.Component {
                         <Button onClick={() => 
                             this.handleBookingChange(booking._id,booking.bookingStatus,'cancelled' )
                         }> Cancel Booking? </Button>:<p></p>
-                    }
+                        }
                 </div>
             )
         })
@@ -83,14 +82,14 @@ class AllBookings extends React.Component {
     }
 
         // updates state and back end when status of booking is changed
-        handleBookingChange = (bookingId, current, update) =>{
+    handleBookingChange = (bookingId, current, update) => {
 
-            let currentBookings = this.state[current]
-            let updateBookings = this.state[update]
+        let currentBookings = this.state[current]
+        let updateBookings = this.state[update]
 
-            api.put('bookings/id', {id: bookingId , bookingStatus: `${update}`})
+        api.put('bookings/id', {id: bookingId , bookingStatus: `${update}`})
             .then((response) => { 
-                currentBookings.forEach((obj) => {
+            currentBookings.forEach((obj) => {
                     if(obj._id === bookingId){
                         // find bookings updates status and adds in to new array
                         obj.bookingStatus = update
@@ -107,9 +106,6 @@ class AllBookings extends React.Component {
                 })
             }).catch((err) => {console.log(err)})
         }
-    
-        // not being used right now 
-        readableDate = (date) => ( moment(date, 'YYYYMMDD').format('MMM Do YY') )
 
     render() { 
         const { completed, approved, pending, cancelled } = this.state
@@ -123,6 +119,7 @@ class AllBookings extends React.Component {
                 
                 {/* depending on what this.state.show is, is what category of bookings
                 will be displayed, so only one can be shown at a time */}
+                
                 {(this.state.show === "pending") && 
                 <div>
                     {bookingSection(pending,isAdmin())}

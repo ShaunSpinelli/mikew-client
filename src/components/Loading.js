@@ -1,9 +1,10 @@
-import React from 'react';
+import React from 'react'
+import guitarDance from '../images/guitar-loader.gif'
 
 const Loading = () => ( 
     <div className= "Loading"> 
         <h1> Loading... </h1>
-<img src= "http://i79.photobucket.com/albums/j157/mdcummings1/guitar.gif" /> {/* guitar stick man */}
+        <img src= {guitarDance} />
     </div>
 )
 

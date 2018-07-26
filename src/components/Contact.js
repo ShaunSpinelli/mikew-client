@@ -4,6 +4,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import { Title, Subtitle } from '../styles/cssInJs/Mixins.styles';
 import { ContactForm } from '../styles/cssInJs/Contact.styles';
 import {api} from '../api/init.js'
+import axios from 'axios'
 import { Redirect } from 'react-router-dom'
 
 let local = {}
@@ -51,42 +52,44 @@ class Contact extends React.Component{
             emailError: '',
         }
 
-            if(fname === ''){ //checks firstname field for numbers and length
-                isError = true
-                errors.fnameError = "please enter a valid first name."
-            }
+        if(fname === ''){ //checks firstname field for numbers and length
+            isError = true
+            errors.fnameError = "please enter a valid first name."
+        }
 
-            if(lname === '' ){ //checks lastname field for numbers and length
-                isError = true
-                errors.lnameError = "please enter a valid last name."
-            }
+        if(lname === '' ){ //checks lastname field for numbers and length
+            isError = true
+            errors.lnameError = "please enter a valid last name."
+        }
         
-            if(email === ''){ 
-                isError = true
-                errors.emailError = "please enter a valid email address"
-            }
+        if(email === ''){ 
+            isError = true
+            errors.emailError = "please enter a valid email address"
+        }
 
-            if( isNaN(parseInt(phone)) ){ //checks phone number field is a number
-                isError = true
-                errors.phoneError = "please enter a valid phone number"
-            }
+        if( isNaN(parseInt(phone)) ){ //checks phone number field is a number
+            isError = true
+            errors.phoneError = "please enter a valid phone number"
+        }
 
         this.setState ({ //sets error state if error is present.
             ...this.state,
             ...errors
         })
+
         return isError
+
     }
 
     contactRequest = (e) => {
+        console.log('contact request called')
         const { email, fname, lname, phone, artist, comment } = this.state
         e.preventDefault()
-
         const err = this.validate()
 
         //clear form
         if(!err) { //checks for error
-            
+            console.log('contact request no errors.')
             this.setState({sent: "sending"})
 
             let contactReq = { //defines what is sent to the server, only does this if no errors.
@@ -95,7 +98,7 @@ class Contact extends React.Component{
                 phone: phone,
                 artist: artist,
                 comment: comment
-                }
+            }
                 
             this.setState({
                 fname: '',
@@ -112,8 +115,11 @@ class Contact extends React.Component{
 
             localStorage.removeItem('contactForm')
 
+            
             api.post("/contact/new", contactReq)
-            .then(() => this.setState({ sent: "sent!", contactButton: true, isAuthenticated: true }))
+            .then((contact) => {
+                this.setState({ sent: "sent!", contactButton: true, isAuthenticated: true })
+                console.log(contact.data) })//redirects if successful( is Authenticated )
             .catch((err) => { console.log(err) })
         }
     }
@@ -125,72 +131,72 @@ class Contact extends React.Component{
     }
 
     render(){
-        const {sent, fname, lname, phone, email, artist, comment, fnameError, lnameError, phoneError, emailError, isAuthenticated } = this.state
-        const {handleChange} = this
+        const { sent, fname, lname, phone, email, artist, comment, fnameError, lnameError, phoneError, emailError, isAuthenticated } = this.state
+        const { handleChange } = this
         if (isAuthenticated) { //set to true after contact req is sent
             return <Redirect to='/' /> 
         }
         return(
-        <ContactForm>
-            <MuiThemeProvider> 
-                <div className="contact--holder">
+            <ContactForm>
+                <MuiThemeProvider> 
+                    <div className="contact--holder">
                         <Title> Get in Contact Easily </Title>
                         <Subtitle>  with Michael Waye </Subtitle>
-                    <div className="contact--form--container">
-                    <form className = "contact-form">
-                    <p>
-                        <TextField
-                            name= "fname" 
-                            floatingLabelText= "first name"
-                            value= {fname} 
-                            onChange= {handleChange}
-                            errorText = {fnameError} />
-                    </p>
-                    <p>
-                        <TextField
-                            name= "lname" 
-                            floatingLabelText= "last name"
-                            value= {lname} 
-                            onChange= {handleChange}
-                            errorText = {lnameError}  />
-                    </p>
-                    <p>
-                            <TextField
-                            name= "phone" 
-                            floatingLabelText= "phone"
-                            value= {phone} 
-                            onChange= {handleChange}
-                            errorText = {phoneError}  />
-                    </p>
-                    <p>
-                        <TextField
-                            name= "email" 
-                            floatingLabelText= "email"
-                            value= {email} 
-                            onChange= {handleChange}
-                            errorText = {emailError} />
-                    </p>
-                    <p>
-                        <TextField 
-                            name= "artist" 
-                            floatingLabelText= "artist"
-                            value= {artist} 
-                            onChange= {handleChange} />
-                    </p>
-                    <p>
-                        <TextField 
-                            name= "comment" 
-                            hintText= "What would you like to talk about?" 
-                            floatingLabelText= "comment"
-                            value= {comment} 
-                            onChange= {handleChange} />
-                    </p>
-                    </form>
+                        <div className="contact--form--container">
+                            <form className = "contact-form">
+                                <p>
+                                    <TextField
+                                        name= "fname" 
+                                        floatingLabelText= "first name"
+                                        value= {fname} 
+                                        onChange= {handleChange}
+                                        errorText = {fnameError} />
+                                </p>
+                                <p>
+                                    <TextField
+                                        name= "lname" 
+                                        floatingLabelText= "last name"
+                                        value= {lname} 
+                                        onChange= {handleChange}
+                                        errorText = {lnameError}  />
+                                </p>
+                                <p>
+                                        <TextField
+                                        name= "phone" 
+                                        floatingLabelText= "phone"
+                                        value= {phone} 
+                                        onChange= {handleChange}
+                                        errorText = {phoneError}  />
+                                </p>
+                                <p>
+                                    <TextField
+                                        name= "email" 
+                                        floatingLabelText= "email"
+                                        value= {email} 
+                                        onChange= {handleChange}
+                                        errorText = {emailError} />
+                                </p>
+                                <p>
+                                    <TextField 
+                                        name= "artist" 
+                                        floatingLabelText= "artist"
+                                        value= {artist} 
+                                        onChange= {handleChange} />
+                                </p>
+                                <p>
+                                    <TextField 
+                                        name= "comment" 
+                                        hintText= "What would you like to talk about?" 
+                                        floatingLabelText= "comment"
+                                        value= {comment} 
+                                        onChange= {handleChange} />
+                                </p>
+                            </form>
+                        </div>
+                        <button onClick={this.contactRequest} disabled={this.state.contactButton} className="sendContact"> {sent} </button> {/* button text changes depending on sent state. */}
                     </div>
-                    <button onClick={this.contactRequest} disabled={this.state.contactButton} className="sendContact"> {sent} </button> {/* button text changes depending on sent state. */}
-                </div>
-            </MuiThemeProvider>
-        </ContactForm>
+                </MuiThemeProvider>
+            </ContactForm>
         )
     }
 }
