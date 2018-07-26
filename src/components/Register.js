@@ -4,6 +4,7 @@ import TextField from 'material-ui/TextField'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import { Button } from '../styles/cssInJs/Nav.styles'
 import { api } from '../api/init'
+import { theme } from '../styles/cssInJs/Mixins.styles';
 
   class Register extends Component {
     state = {
@@ -52,7 +53,7 @@ import { api } from '../api/init'
 
     render() {
       return (
-        <MuiThemeProvider>
+        <MuiThemeProvider theme={theme}>
             <Fragment>
                 <Button onClick={this.openModal}>Register</ Button>
                 <Modal
@@ -62,7 +63,7 @@ import { api } from '../api/init'
                     onRequestClose={this.closeModal}
                     contentLabel="Example Modal"
                 >
-                    <button  className="close--button" onClick={this.closeModal}> <img className="close--button--img"  src="http://www.myiconfinder.com/uploads/iconsets/256-256-46602df56c953c27348b14d8651dcdc5-close.png" /> </button>
+                    <button  className="close--button" onClick={this.closeModal}> <img className="close--button--img"  src="https://res.cloudinary.com/shaundev/image/upload/v1532582666/faef.png" /> </button>
                     <h1>Register Your Account</h1><br />
                     <p>{this.state.loginError ? 'This email address already exists': ''}</p>
                     <form className="login--form--container">
@@ -70,7 +71,7 @@ import { api } from '../api/init'
                             <TextField
                                 className="center--login--inputs"
                                 name= "firstName" 
-                                floatingLabelText= "first name"
+                                placeholder= "first name"
                                 value= {this.state.firstName} 
                                 onChange= {this.handleChange} 
                             />
@@ -79,7 +80,7 @@ import { api } from '../api/init'
                             <TextField
                                 className="center--login--inputs"
                                 name= "lastName" 
-                                floatingLabelText= "last name"
+                                placeholder= "last name"
                                 value= {this.state.lastName} 
                                 onChange= {this.handleChange}
                             />
@@ -88,7 +89,7 @@ import { api } from '../api/init'
                             <TextField
                                 className="center--login--inputs"
                                 name= "phoneNumber" 
-                                floatingLabelText= "phone number"
+                                placeholder= "phone number"
                                 value= {this.state.phoneNumber} 
                                 onChange= {this.handleChange} 
                             />
@@ -97,7 +98,7 @@ import { api } from '../api/init'
                             <TextField
                                 className="center--login--inputs"
                                 name= "email" 
-                                floatingLabelText= "email"
+                                placeholder= "email"
                                 value= {this.state.email} 
                                 onChange= {this.handleChange} 
                             />
@@ -106,7 +107,7 @@ import { api } from '../api/init'
                             <TextField
                                 className="center--login--inputs"
                                 name= "password" 
-                                floatingLabelText= "password"
+                                placeholder= "password"
                                 value= {this.state.password} 
                                 onChange= {this.handleChange} 
                                 type= "password"

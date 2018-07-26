@@ -7,7 +7,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import {api, setJwt} from '../api/init.js'
 import { Redirect } from 'react-router-dom'
 import 'react-datepicker/dist/react-datepicker.css'
-import { Title, Subtitle } from '../styles/cssInJs/Mixins.styles';
+import { Title, Subtitle, theme } from '../styles/cssInJs/Mixins.styles';
 import {BookingForm, Question, Text } from '../styles/cssInJs/MakeBooking.styles';
 
 const jwtDecode = require('jwt-decode')
@@ -106,7 +106,7 @@ class MakeBooking extends Component {
         }
     return (
         <BookingForm className="Makebooking-container">
-            <MuiThemeProvider>
+            <MuiThemeProvider theme={theme}>
                 <Title> Make a Booking Request </Title>
                 <Subtitle>  with Michael Waye </Subtitle>
                 <div className= "Makebooking--whatDate">
@@ -143,7 +143,7 @@ class MakeBooking extends Component {
                 <div className="Makebooking--note"> 
                     <TextField //note field
                         name= "note" 
-                        floatingLabelText= "note"
+                        placeholder= "note"
                         value= {note}
                         onChange= {this.handleNote}
                     />
