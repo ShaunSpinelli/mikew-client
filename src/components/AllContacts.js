@@ -8,14 +8,10 @@ class AllContacts extends React.Component {
 
     componentWillMount(){
         setJwt(localStorage.getItem('token'))
-        
+        let contactRequest = []
         api.get("/contact/all") //gets all contact
         .then((response) => {
-            let contactRequests = []
-            response.data.forEach((req) => {
-                contactRequests.push(req) //pushes into contactRequest which is then assigned to the allContacts state.
-            })
-            this.setState({ allContacts: contactRequests }, () => console.log(this.state))
+            this.setState({ allContacts: response.data.reverse() }, () => console.log(this.state))
         })
         .catch((err) => { console.log(err) })
     }
@@ -30,7 +26,7 @@ class AllContacts extends React.Component {
                         return (
                             <div>
                                 <div className="contact" key = {contact._id}>  
-                                    <h1> name: {contact.artist} </h1>
+                                    <h1> name: {contact.name} </h1>
                                     <p> artist name: {contact.artist} </p>
                                     <p> email: {contact.email} </p>
                                     <p> phone: {contact.phone} </p>
