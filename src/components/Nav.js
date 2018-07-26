@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react'
-import { Navbar, StyledLink, FirstStyledLink, Button, Initial, Name } from '../styles/cssInJs/Nav.styles';
+import { Navbar, StyledLink, FirstStyledLink, NavButton, Initial, Name } from '../styles/cssInJs/Nav.styles';
+import { HashLink} from 'react-router-hash-link';
 import Login from '../components/Login'
 import Register from '../components/Register'
 
@@ -26,6 +27,7 @@ class Nav extends Component {
                     <Login updatedLogIn={this.props.updatedLogIn}/>
                     <Register updatedLogIn={this.props.updatedLogIn} />
                 </ Fragment> }
+                <NavButton><HashLink className= "testimonieLink" to= '/#testimonies'> Tesimonials </HashLink></NavButton>
             </ Navbar>
         )
     }
