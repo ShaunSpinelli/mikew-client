@@ -1,12 +1,13 @@
 /****** LOGIN MODAL ******/
 .loginmodal-container {
-  padding: 30px;
+  padding: 2rem;
   max-width: 25vw;
   width: 100% !important;
-  background-color: #F7F7F7;
+  background-color: rgb(40,39,39);
   margin: 10vh auto;
+  color:white;
   border-radius: 2px;
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   outline: none;
 }
@@ -14,6 +15,7 @@
 .close--button{
   background: none;
   border: none;
+  float: left;
   padding: 0;
   cursor: pointer;
   outline: inherit;
