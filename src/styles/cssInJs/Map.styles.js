@@ -15,7 +15,18 @@ const BodyText = styled.div`
     color: white;
     padding-left: 40px;
 `
+const Label = styled.span`
+    color: white;
+    font-style: normal;
+`
+
+const MainP = styled.p`
+    color: yellow;
+`
+
 const Para = styled.p`
     text-align: left;
+    color: grey;
+    font-style: italic;
 `
-export { BodyText, Para, MapFrame }
+export { BodyText, Para, MapFrame, MainP, Label }
