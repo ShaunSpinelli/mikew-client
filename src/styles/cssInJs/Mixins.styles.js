@@ -24,7 +24,6 @@ margin-bottom: ${margin2};
 const setButtonProps = (bgcolour,colour,colour2,colour3,border1, border2) => css`
 background-color: ${bgcolour};
 color: ${colour};
-padding: 13px 15px;
 margin-left: 1rem;
 vertical-align: middle;
 text-decoration: none;

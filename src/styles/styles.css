@@ -22,11 +22,11 @@
 }
 
 html {
-    font-size: 12px;
+    font-size: 15px;
 }
 
 body {
-    font-size: 12px;
+    font-size: 15px;
 }
 
 /* body and html are usually 16px. this size looks weird on local host, but good on a live site.....  */
